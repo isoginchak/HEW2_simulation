@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>Crea/カスタマイズ画面</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+  <script type="text/javascript">
+
+  </script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1><img src="img/logo/logo.png" alt=""></h1>
+    <div class="customize">
+
+      <div class="tab">
+        <input type="radio" name="tab_item" id="tab_01" checked>
+        <label class="tab_item" for="tab_01">布</label>
+        <input type="radio" name="tab_item" id="tab_02">
+        <label class="tab_item" for="tab_02">合皮</label>
+        <input type="radio" name="tab_item" id="tab_03">
+        <label class="tab_item" for="tab_03">チャック</label>
+        <input type="radio" name="tab_item" id="tab_04">
+        <label class="tab_item" for="tab_04">アクセサリー</label>
+
+
+
+
+        <div class="tab_content" id="tab01_content">
+          <div class="tab_content_description">
+            <form method="post">
+              <script type="text/javascript">
+                for (var i = 0; i <= 59; i++) {
+                  document.write('<input type="radio" name="nuno" value="nuno' + [i] + '"id="nuno' + [i] + '">');
+                  document.write(' <label for="nuno' + [i] + '" class="items"><img src="img/nuno/nuno' + [i] + '.png" onclick="imgchange0(' + [i] + ');"></label>');
+                }
+              </script>
+            </form>
+
+          </div>
+        </div>
+        <div class="tab_content" id="tab02_content">
+          <div class="tab_content_description">
+            <form method="post">
+
+
+              <script type="text/javascript">
+                for (var i = 0; i <= 23; i++) {
+                  document.write('<input type="radio" name="gouhi" value="gouhi' + [i] + '"id="gouhi' + [i] + '">');
+                  document.write(' <label for="gouhi' + [i] + '" class="items"><img src="img/gouhi/gouhi' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
+                }
+              </script>
+            </form>
+
+
+          </div>
+        </div>
+        <div class="tab_content" id="tab03_content">
+          <div class="tab_content_description">
+            <form method="post">
+              <script type="text/javascript">
+                for (var i = 0; i <= 5; i++) {
+                  document.write('<input type="radio" name="chuck" value="chuck' + [i] + '"id="chuck' + [i] + '">');
+                  document.write(' <label for="chuck' + [i] + '" class="items"><img src="img/chuck/chuck' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
+                }
+              </script>
+            </form>
+
+
+          </div>
+        </div>
+        <div class="tab_content" id="tab04_content">
+          <div class="tab_content_description" id="tab_content_description4">
+            <form method="post">
+
+              <script type="text/javascript">
+                for (var i = 0; i <= 1; i++) {
+                  document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
+                  document.write(' <label for="accessory' + [i] + '" class="items"><img src="img/accessory/accessory' + [i] + '.png"></label>');
+                }
+              </script>
+            </form>
+
+            </label>
+          </div>
+
+        </div>
+
+
+
+      </div>
+      <div class="finishimage">
+        <div class="canvas">
+          <input type="button" name="button" class="backbutton" onclick="buckchange();" id="backbutton" value="ウラ">
+          <button type="button" name="button" class="finishbutton" id="finishbutton">完成!</button>
+          <button type="button" name="button" class="helpbutton">?</button>
+          <button type="button" name="button" class="dropareachangebutton">ドロップエリア<br>表示</button>
+          <div class="gomibako">
+          </div>
+          <div class="drop_area">
+            <p>ドロップ可能範囲</p>
+          </div>
+          <div class="drag_img">
+            <script type="text/javascript">
+              for (var i = 0; i <= 1; i++) {
+                document.write('<img src="img/accessory/accessory' + [i] + '.png" class="drag-and-drop" id="accessory' + [i] + '_img" draggable="true">');
+              }
+            </script>
+          </div>
+
+
+
+          <canvas id="canvas0" width="500" height="375" class="frontcanvas"></canvas>
+          <canvas id="canvas1" width="500" height="375" class="frontcanvas"></canvas>
+          <canvas id="canvas2" width="500" height="375" class="frontcanvas"></canvas>
+          <canvas id="canvas3" width="500" height="375" class="frontcanvas"></canvas>
+          <canvas id="canvas4" width="450" height="370" class="frontcanvas"></canvas>
+          <canvas id="canvas5" width="500" height="375"></canvas>
+          <canvas id="canvas6" width="500" height="375"></canvas>
+
+          <!-- 裏用のcanvas -->
+          <canvas id="sengaback" width="500" height="375" class="backcanvas"></canvas>
+          <canvas id="canvas1back" width="500" height="375" class="backcanvas"></canvas>
+          <canvas id="canvas2back" width="500" height="375" class="backcanvas"></canvas>
+          <canvas id="canvas3back" width="500" height="375" class="backcanvas"></canvas>
+
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+  <form action="/customize/check" method="post" name="result_form">
+    <input type="hidden" id="front_image_data" value="" name="front_image_base64_data">
+    <input type="hidden" id="back_image_data" value="" name="back_image_base64_data">
+    <input type="hidden" name="product_id" value="1">
+  </form>
+
+  <script type="text/javascript">
+    // 線画の出力
+    var canavas0;
+    var context0;
+    var senga;
+
+    window.onload = () => {
+      canvas0 = document.getElementById("canvas0");
+      context0 = canvas0.getContext("2d");
+      senga = new Image();
+      senga.src = "img/poach_senga.png";
+      senga.onload = function() {
+        context0.drawImage(senga, 0, 0, 500, 375);
+      };
+      //裏の線画
+      var canvas0back = document.getElementById("sengaback");
+      var context0back = canvas0back.getContext("2d");
+      var sengaback = new Image();
+      sengaback.src = "img/poach_senga_back.png";
+
+      sengaback.onload = function() {
+        context0back.drawImage(sengaback, 0, 0, 500, 375);
+      };
+    };
+
+    //canvas1から読み込む
+    for (var i = 1; i <= 6; i++) {
+      eval("var canvas" + i + "=document.getElementById('canvas" + i + "');");
+      eval("var context" + i + "=canvas" + i + ".getContext('2d')");
+    }
+    //反転設定
+    for (var i = 1; i <= 3; i++) {
+      eval("var canvas" + i + "back=document.getElementById('canvas" + i + "back');");
+      eval("var context" + i + "back=canvas" + i + "back.getContext('2d')");
+      eval("context" + i + "back.scale(-1, 1);");
+      eval("context" + i + "back.translate(-canvas" + i + "back.width, 0);");
+    }
+
+
+    //canvas設定
+    context6.scale(-1, 1);
+    context6.translate(-canvas6.width, 0);
+
+    //布の配列
+    var img0 = new Array(60);
+    for (var i = 0; i < img0.length; i++) {
+      img0[i] = new Image(500, 500);
+      img0[i].src = "img/nuno/nuno" + i + ".png";
+    }
+
+    //合皮の配列
+    var img1 = new Array(24);
+    for (var i = 0; i < img1.length; i++) {
+      img1[i] = new Image(500, 500);
+      img1[i].src = "img/gouhi/gouhi" + i + ".png";
+    }
+
+    //チャックの配列
+    var img2 = new Array(6);
+    for (var i = 0; i < img2.length; i++) {
+      img2[i] = new Image(500, 500);
+      img2[i].src = "img/chuck/chuck" + i + ".png";
+    }
+
+    //アクセサリーの配列
+    var img3 = new Array(2);
+    for (var i = 0; i < img3.length; i++) {
+      img3[i] = new Image(500, 500);
+      img3[i].src = "img/accessory/accessory" + i + ".png";
+    }
+
+
+    //布onclick
+
+
+    function imgchange0(id_value) {
+      context1.clearRect(0, 0, 500, 375);
+      context1.drawImage(img0[id_value], 0, 0, 500, 375);
+      context1back.clearRect(0, 0, 500, 375);
+      context1back.drawImage(img0[id_value], 0, 0, 500, 375);
+    }
+
+    //合皮onclick
+    function imgchange1(id_value) {
+      context2.clearRect(0, 0, 500, 375);
+      context2.drawImage(img1[id_value], 0, 0, 500, 375);
+      context2back.clearRect(0, 0, 500, 375);
+      context2back.drawImage(img1[id_value], 0, 0, 500, 375);
+
+    }
+
+    //チャックonclick
+
+    function imgchange2(id_value) {
+      context3.clearRect(0, 0, 500, 375);
+      context3.drawImage(img2[id_value], 0, 0, 500, 375);
+      context3back.clearRect(0, 0, 500, 375);
+      context3back.drawImage(img2[id_value], 0, 0, 500, 375);
+
+    }
+
+
+    //裏表表示
+    var change = true;
+
+    function buckchange() {
+
+
+      var backvalue = document.getElementById("backbutton");
+      if (change) {
+        //ウラの画像が表示される
+        backvalue.value = "オモテ";
+        $('.backcanvas').css('visibility', 'visible');
+        $('.frontcanvas').css('visibility', 'hidden');
+        $('.drop_area').css('display', 'none');
+        $('.dropareachangebutton').css('display', 'none');
+        $('.drag_img img').css('display', 'none');
+
+
+      } else {
+        //オモテの画像が表示される
+        backvalue.value = "ウラ";
+        $('.backcanvas').css('visibility', 'hidden');
+        $('.frontcanvas').css('visibility', 'visible');
+        $('.drop_area').css('display', 'inline');
+        $('.dropareachangebutton').css('display', 'inline');
+
+        if ($('[id=tab_04]').prop('checked')) {
+
+          $('.drag_img img').css('display', 'inline');
+        } else {
+          $('.drag_img img').css('display', 'none');
+          if (inimg0) {
+            $('#accessory0_img').css('display', 'inline');
+          }
+          if (inimg1) {
+            $('#accessory1_img').css('display', 'inline');
+          }
+        }
+
+
+      }
+      change = !change;
+
+    }
+
+
+
+    //ドロップ箇所表示
+    var dropareachange = true;
+    $('.dropareachangebutton').click(function() {
+      if (dropareachange) {
+        $('.drop_area').css('visibility', 'visible');
+        $('.dropareachangebutton').html("ドロップエリア<br>非表示");
+      } else {
+        $('.drop_area').css('visibility', 'hidden');
+        $('.dropareachangebutton').html("ドロップエリア<br>表示");
+      }
+      dropareachange = !dropareachange;
+    })
+
+
+    //drag&drop
+    $(function() {
+      $('.drag-and-drop').draggable({
+        containment: '.customize',
+        scroll: false,
+        revert: 'invalid',
+      });
+
+    });
+
+    var drop = "none";
+    const dragimg1 = "accessory1_img";
+    const dragimg0 = "accessory0_img";
+
+    //アクセサリーの変数を作成
+
+    //tab04が押されたら表示＋アクセサリーがdrop_areaに入ったら表示 それ以外非表示
+    $(function() {
+
+      $('[name="tab_item"]:radio').change(function() {
+        if (change) {
+          if ($('[id=tab_04]').prop('checked')) {
+
+            $('#accessory0_img').css('display', 'inline');
+            $('#accessory1_img').css('display', 'inline');
+          } else {
+            $('.drag_img img').css('display', 'none');
+            if (inimg0) {
+              $('#accessory0_img').css('display', 'inline');
+            }
+            if (inimg1) {
+              $('#accessory1_img').css('display', 'inline');
+            }
+          }
+        }
+      });
+
+    });
+
+
+    var inimg1 = false;
+    var inimg0 = false;
+    var ac0posx;
+    var ac0posy;
+    var ac1posx;
+    var ac1posy;
+
+
+
+
+
+    $(function() {
+      $('.drop_area').droppable({
+        tolerance: 'fit',
+        drop: function(ev, ui) {
+
+          drop = $(ui.draggable).attr("id");
+          if (drop == dragimg0) {
+            $('#accessory0_img').css('display', 'inline !important');
+            ac0posx = ui.position.left;
+            ac0posy = ui.position.top;
+            console.log(ac0posy);
+            inimg0 = true;
+          } else if (drop == dragimg1) {
+            $('#accessory1_img').css('display', 'inline');
+            ac1posx = ui.position.left;
+            ac1posy = ui.position.top;
+            inimg1 = true;
+          }
+        }
+      })
+    });
+
+    //ゴミ箱に入ったら初期位置に戻る
+
+    var gomibakodrop;
+
+    $(function() {
+      $('.gomibako').droppable({
+        tolerance: 'touch',
+
+        out: function(ev, ui) {
+
+          $('.gomibako').css('background-image', 'url(img/gomibako.png)');
+
+        },
+        over: function(ev, ui) {
+
+          $('.gomibako').css('background-image', 'url(img/gomibakoopen.png)');
+        },
+        drop: function(ev, ui) {
+          $('.gomibako').css('background-image', 'url(img/gomibako.png)');
+
+          gomibakodrop = $(ui.draggable).attr("id");
+
+
+          if ($('[id=tab_04]').prop('checked')) {
+            if (gomibakodrop == dragimg0) {
+              $('#accessory0_img').css({
+                top: "73px",
+                left: "-403px",
+
+              });
+              inimg0 = false;
+            } else if (gomibakodrop == dragimg1) {
+              $('#accessory1_img').css({
+                top: "73px",
+                left: "-277px",
+              });
+              inimg1 = false;
+            }
+          } else {
+            if (gomibakodrop == dragimg0) {
+              $('#accessory0_img').css({
+                top: "73px",
+                left: "-402px",
+                display: "none"
+
+              });
+              inimg0 = false;
+            } else if (gomibakodrop == dragimg1) {
+              $('#accessory1_img').css({
+                top: "73px",
+                left: "-303px",
+                display: "none"
+              });
+              inimg1 = false;
+            }
+          }
+        }
+      });
+    });
+
+    //位置取得
+    //canvas5
+    const canvas5pos = $('#canvas5').position();
+    console.log(canvas5pos);
+
+
+    //canvas4
+    const canvas4pos = $('#canvas4').position();
+    var canvas4off = $('#canvas4').position();
+
+
+    //どのくらい離れているか
+    const canvasx = canvas4pos.left - canvas5pos.left;
+    const canvasy = canvas4pos.top - canvas5pos.top;
+
+
+
+
+    //完成ボタンが押された時の処理
+
+
+    $('.finishbutton').click(function(resolve, reject) {
+      if ($('input[name=nuno]').is(':checked') && $('input[name=gouhi]').is(':checked') && $('input[name=chuck]').is(':checked')) {
+        swal({
+          title: 'カスタマイズを終了しますか',
+          text: '購入画面に移ります',
+          buttons: ["戻る", "完了する"],
+
+        }).then(function(result) {
+          if (!result) {
+            return
+          }
+
+
+
+
+          //canvas4にアクセサリーを描画
+          if (inimg0) {
+            var ac0x = ac0posx - canvas4off.left;
+            var ac0y = ac0posy - canvas4off.top;
+            console.log(ac0x, ac0y);
+            context4.drawImage(img3[0], ac0x, ac0y, 120, 120);
+          }
+          if (inimg1) {
+            var ac1x = ac1posx - canvas4off.left;
+            var ac1y = ac1posy - canvas4off.top;
+            console.log(ac1x, ac1y);
+            context4.drawImage(img3[1], ac1x, ac1y, 120, 120);
+
+          }
+
+          //canvas結合
+
+          var image1 = new Image();
+          var image2 = new Image();
+          var image3 = new Image();
+          var image0 = new Image();
+          var image4 = new Image(450, 370);
+          var data = new Image(500, 375);
+          var backdata = new Image(500, 375);
+
+          image1.src = canvas1.toDataURL("image/png");
+          image2.src = canvas2.toDataURL("image/png");
+          image3.src = canvas3.toDataURL("image/png");
+          image0.src = canvas0.toDataURL("image/png");
+          image4.src = canvas4.toDataURL("image/png");
+
+          image1.onload = () => {
+            context5.drawImage(image1, 0, 0, 500, 375);
+            context6.drawImage(image1, 0, 0, 500, 375);
+          };
+          image2.onload = () => {
+            context5.drawImage(image2, 0, 0, 500, 375);
+            context6.drawImage(image2, 0, 0, 500, 375);
+          };
+          image3.onload = () => {
+            context5.drawImage(image3, 0, 0, 500, 375);
+            context6.drawImage(image3, 0, 0, 500, 375);
+          };
+          image0.onload = () => {
+            context5.drawImage(image0, 0, 0, 500, 375);
+            context6.drawImage(image0, 0, 0, 500, 375);
+          };
+
+          image4.onload = () => {
+            context5.drawImage(image4, canvasx, canvasy, 450, 370);
+          };
+
+
+          $(function() {
+            setTimeout(function() {
+              data = canvas5.toDataURL("image/png");
+              backdata = canvas6.toDataURL("image/png");
+
+              // document.getElementById("front_image_data").value = data;
+              // document.getElementById("back_image_data").value = backdata;
+              // document.result_form.submit();
+              //表の画像のbase64
+              console.log(data);
+              //裏の画像のbase64
+              console.log(backdata);
+            }, 1000);
+          });
+
+
+
+
+
+          //書き込まない
+        })
+
+
+      } else {
+        swal('ERROR', 'すべてチェックしてください', 'error');
+      };
+
+    });
+  </script>
+
+</body>
+
+</html>

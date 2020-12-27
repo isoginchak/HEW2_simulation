@@ -1,0 +1,9 @@
+cd C:\Users\minatu\node
+
+http://localhost:3000
+
+const con = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: ''
+});
