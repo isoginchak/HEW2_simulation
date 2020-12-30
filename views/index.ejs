@@ -272,11 +272,11 @@
           $('.drag_img img').css('display', 'inline');
         } else {
           $('.drag_img img').css('display', 'none');
-          if (inimg0) {
-            $('#accessory0_img').css('display', 'inline');
-          }
-          if (inimg1) {
-            $('#accessory1_img').css('display', 'inline');
+
+          for (var i = 0; i < img3.length; i++) {
+            if (eval("inimg" + i)) {
+              eval("$('#accessory" + i + "_img').css('display', 'inline');");
+            }
           }
         }
 
@@ -313,6 +313,11 @@
     });
 
     var drop = "none";
+    // const dragimg =[];
+    // for (var i = 0; i < img3.length; i++) {
+    //   img3[i]
+    // }
+    // console.log(dragimg0);
     const dragimg1 = "accessory1_img";
     const dragimg0 = "accessory0_img";
 
@@ -325,17 +330,16 @@
         if (change) {
           if ($('[id=tab_04]').prop('checked')) {
 
-            for (var i = 0; i <= img3.length-1; i++) {
+            for (var i = 0; i <img3.length; i++) {
               eval("$('#accessory" + i + "_img').css('display', 'inline');");
             }
           } else {
             $('.drag_img img').css('display', 'none');
 
-            for (var i = 0; i <= img3.length-1; i++) {
-            if (eval("inimg"+ i)) {
-              eval("$('#accessory"+ i +"_img').css('display', 'inline');");
-
-            }
+            for (var i = 0; i <img3.length ; i++) {
+              if (eval("inimg" + i)) {
+                eval("$('#accessory" + i + "_img').css('display', 'inline');");
+              }
             }
           }
         }
@@ -350,7 +354,6 @@
       $('.drop_area').droppable({
         tolerance: 'fit',
         drop: function(ev, ui) {
-
           drop = $(ui.draggable).attr("id");
           if (drop == dragimg0) {
             $('#accessory0_img').css('display', 'inline !important');
@@ -437,7 +440,6 @@
     //canvas4
     const canvas4pos = $('#canvas4').position();
     var canvas4off = $('#canvas4').position();
-
 
     //どのくらい離れているか
     const canvasx = canvas4pos.left - canvas5pos.left;
