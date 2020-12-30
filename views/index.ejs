@@ -114,8 +114,6 @@
             </script>
           </div>
 
-
-
           <canvas id="canvas0" width="500" height="375" class="frontcanvas"></canvas>
           <canvas id="canvas1" width="500" height="375" class="frontcanvas"></canvas>
           <canvas id="canvas2" width="500" height="375" class="frontcanvas"></canvas>
@@ -212,12 +210,14 @@
     for (var i = 0; i < img3.length; i++) {
       img3[i] = new Image(500, 500);
       img3[i].src = "img/accessory/accessory" + i + ".png";
+      eval("var inimg" + i + "=false");
+      eval("var ac" + i + "posx");
+      eval("var ac" + i + "posy");
     }
 
 
+
     //布onclick
-
-
     function imgchange0(id_value) {
       context1.clearRect(0, 0, 500, 375);
       context1.drawImage(img0[id_value], 0, 0, 500, 375);
@@ -328,30 +328,23 @@
         if (change) {
           if ($('[id=tab_04]').prop('checked')) {
 
-            $('#accessory0_img').css('display', 'inline');
-            $('#accessory1_img').css('display', 'inline');
+            for (var i = 0; i <= img3.length-1; i++) {
+              eval("$('#accessory" + i + "_img').css('display', 'inline');");
+            }
           } else {
             $('.drag_img img').css('display', 'none');
-            if (inimg0) {
-              $('#accessory0_img').css('display', 'inline');
+
+            for (var i = 0; i <= img3.length-1; i++) {
+            if (eval("inimg"+ i)) {
+              eval("$('#accessory"+ i +"_img').css('display', 'inline');");
+
             }
-            if (inimg1) {
-              $('#accessory1_img').css('display', 'inline');
             }
           }
         }
       });
 
     });
-
-
-    var inimg1 = false;
-    var inimg0 = false;
-    var ac0posx;
-    var ac0posy;
-    var ac1posx;
-    var ac1posy;
-
 
 
 
@@ -491,10 +484,10 @@
 
           //canvas結合
 
-          var image1 = new Image();
-          var image2 = new Image();
-          var image3 = new Image();
-          var image0 = new Image();
+
+          for (var i = 0; i <= 3; i++) {
+            eval("var image" + i + "=new Image();");
+          }
           var image4 = new Image(450, 370);
           var data = new Image(500, 375);
           var backdata = new Image(500, 375);
@@ -531,9 +524,8 @@
             setTimeout(function() {
               data = canvas5.toDataURL("image/png");
               backdata = canvas6.toDataURL("image/png");
-
-              // document.getElementById("front_image_data").value = data;
-              // document.getElementById("back_image_data").value = backdata;
+              document.getElementById("front_image_data").value = data;
+              document.getElementById("back_image_data").value = backdata;
               // document.result_form.submit();
               //表の画像のbase64
               console.log(data);
@@ -541,9 +533,6 @@
               console.log(backdata);
             }, 1000);
           });
-
-
-
 
 
           //書き込まない
