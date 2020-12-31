@@ -18,6 +18,7 @@ body {
 
 h1 img {
   width: 150px;
+  margin: 0 auto;
 }
 
 h1 {
@@ -30,15 +31,26 @@ h1 {
   height: 500px;
 }
 
+form {
+  width: 400px;
+  flex-wrap: wrap;
+  margin: 0;
+  display: flex;
+}
+
 #tab01 label, #tab02 label, #tab03 label, #tab04 label {
   background-color: #DBD3F0;
   color: #fff;
 }
 
+.items {
+  width: 120px;
+}
+
 .tab_item {
-  height: 50px;
+  height: 60px;
   width: 25%;
-  padding-top: 20px;
+  padding-top: 15px;
   display: block;
   float: left;
   text-align: center;
@@ -56,7 +68,6 @@ input[name="tab_item"], .tab_content input[type="radio"] {
   clear: both;
   overflow: hidden;
   width: 400px;
-  height: 500px;
 }
 
 #tab_01:checked~#tab01_content,
@@ -78,7 +89,8 @@ label:hover {
 .tab_content_description {
   height: 440px;
   overflow-y: scroll;
-  scrollbar-color:  #b4e3e6 #f2f2f2;
+  overflow-x: hidden;
+  scrollbar-color: #b4e3e6 #f2f2f2;
   scrollbar-width: thin;
 }
 
@@ -125,12 +137,12 @@ label:hover {
 
 .canvas {
   /* width: 560px; */
-  height: 510px;
+  height: 508px;
   text-align: center;
   position: relative;
   background-color: #fff;
   border-left: 2px solid #DBD3F0;
-    /* border-right: 2px solid #DBD3F0; */
+  border-bottom: 2px solid #DBD3F0;
 }
 
 canvas {
@@ -160,6 +172,7 @@ canvas {
   width: 30px;
   height: 30px;
   border-radius: 100%;
+  z-index: 90;
 }
 
 .finishbutton {
@@ -172,6 +185,7 @@ canvas {
   font-size: 18px;
   width: 60px;
   height: 40px;
+  z-index: 90;
 }
 
 .backbutton {
@@ -180,10 +194,7 @@ canvas {
   left: 10px;
   width: 70px;
   height: 30px;
-}
-
-.drag {
-  z-index: 1001;
+  z-index: 90;
 }
 
 .drop_area {
@@ -204,13 +215,13 @@ canvas {
 
 #tab04_content {
   position: relative;
-  width: 960px;
+  /* width: 960px; */
   height: 510px;
 }
 
 .drag-and-drop {
   width: 120px;
-  /* height: 95px; */
+  height: auto;
   cursor: move;
   position: absolute;
   z-index: 1000;
@@ -227,25 +238,28 @@ canvas {
   background-repeat: no-repeat;
 }
 
-label {
-  width: 100px;
-  height: 100px;
+.drag_img {
+  /* position: absolute; */
+  height: 506px;
+  /* width: 960px; */
+  top: 0px;
+  left: -402px;
+  overflow-y: scroll;
+  /* z-index: 80; */
+
+}
+
+.tab {
+/* z-index: 10; */
+  pointer-events: auto;
 }
 
 .drag_img img {
   position: absolute;
   display: none;
-  top: 70px;
-}
-
-/* いつか変える */
-#accessory0_img {
-  left: -402px;
-  display: none;
-}
-
-#accessory1_img {
-  left: -277px;
+  z-index: 999;
+  /* top: 0px; */
+    pointer-events: auto;
 }
 
 #canvas4 {
@@ -284,4 +298,8 @@ input[type="button"], button {
 
 .backcanvas {
   visibility: hidden;
+}
+
+#tab_content_description4 img{
+  z-index: 20;
 }

@@ -4,7 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title>Crea/カスタマイズ画面</title>
+  <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
@@ -75,13 +77,12 @@
         <div class="tab_content" id="tab04_content">
           <div class="tab_content_description" id="tab_content_description4">
             <form method="post">
-
-              <script type="text/javascript">
-                for (var i = 0; i <= 1; i++) {
+              <!-- <script type="text/javascript">
+                for (var i = 0; i <= 20; i++) {
                   document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
-                  document.write(' <label for="accessory' + [i] + '" class="items"><img src="img/accessory/accessory' + [i] + '.png"></label>');
+                  document.write(' <label for="accessory' + [i] + '" class="items"  ><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
                 }
-              </script>
+              </script> -->
             </form>
 
             </label>
@@ -105,8 +106,8 @@
           </div>
           <div class="drag_img">
             <script type="text/javascript">
-              for (var i = 0; i <= 1; i++) {
-                document.write('<img src="img/accessory/accessory' + [i] + '.png" class="drag-and-drop" id="accessory' + [i] + '_img" draggable="true">');
+              for (var i = 0; i <= 20; i++) {
+                document.write('<img src="img/accessory/acce' + [i] + '.png" class="drag-and-drop" id="accessory' + [i] + '_img" draggable="true">');
               }
             </script>
           </div>
@@ -144,6 +145,23 @@
     var context0;
     var senga;
 
+    //アクセサリーのポジション取得
+    const acbacktop = [];
+    const acbackleft = [];
+    const defaulttop = 60;
+    const defaultleft = -402;
+    var imgwidht;
+    var imgheight;
+    var backimg;
+    var backtop = 60;
+    var backleft = -402;
+    // var backtop = 60;
+    // var backleft = 0;
+
+    var k = 0;
+
+
+
     window.onload = () => {
       canvas0 = document.getElementById("canvas0");
       context0 = canvas0.getContext("2d");
@@ -161,6 +179,28 @@
       sengaback.onload = function() {
         context0back.drawImage(sengaback, 0, 0, 500, 375);
       };
+
+
+      for (var i = 0; i < img3.length; i++) {
+
+        $("#accessory" + i + "_img").css({
+          top: backtop + "px",
+          left: backleft + "px",
+        });
+
+        acbacktop[i] = backtop;
+        console.log(acbacktop[i]);
+        acbackleft[i] = backleft;
+        backimg = $("#accessory" + i + "_img");
+        backleft = backleft + backimg.width();
+
+        k++;
+        if (k == 3) {
+          backleft = defaultleft;
+          backtop = backtop + backimg.height();
+          k = 0;
+        }
+      }
     };
 
     //canvas1から読み込む
@@ -203,16 +243,19 @@
     }
 
     //アクセサリーの配列
-    var img3 = new Array(2);
-    var inimg = new Array(2);
-    var acposx = new Array(2);
-    var acposy= new Array(2);
+    var img3 = new Array(21);
+    var inimg = [];
+    var acposx = [];
+    var acposy = [];
     for (var i = 0; i < img3.length; i++) {
       img3[i] = new Image(500, 500);
-      img3[i].src = "img/accessory/accessory" + i + ".png";
+      img3[i].src = "img/accessory/acce" + i + ".png";
       inimg[i] = false;
-
     }
+
+
+
+
 
 
     //布onclick
@@ -247,8 +290,6 @@
     var change = true;
 
     function buckchange() {
-
-
       var backvalue = document.getElementById("backbutton");
       if (change) {
         //ウラの画像が表示される
@@ -330,14 +371,14 @@
           if ($('[id=tab_04]').prop('checked')) {
 
             for (var i = 0; i < img3.length; i++) {
-              eval("$('#accessory" + i + "_img').css('display', 'inline');");
+              $("#accessory" + i + "_img").css('display', 'inline');
             }
           } else {
             $('.drag_img img').css('display', 'none');
 
             for (var i = 0; i < img3.length; i++) {
               if (inimg[i]) {
-              $("#accessory" + i + "_img").css('display', 'inline');
+                $("#accessory" + i + "_img").css('display', 'inline');
               }
             }
           }
@@ -361,7 +402,7 @@
               acposx[i] = ui.position.left;
               acposy[i] = ui.position.top;
               inimg[i] = true;
-              
+
             }
 
           }
@@ -390,14 +431,14 @@
           if ($('[id=tab_04]').prop('checked')) {
             if (gomibakodrop == dragimg[0]) {
               $('#accessory0_img').css({
-                top: "73px",
-                left: "-403px",
+                top: "70px",
+                left: "-402px",
 
               });
               inimg[0] = false;
             } else if (gomibakodrop == dragimg[1]) {
               $('#accessory1_img').css({
-                top: "73px",
+                top: "70px",
                 left: "-277px",
               });
               inimg[1] = false;
@@ -405,15 +446,15 @@
           } else {
             if (gomibakodrop == dragimg[0]) {
               $('#accessory0_img').css({
-                top: "73px",
-                left: "-403px",
+                top: "70px",
+                left: "-402px",
                 display: "none"
 
               });
               inimg[0] = false;
             } else if (gomibakodrop == dragimg[1]) {
               $('#accessory1_img').css({
-                top: "73px",
+                top: "70px",
                 left: "-277px",
                 display: "none"
               });
@@ -427,7 +468,7 @@
     //位置取得
     //canvas5
     const canvas5pos = $('#canvas5').position();
-    console.log(canvas5pos);
+    // console.log(canvas5pos);
 
 
     //canvas4
@@ -460,32 +501,17 @@
 
 
           //canvas4にアクセサリーを描画
-          var acx=new Array(2);
-          var acy=new Array(2);
+          var acx = [];
+          var acy = [];
           for (var i = 0; i < img3.length; i++) {
 
-          if (inimg[i]) {
-             acx[i] = acposx[i] - canvas4off.left;
-             acy[i] = acposy[i] - canvas4off.top;
-             context4.drawImage(img3[i], acx[i], acy[i], 120, 120);
+            if (inimg[i]) {
+              acx[i] = acposx[i] - canvas4off.left;
+              acy[i] = acposy[i] - canvas4off.top;
+              context4.drawImage(img3[i], acx[i], acy[i], 120, 120);
 
+            }
           }
-          }
-
-
-          // if (inimg0) {
-          //   var ac0x = ac0posx - canvas4off.left;
-          //   var ac0y = ac0posy - canvas4off.top;
-          //   console.log(ac0x, ac0y);
-          //   context4.drawImage(img3[0], ac0x, ac0y, 120, 120);
-          // }
-          // if (inimg1) {
-          //   var ac1x = ac1posx - canvas4off.left;
-          //   var ac1y = ac1posy - canvas4off.top;
-          //   console.log(ac1x, ac1y);
-          //   context4.drawImage(img3[1], ac1x, ac1y, 120, 120);
-          //
-          // }
 
           //canvas結合
 
