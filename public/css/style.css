@@ -155,7 +155,7 @@ canvas {
 }
 
 #canvas0, #sengaback {
-  z-index: 30;
+  z-index: 10;
 }
 
 .helpbutton, .backbutton {
@@ -203,7 +203,7 @@ canvas {
   top: 70px;
   left: 70px;
   visibility: hidden;
-  z-index: 60;
+  z-index: 15;
   color: #333;
   background-color: #bae3f9;
   opacity: 0.3;
@@ -239,27 +239,33 @@ canvas {
 }
 
 .drag_img {
-  /* position: absolute; */
-  height: 506px;
-  /* width: 960px; */
-  top: 0px;
-  left: -402px;
-  overflow-y: scroll;
-  /* z-index: 80; */
+  height: 446px;
+}
 
+.overflow {
+  position: absolute;
+  width: 960px;
+  height: 446px;
+  top: 60px;
+  left: -402px;
+  z-index: 20;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.overflow::-webkit-scrollbar {
+  display: none;
 }
 
 .tab {
-/* z-index: 10; */
-  pointer-events: auto;
+  z-index: 30;
 }
 
 .drag_img img {
   position: absolute;
   display: none;
   z-index: 999;
-  /* top: 0px; */
-    pointer-events: auto;
 }
 
 #canvas4 {
@@ -300,6 +306,28 @@ input[type="button"], button {
   visibility: hidden;
 }
 
-#tab_content_description4 img{
+#tab_content_description4 img {
   z-index: 20;
+}
+
+.dropimg1 {
+  position: absolute;
+  /* border: solid 1px #000; */
+  position: absolute;
+  width: 960px;
+  height: 446px;
+  top: 60px;
+  left: -402px;
+  z-index: 15;
+  overflow: hidden;
+}
+
+.dropimg2 {
+  height: 446px;
+  border: solid 1px #000;
+  z-index: 20;
+}
+
+.dropimg2 img {
+  position: absolute;
 }

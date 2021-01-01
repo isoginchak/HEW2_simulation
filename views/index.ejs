@@ -6,6 +6,9 @@
   <title>Crea/カスタマイズ画面</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="js/syncscroll.js">
+
+  </script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -75,14 +78,14 @@
           </div>
         </div>
         <div class="tab_content" id="tab04_content">
-          <div class="tab_content_description" id="tab_content_description4">
+          <div class="tab_content_description syncscroll" id="tab_content_description4" name="ascroll">
             <form method="post">
-              <!-- <script type="text/javascript">
+              <script type="text/javascript">
                 for (var i = 0; i <= 20; i++) {
                   document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
                   document.write(' <label for="accessory' + [i] + '" class="items"  ><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
                 }
-              </script> -->
+              </script>
             </form>
 
             </label>
@@ -104,12 +107,22 @@
           <div class="drop_area">
             <p>ドロップ可能範囲</p>
           </div>
-          <div class="drag_img">
-            <script type="text/javascript">
-              for (var i = 0; i <= 20; i++) {
-                document.write('<img src="img/accessory/acce' + [i] + '.png" class="drag-and-drop" id="accessory' + [i] + '_img" draggable="true">');
-              }
-            </script>
+          <div class="overflow syncscroll" name="ascroll">
+            <div class="drag_img">
+              <script type="text/javascript">
+                for (var i = 0; i <= 20; i++) {
+                  document.write('<img src="img/accessory/acce' + [i] + '.png" class="drag-and-drop" id="accessory' + [i] + '_img" draggable="true">');
+                }
+              </script>
+            </div>
+          </div>
+          <div class="dropimg1">
+
+
+            <div class="dropimg2">
+
+
+            </div>
           </div>
 
           <canvas id="canvas0" width="500" height="375" class="frontcanvas"></canvas>
@@ -148,16 +161,13 @@
     //アクセサリーのポジション取得
     const acbacktop = [];
     const acbackleft = [];
-    const defaulttop = 60;
-    const defaultleft = -402;
+    const defaulttop = 0;
+    const defaultleft = 0;
     var imgwidht;
     var imgheight;
     var backimg;
-    var backtop = 60;
-    var backleft = -402;
-    // var backtop = 60;
-    // var backleft = 0;
-
+    var backtop = defaulttop;
+    var backleft = defaultleft;
     var k = 0;
 
 
@@ -180,7 +190,7 @@
         context0back.drawImage(sengaback, 0, 0, 500, 375);
       };
 
-
+      //アクセッサリー配置
       for (var i = 0; i < img3.length; i++) {
 
         $("#accessory" + i + "_img").css({
@@ -189,7 +199,6 @@
         });
 
         acbacktop[i] = backtop;
-        console.log(acbacktop[i]);
         acbackleft[i] = backleft;
         backimg = $("#accessory" + i + "_img");
         backleft = backleft + backimg.width();
@@ -198,9 +207,15 @@
         if (k == 3) {
           backleft = defaultleft;
           backtop = backtop + backimg.height();
+          console.log(backtop);
           k = 0;
         }
       }
+
+      //位置ずれ防止
+    //   var allac = $(".drag_img");
+    //   $(".dropimg2").css('height', '796px');
+    //
     };
 
     //canvas1から読み込む
@@ -350,6 +365,7 @@
         containment: '.customize',
         scroll: false,
         revert: 'invalid',
+
       });
 
     });
@@ -369,12 +385,14 @@
       $('[name="tab_item"]:radio').change(function() {
         if (change) {
           if ($('[id=tab_04]').prop('checked')) {
+            $(".tab").css('z-index', 1);
 
             for (var i = 0; i < img3.length; i++) {
               $("#accessory" + i + "_img").css('display', 'inline');
             }
           } else {
             $('.drag_img img').css('display', 'none');
+            $(".tab").css('z-index', 30);
 
             for (var i = 0; i < img3.length; i++) {
               if (inimg[i]) {
@@ -393,22 +411,24 @@
     $(function() {
       $('.drop_area').droppable({
         tolerance: 'fit',
+
         drop: function(ev, ui) {
           drop = $(ui.draggable).attr("id");
-
           for (var i = 0; i < img3.length; i++) {
             if (drop == dragimg[i]) {
               $("#accessory" + i + "_img").css('display', 'inline !important');
+              $("#accessory" + i + "_img").appendTo(".dropimg2");
               acposx[i] = ui.position.left;
               acposy[i] = ui.position.top;
               inimg[i] = true;
 
             }
-
           }
         }
       })
     });
+
+
 
     //ゴミ箱に入ったら初期位置に戻る
 
