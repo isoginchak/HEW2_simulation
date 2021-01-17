@@ -243,11 +243,6 @@ canvas {
   z-index: 1;
 }
 
-#tab04_content {
-  position: relative;
-  /* width: 960px; */
-  height: 510px;
-}
 
 .drag-and-drop {
   width: 120px;
