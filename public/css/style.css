@@ -26,10 +26,112 @@ h1 {
 }
 
 /* タブ機能 */
-.tab {
+.tab_box {
   width: 400px;
   height: 500px;
 }
+
+.tab {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  height: 60px;
+}
+
+.list {
+    position: relative;
+  width: 400px;
+  height: 440px;
+}
+
+.tab li {
+  width: 25%;
+  background-color: #DBD3F0;
+  color: #fff;
+  /* border: 1px solid #dfdfdf; */
+  text-align: center;
+  padding: 10px 0;
+}
+
+.tab li.active {
+  background-color: #94d6da;
+  color: #fff;
+}
+
+/* ページャー */
+.tab_sub {
+  position: absolute;
+  bottom: 0px;
+  left: 5px;
+  padding: 0;
+  display: flex;
+  list-style: none;
+}
+
+.tab_sub li {
+  padding: 5px;
+  border: 1px solid #dfdfdf;
+  margin-right: 5px;
+}
+
+.tab_sub li.active {
+  background-color: #94d6da;
+  color: #fff;
+}
+
+.list .inner, .list .inner .maintab {
+  display: none;
+}
+
+.list .inner.active, .list .maintab.active {
+  display: block;
+}
+
+.list .inner .maintab .active {
+  display: table;
+}
+
+.maintab input[type="radio"] {
+  display: none;
+}
+
+.maintab {
+  height: 440px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-color: #b4e3e6 #f2f2f2;
+  scrollbar-width: thin;
+}
+
+label{
+  cursor: pointer;
+}
+/* スクロール */
+.maintab::-webkit-scrollbar {
+  width: 10px;
+}
+
+/*スクロールバーの背景色・角丸指定*/
+.maintab::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #f2f2f2;
+}
+
+/*スクロールバーの色・角丸指定*/
+.maintab::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #b4e3e6;
+}
+
+.inner {
+  overflow: hidden;
+}
+
+li {
+  cursor: pointer;
+}
+
 
 form {
   width: 400px;
@@ -38,77 +140,15 @@ form {
   display: flex;
 }
 
-#tab01 label, #tab02 label, #tab03 label, #tab04 label {
-  background-color: #DBD3F0;
-  color: #fff;
-}
-
 .items {
   width: 120px;
 }
 
-.tab_item {
-  height: 60px;
-  width: 25%;
-  padding-top: 15px;
-  display: block;
-  float: left;
-  text-align: center;
-  font-weight: bold;
-  background-color: #DBD3F0;
+.maintab input:checked+.items img {
+  background-color: #e9e9e9;
   color: #fff;
 }
 
-input[name="tab_item"], .tab_content input[type="radio"] {
-  display: none;
-}
-
-.tab_content {
-  display: none;
-  clear: both;
-  overflow: hidden;
-  width: 400px;
-}
-
-#tab_01:checked~#tab01_content,
-#tab_02:checked~#tab02_content,
-#tab_03:checked~#tab03_content,
-#tab_04:checked~#tab04_content {
-  display: block;
-}
-
-.tab input:checked+.tab_item {
-  background-color: #94d6da;
-  color: #fff;
-}
-
-label:hover {
-  cursor: pointer;
-}
-
-.tab_content_description {
-  height: 440px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scrollbar-color: #b4e3e6 #f2f2f2;
-  scrollbar-width: thin;
-}
-
-.tab_content_description::-webkit-scrollbar {
-  width: 10px;
-}
-
-/*スクロールバーの背景色・角丸指定*/
-.tab_content_description::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background: #f2f2f2;
-}
-
-/*スクロールバーの色・角丸指定*/
-.tab_content_description::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: #b4e3e6;
-}
 
 /* イメージ画像 */
 .finishimage {
@@ -123,16 +163,6 @@ label:hover {
   height: 510px;
   border: 2px solid #DBD3F0;
   background-color: #fff;
-}
-
-.tab_content img {
-  width: 120px;
-  height: auto;
-}
-
-.tab_content_description input:checked+.items img {
-  background-color: #e9e9e9;
-  color: #fff;
 }
 
 .canvas {
@@ -308,26 +338,4 @@ input[type="button"], button {
 
 #tab_content_description4 img {
   z-index: 20;
-}
-
-.dropimg1 {
-  position: absolute;
-  /* border: solid 1px #000; */
-  position: absolute;
-  width: 960px;
-  height: 446px;
-  top: 60px;
-  left: -402px;
-  z-index: 15;
-  overflow: hidden;
-}
-
-.dropimg2 {
-  height: 446px;
-  border: solid 1px #000;
-  z-index: 20;
-}
-
-.dropimg2 img {
-  position: absolute;
 }

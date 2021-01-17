@@ -23,128 +23,154 @@
   <div class="wrapper">
     <h1><img src="img/logo/logo.png" alt=""></h1>
     <div class="customize">
+      
+      <div class="tab_box">
 
-      <div class="tab">
-        <input type="radio" name="tab_item" id="tab_01" checked>
-        <label class="tab_item" for="tab_01">布</label>
-        <input type="radio" name="tab_item" id="tab_02">
-        
-        <label class="tab_item" for="tab_02">合皮</label>
-        <input type="radio" name="tab_item" id="tab_03">
-        <label class="tab_item" for="tab_03">チャック</label>
-        <input type="radio" name="tab_item" id="tab_04">
-        <label class="tab_item" for="tab_04">アクセサリー</label>
+        <ul class="tab">
+          <li class="active">布</li>
+          <li>合皮</li>
+          <li>チャック</li>
+          <li>アクセサリー</li>
+        </ul>
 
-        <div class="tab_content" id="tab01_content">
-          <div class="tab_content_description">
-            <form method="post">
-              <script type="text/javascript">
-                for (var i = 0; i <= 59; i++) {
-                  document.write('<input type="radio" name="nuno" value="nuno' + [i] + '"id="nuno' + [i] + '">');
-                  document.write(' <label for="nuno' + [i] + '" class="items"><img src="img/nuno/nuno' + [i] + '.png" onclick="imgchange0(' + [i] + ');"></label>');
-                }
-              </script>
-            </form>
-
-          </div>
-        </div>
-        <div class="tab_content" id="tab02_content">
-          <div class="tab_content_description">
-            <form method="post">
-
-
-              <script type="text/javascript">
-                for (var i = 0; i <= 23; i++) {
-                  document.write('<input type="radio" name="gouhi" value="gouhi' + [i] + '"id="gouhi' + [i] + '">');
-                  document.write(' <label for="gouhi' + [i] + '" class="items"><img src="img/gouhi/gouhi' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
-                }
-              </script>
-            </form>
-
-
-          </div>
-        </div>
-        <div class="tab_content" id="tab03_content">
-          <div class="tab_content_description">
-            <form method="post">
-              <script type="text/javascript">
-                for (var i = 0; i <= 5; i++) {
-                  document.write('<input type="radio" name="chuck" value="chuck' + [i] + '"id="chuck' + [i] + '">');
-                  document.write(' <label for="chuck' + [i] + '" class="items"><img src="img/chuck/chuck' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
-                }
-              </script>
-            </form>
-
-
-          </div>
-        </div>
-        <div class="tab_content" id="tab04_content">
-          <div class="tab_content_description syncscroll" id="tab_content_description4" name="ascroll">
-            <form method="post">
-              <script type="text/javascript">
-                for (var i = 0; i <= 20; i++) {
-                  document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
-                  document.write(' <label for="accessory' + [i] + '" class="items"  ><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
-                }
-              </script>
-            </form>
-
-            </label>
-          </div>
-
-        </div>
-
-
-
-      </div>
-      <div class="finishimage">
-        <div class="canvas">
-          <input type="button" name="button" class="backbutton" onclick="buckchange();" id="backbutton" value="ウラ">
-          <button type="button" name="button" class="finishbutton" id="finishbutton">完成!</button>
-          <button type="button" name="button" class="helpbutton">?</button>
-          <button type="button" name="button" class="dropareachangebutton">ドロップエリア<br>表示</button>
-          <div class="gomibako">
-          </div>
-          <div class="drop_area">
-            <p>ドロップ可能範囲</p>
-          </div>
-          <div class="overflow syncscroll" name="ascroll">
-            <div class="drag_img">
-              <script type="text/javascript">
-                for (var i = 0; i <= 20; i++) {
-                  document.write('<img src="img/accessory/acce' + [i] + '.png" class="drag-and-drop" id="accessory' + [i] + '_img" draggable="true">');
-                }
-              </script>
-            </div>
-          </div>
-          <div class="dropimg1">
-
-
-            <div class="dropimg2">
-
-
+        <div class="list">
+          <!-- 布 -->
+          <div class="inner active">
+            <div class="maintab active">
+              <form method="post">
+                <script type="text/javascript">
+                  for (var i = 0; i <= 59; i++) {
+                    document.write('<input type="radio" name="nuno" value="nuno' + [i] + '"id="nuno' + [i] + '">');
+                    document.write(' <label for="nuno' + [i] + '" class="items"><img src="img/nuno/nuno' + [i] + '.png" onclick="imgchange0(' + [i] + ');"></label>');
+                  }
+                </script>
+              </form>
             </div>
           </div>
 
-          <canvas id="canvas0" width="500" height="375" class="frontcanvas"></canvas>
-          <canvas id="canvas1" width="500" height="375" class="frontcanvas"></canvas>
-          <canvas id="canvas2" width="500" height="375" class="frontcanvas"></canvas>
-          <canvas id="canvas3" width="500" height="375" class="frontcanvas"></canvas>
-          <canvas id="canvas4" width="450" height="370" class="frontcanvas"></canvas>
-          <canvas id="canvas5" width="500" height="375"></canvas>
-          <canvas id="canvas6" width="500" height="375"></canvas>
+          <!-- 合皮 -->
+          <div class="inner">
+            <div class="maintab active">
+              <form method="post">
+                <script type="text/javascript">
+                  for (var i = 0; i <= 23; i++) {
+                    document.write('<input type="radio" name="gouhi" value="gouhi' + [i] + '"id="gouhi' + [i] + '">');
+                    document.write(' <label for="gouhi' + [i] + '" class="items"><img src="img/gouhi/gouhi' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
+                  }
+                </script>
+              </form>
+            </div>
+          </div>
 
-          <!-- 裏用のcanvas -->
-          <canvas id="sengaback" width="500" height="375" class="backcanvas"></canvas>
-          <canvas id="canvas1back" width="500" height="375" class="backcanvas"></canvas>
-          <canvas id="canvas2back" width="500" height="375" class="backcanvas"></canvas>
-          <canvas id="canvas3back" width="500" height="375" class="backcanvas"></canvas>
+          <!-- チャック -->
+          <div class="inner">
+            <div class="maintab active">
+              <form method="post">
+                <script type="text/javascript">
+                  for (var i = 0; i <= 5; i++) {
+                    document.write('<input type="radio" name="chuck" value="chuck' + [i] + '"id="chuck' + [i] + '">');
+                    document.write(' <label for="chuck' + [i] + '" class="items"><img src="img/chuck/chuck' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
+                  }
+                </script>
+              </form>
+            </div>
+          </div>
+          <!-- アクセサリー -->
+          <div class="inner">
+            <div class="maintab active">
+              <form method="post">
+                <script type="text/javascript">
+                  for (var i = 0; i <= 5; i++) {
+                    document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
+                    document.write(' <label for="accessory' + [i] + '" class="items"  ><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
+                  }
+                </script>
+              </form>
+            </div>
+            <div class="maintab">
+              <form method="post">
+                <script type="text/javascript">
+                  for (var i = 6; i <= 11; i++) {
+                    document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
+                    document.write(' <label for="accessory' + [i] + '" class="items"  ><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
+                  }
+                </script>
+              </form>
+            </div>
+            <div class="maintab">
+              <form method="post">
+                <script type="text/javascript">
+                  for (var i = 12; i <= 17; i++) {
+                    document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
+                    document.write(' <label for="accessory' + [i] + '" class="items"  ><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
+                  }
+                </script>
+              </form>
+            </div>
+            <div class="maintab">
+              <form method="post">
+                <script type="text/javascript">
+                  for (var i = 18; i <= 20; i++) {
+                    document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
+                    document.write(' <label for="accessory' + [i] + '" class="items"  ><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
+                  }
+                </script>
+              </form>
+            </div>
 
-        </div>
+            <ul class="tab_sub">
+              <li class="active">1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+            </ul>
+          </div>
 
-
-      </div>
+      </div><!-- .list end -->
     </div>
+
+
+
+    <div class="finishimage">
+      <div class="canvas">
+        <input type="button" name="button" class="backbutton" onclick="buckchange();" id="backbutton" value="ウラ">
+        <button type="button" name="button" class="finishbutton" id="finishbutton">完成!</button>
+        <button type="button" name="button" class="helpbutton">?</button>
+        <button type="button" name="button" class="dropareachangebutton">ドロップエリア<br>表示</button>
+        <div class="gomibako">
+        </div>
+        <div class="drop_area">
+          <p>ドロップ可能範囲</p>
+        </div>
+        <!-- <div class="overflow syncscroll" name="ascroll">
+          <div class="drag_img">
+            <script type="text/javascript">
+              for (var i = 0; i <= 20; i++) {
+                document.write('<img src="img/accessory/acce' + [i] + '.png" class="drag-and-drop" id="accessory' + [i] + '_img" draggable="true">');
+              }
+            </script>
+          </div>
+        </div> -->
+
+        <canvas id="canvas0" width="500" height="375" class="frontcanvas"></canvas>
+        <canvas id="canvas1" width="500" height="375" class="frontcanvas"></canvas>
+        <canvas id="canvas2" width="500" height="375" class="frontcanvas"></canvas>
+        <canvas id="canvas3" width="500" height="375" class="frontcanvas"></canvas>
+        <canvas id="canvas4" width="450" height="370" class="frontcanvas"></canvas>
+        <canvas id="canvas5" width="500" height="375"></canvas>
+        <canvas id="canvas6" width="500" height="375"></canvas>
+
+        <!-- 裏用のcanvas -->
+        <canvas id="sengaback" width="500" height="375" class="backcanvas"></canvas>
+        <canvas id="canvas1back" width="500" height="375" class="backcanvas"></canvas>
+        <canvas id="canvas2back" width="500" height="375" class="backcanvas"></canvas>
+        <canvas id="canvas3back" width="500" height="375" class="backcanvas"></canvas>
+
+      </div>
+
+
+    </div>
+  </div>
 
   </div>
   <form action="/customize/check" method="post" name="result_form">
@@ -154,6 +180,33 @@
   </form>
 
   <script type="text/javascript">
+    //タブの処理
+    $(function() {
+      //tabをクリックしたときの動作
+      $('.tab li').click(function() {
+        //クリックしたタブのindexを取得
+        var index = $('.tab li').index(this);
+
+        $('.list .inner').hide().removeClass('active');
+        $('.list .inner').eq(index).fadeIn().addClass('active');
+
+        $('.tab li').removeClass('active');
+        $(this).addClass('active');
+      });
+
+      //ページャーをクリックしたときの動作
+      $('.tab_sub li').click(function() {
+        //クリックしたページャーのindexを取得
+        var index = $('.inner.active .tab_sub li').index(this);
+
+        $('.inner.active .tab_sub li').removeClass('active');
+        $(this).addClass('active');
+
+        //テーブル操作
+        $('.inner.active .maintab').hide().removeClass('active');
+        $('.inner.active .maintab').eq(index).fadeIn().addClass('active');
+      });
+    });
     // 線画の出力
     var canavas0;
     var context0;
@@ -213,10 +266,7 @@
         }
       }
 
-      //位置ずれ防止
-    //   var allac = $(".drag_img");
-    //   $(".dropimg2").css('height', '796px');
-    //
+
     };
 
     //canvas1から読み込む
@@ -263,16 +313,13 @@
     var inimg = [];
     var acposx = [];
     var acposy = [];
+    var acoffx = [];
+    var acoffy = [];
     for (var i = 0; i < img3.length; i++) {
       img3[i] = new Image(500, 500);
       img3[i].src = "img/accessory/acce" + i + ".png";
       inimg[i] = false;
     }
-
-
-
-
-
 
     //布onclick
     function imgchange0(id_value) {
@@ -366,9 +413,17 @@
         containment: '.customize',
         scroll: false,
         revert: 'invalid',
+        helper: 'clone',
+      });
+    });
+
+    $(function() {
+      $('.dragged').draggable({
+        // containment: '.customize',
+        scroll: false,
+        revert: 'invalid',
 
       });
-
     });
 
     var drop = "none";
@@ -418,10 +473,24 @@
           for (var i = 0; i < img3.length; i++) {
             if (drop == dragimg[i]) {
               $("#accessory" + i + "_img").css('display', 'inline !important');
-              $("#accessory" + i + "_img").appendTo(".dropimg2");
               acposx[i] = ui.position.left;
               acposy[i] = ui.position.top;
+              console.log(acposx[i]);
+              // acoffx[i] = ui.offset.left;
+              // acoffy[i] = ui.offset.top;
+              $('.dropimg').append('<img src="img/accessory/acce' + [i] + '.png" class="dragged" id="accessory' + [i] + '_inimg" draggable="true">');
+              $('#accessory' + [i] + '_inimg').css({
+                top: acposx[i] - 500,
+                left: acposy[i],
+
+              });
+
+
+
+
               inimg[i] = true;
+
+
 
             }
           }
