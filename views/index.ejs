@@ -234,16 +234,12 @@
 
     //アクセサリーの配列
     var img3 = new Array(21);
-    var cin = [];
-    var inimg = [];
-    var imgheight = [];
     var acposx = [];
     var acposy = [];
     var src = [];
     for (var i = 0; i < img3.length; i++) {
       img3[i] = new Image(500, 500);
       img3[i].src = "img/accessory/acce" + i + ".png";
-      inimg[i] = false;
     }
 
     //布onclick
@@ -329,7 +325,7 @@
           if (acid == "aclabel" + [i]) {
             var text = $('<img src="img/accessory/acce' + [i] + '.png" class=" clickimg' + click + '" id="accessory' + click + '_img" draggable="true">');
             $('.dragimgarea').append(text);
-            //画像の初期位置の指定
+            //画像の初期位置の指定 dragimgareaに入るように
             $('#accessory' + click + '_img').css('top', '250px');
             $('#accessory' + click + '_img').css('left', '230px');
 
@@ -347,15 +343,9 @@
     });
 
 
-    var drop = "none";
-
-
     $(function() {
       $('.drop_area').droppable({
         tolerance: 'fit',
-        drop: function(ev, ui) {
-          drop = $(ui.draggable).attr("id");
-        }
       })
     });
 
@@ -370,7 +360,6 @@
           $('.gomibako').css('background-image', 'url(img/gomibako.png)');
         },
         over: function(ev, ui) {
-
           $('.gomibako').css('background-image', 'url(img/gomibakoopen.png)');
         },
         drop: function(ev, ui) {
@@ -389,7 +378,6 @@
     //位置取得
     //canvas5
     const canvas5pos = $('#canvas5').position();
-    // console.log(canvas5pos);
 
     //canvas4
     const canvas4pos = $('#canvas4').position();
