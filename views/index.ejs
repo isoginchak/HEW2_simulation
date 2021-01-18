@@ -419,7 +419,6 @@
 
           //dragimgareaに何個画像があるか数える
           var length = $('.dragimgarea img').length;
-
           for (var i = 0; i < length; i++) {
             acposx[i] = $(".dragimgarea img").eq([i]).position().left;
             acposy[i] = $(".dragimgarea img").eq([i]).position().top;
@@ -429,8 +428,8 @@
             acx[i] = acposx[i] - canvas4off.left;
             acy[i] = acposy[i] - canvas4off.top;
             context4.drawImage(src[i], acx[i], acy[i], 120, (120 / src[i].width) * src[i].height);
-
           }
+
 
           //canvas結合
           for (var i = 0; i <= 3; i++) {
