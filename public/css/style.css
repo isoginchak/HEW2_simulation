@@ -235,26 +235,7 @@ canvas {
   background-repeat: no-repeat;
 }
 
-.drag_img {
-  position: absolute;
-  width: 960px;
-  height: 446px;
-  top: 60px;
-  left: -402px;
-  z-index: 20;
 
-}
-
-.dragtab{
-  height: 446px;
-  width: 400px;
-  position: absolute;
-    border: solid 1px #000;
-}
-
-.overflow::-webkit-scrollbar {
-  display: none;
-}
 
 .tab {
   z-index: 30;
@@ -291,6 +272,7 @@ input[type="button"], button {
   color: #727272;
 }
 
+/* 統一する */
 #canvas4, .drop_area {
   width: 450px;
   height: 370px;
@@ -304,9 +286,7 @@ input[type="button"], button {
   visibility: hidden;
 }
 
-#tab_content_description4 img {
-  z-index: 20;
-}
+
 
 .dragimgarea{
   width: 560px;
