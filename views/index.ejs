@@ -6,7 +6,7 @@
   <title>Crea/カスタマイズ画面</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" src="js/syncscroll.js">
+
 
   </script>
 
@@ -23,7 +23,7 @@
   <div class="wrapper">
     <h1><img src="img/logo/logo.png" alt=""></h1>
     <div class="customize">
-      
+
       <div class="tab_box">
 
         <ul class="tab">
@@ -80,97 +80,57 @@
             <div class="maintab active">
               <form method="post">
                 <script type="text/javascript">
-                  for (var i = 0; i <= 5; i++) {
+                  for (var i = 0; i <= 20; i++) {
                     document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
-                    document.write(' <label for="accessory' + [i] + '" class="items"  ><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
+                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
                   }
                 </script>
               </form>
             </div>
-            <div class="maintab">
-              <form method="post">
-                <script type="text/javascript">
-                  for (var i = 6; i <= 11; i++) {
-                    document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
-                    document.write(' <label for="accessory' + [i] + '" class="items"  ><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
-                  }
-                </script>
-              </form>
-            </div>
-            <div class="maintab">
-              <form method="post">
-                <script type="text/javascript">
-                  for (var i = 12; i <= 17; i++) {
-                    document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
-                    document.write(' <label for="accessory' + [i] + '" class="items"  ><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
-                  }
-                </script>
-              </form>
-            </div>
-            <div class="maintab">
-              <form method="post">
-                <script type="text/javascript">
-                  for (var i = 18; i <= 20; i++) {
-                    document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
-                    document.write(' <label for="accessory' + [i] + '" class="items"  ><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
-                  }
-                </script>
-              </form>
-            </div>
-
-            <ul class="tab_sub">
-              <li class="active">1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-            </ul>
           </div>
 
-      </div><!-- .list end -->
-    </div>
-
-
-
-    <div class="finishimage">
-      <div class="canvas">
-        <input type="button" name="button" class="backbutton" onclick="buckchange();" id="backbutton" value="ウラ">
-        <button type="button" name="button" class="finishbutton" id="finishbutton">完成!</button>
-        <button type="button" name="button" class="helpbutton">?</button>
-        <button type="button" name="button" class="dropareachangebutton">ドロップエリア<br>表示</button>
-        <div class="gomibako">
-        </div>
-        <div class="drop_area">
-          <p>ドロップ可能範囲</p>
-        </div>
-        <!-- <div class="overflow syncscroll" name="ascroll">
-          <div class="drag_img">
-            <script type="text/javascript">
-              for (var i = 0; i <= 20; i++) {
-                document.write('<img src="img/accessory/acce' + [i] + '.png" class="drag-and-drop" id="accessory' + [i] + '_img" draggable="true">');
-              }
-            </script>
-          </div>
-        </div> -->
-
-        <canvas id="canvas0" width="500" height="375" class="frontcanvas"></canvas>
-        <canvas id="canvas1" width="500" height="375" class="frontcanvas"></canvas>
-        <canvas id="canvas2" width="500" height="375" class="frontcanvas"></canvas>
-        <canvas id="canvas3" width="500" height="375" class="frontcanvas"></canvas>
-        <canvas id="canvas4" width="450" height="370" class="frontcanvas"></canvas>
-        <canvas id="canvas5" width="500" height="375"></canvas>
-        <canvas id="canvas6" width="500" height="375"></canvas>
-
-        <!-- 裏用のcanvas -->
-        <canvas id="sengaback" width="500" height="375" class="backcanvas"></canvas>
-        <canvas id="canvas1back" width="500" height="375" class="backcanvas"></canvas>
-        <canvas id="canvas2back" width="500" height="375" class="backcanvas"></canvas>
-        <canvas id="canvas3back" width="500" height="375" class="backcanvas"></canvas>
-
+        </div><!-- .list end -->
       </div>
 
 
+
+      <div class="finishimage">
+        <div class="canvas">
+          <input type="button" name="button" class="backbutton" onclick="buckchange();" id="backbutton" value="ウラ">
+          <button type="button" name="button" class="finishbutton" id="finishbutton">完成!</button>
+          <button type="button" name="button" class="helpbutton">?</button>
+          <button type="button" name="button" class="dropareachangebutton">ドロップエリア<br>表示</button>
+          <div class="gomibako">
+          </div>
+          <div class="drop_area">
+            <p>ドロップ可能範囲</p>
+          </div>
+
+          <div class="dragimgarea">
+
+          </div>
+
+
+
+          <canvas id="canvas0" width="500" height="375" class="frontcanvas"></canvas>
+          <canvas id="canvas1" width="500" height="375" class="frontcanvas"></canvas>
+          <canvas id="canvas2" width="500" height="375" class="frontcanvas"></canvas>
+          <canvas id="canvas3" width="500" height="375" class="frontcanvas"></canvas>
+          <canvas id="canvas4" width="450" height="370" class="frontcanvas"></canvas>
+          <canvas id="canvas5" width="500" height="375"></canvas>
+          <canvas id="canvas6" width="500" height="375"></canvas>
+
+          <!-- 裏用のcanvas -->
+          <canvas id="sengaback" width="500" height="375" class="backcanvas"></canvas>
+          <canvas id="canvas1back" width="500" height="375" class="backcanvas"></canvas>
+          <canvas id="canvas2back" width="500" height="375" class="backcanvas"></canvas>
+          <canvas id="canvas3back" width="500" height="375" class="backcanvas"></canvas>
+
+        </div>
+
+
+      </div>
     </div>
-  </div>
 
   </div>
   <form action="/customize/check" method="post" name="result_form">
@@ -192,19 +152,6 @@
 
         $('.tab li').removeClass('active');
         $(this).addClass('active');
-      });
-
-      //ページャーをクリックしたときの動作
-      $('.tab_sub li').click(function() {
-        //クリックしたページャーのindexを取得
-        var index = $('.inner.active .tab_sub li').index(this);
-
-        $('.inner.active .tab_sub li').removeClass('active');
-        $(this).addClass('active');
-
-        //テーブル操作
-        $('.inner.active .maintab').hide().removeClass('active');
-        $('.inner.active .maintab').eq(index).fadeIn().addClass('active');
       });
     });
     // 線画の出力
@@ -243,29 +190,6 @@
       sengaback.onload = function() {
         context0back.drawImage(sengaback, 0, 0, 500, 375);
       };
-
-      //アクセッサリー配置
-      for (var i = 0; i < img3.length; i++) {
-
-        $("#accessory" + i + "_img").css({
-          top: backtop + "px",
-          left: backleft + "px",
-        });
-
-        acbacktop[i] = backtop;
-        acbackleft[i] = backleft;
-        backimg = $("#accessory" + i + "_img");
-        backleft = backleft + backimg.width();
-
-        k++;
-        if (k == 3) {
-          backleft = defaultleft;
-          backtop = backtop + backimg.height();
-          console.log(backtop);
-          k = 0;
-        }
-      }
-
 
     };
 
@@ -310,11 +234,11 @@
 
     //アクセサリーの配列
     var img3 = new Array(21);
+    var cin=[];
     var inimg = [];
+    var imgheight=[];
     var acposx = [];
     var acposy = [];
-    var acoffx = [];
-    var acoffy = [];
     for (var i = 0; i < img3.length; i++) {
       img3[i] = new Image(500, 500);
       img3[i].src = "img/accessory/acce" + i + ".png";
@@ -349,6 +273,9 @@
     }
 
 
+
+
+
     //裏表表示
     var change = true;
 
@@ -361,8 +288,7 @@
         $('.frontcanvas').css('visibility', 'hidden');
         $('.drop_area').css('display', 'none');
         $('.dropareachangebutton').css('display', 'none');
-        $('.drag_img img').css('display', 'none');
-
+        $('.dragimgarea img').css('display', 'none');
 
       } else {
         //オモテの画像が表示される
@@ -371,26 +297,11 @@
         $('.frontcanvas').css('visibility', 'visible');
         $('.drop_area').css('display', 'inline');
         $('.dropareachangebutton').css('display', 'inline');
-
-        if ($('[id=tab_04]').prop('checked')) {
-
-          $('.drag_img img').css('display', 'inline');
-        } else {
-          $('.drag_img img').css('display', 'none');
-
-          for (var i = 0; i < img3.length; i++) {
-            if (inimg[i]) {
-              $("#accessory" + i + "_img").css('display', 'inline');
-            }
-          }
-        }
-
-
+        $('.dragimgarea img').css('display', 'inline');
       }
       change = !change;
 
     }
-
 
 
     //ドロップ箇所表示
@@ -406,25 +317,32 @@
       dropareachange = !dropareachange;
     })
 
+    //クリックされたらdragimgarea画像表示
+    var click = 0;
 
-    //drag&drop
-    $(function() {
-      $('.drag-and-drop').draggable({
-        containment: '.customize',
-        scroll: false,
-        revert: 'invalid',
-        helper: 'clone',
-      });
+    $('.aclabel').on('click', function() {
+      if (change) {
+        click++;
+        var acid = $(this).attr('id');
+        for (var i = 0; i < img3.length; i++) {
+          if (acid == "aclabel" + [i]) {
+            var text = $('<img src="img/accessory/acce' + [i] + '.png" class="drag-and-drop clickimg' + click + '" id="accessory' + click + '_img" draggable="true">');
+            $('.dragimgarea').append(text);
+            text.ready(function() {
+              $(".clickimg" + click).draggable({
+                containment: '.dragimgarea',
+                scroll: false,
+                revert: 'invalid',
+              });
+            });
+          }
+        }
+      }
+
     });
 
-    $(function() {
-      $('.dragged').draggable({
-        // containment: '.customize',
-        scroll: false,
-        revert: 'invalid',
 
-      });
-    });
+
 
     var drop = "none";
     const dragimg = [];
@@ -433,66 +351,21 @@
     }
 
 
-    //アクセサリーの変数を作成
-
-    //tab04が押されたら表示＋アクセサリーがdrop_areaに入ったら表示 それ以外非表示
-    $(function() {
-
-      $('[name="tab_item"]:radio').change(function() {
-        if (change) {
-          if ($('[id=tab_04]').prop('checked')) {
-            $(".tab").css('z-index', 1);
-
-            for (var i = 0; i < img3.length; i++) {
-              $("#accessory" + i + "_img").css('display', 'inline');
-            }
-          } else {
-            $('.drag_img img').css('display', 'none');
-            $(".tab").css('z-index', 30);
-
-            for (var i = 0; i < img3.length; i++) {
-              if (inimg[i]) {
-                $("#accessory" + i + "_img").css('display', 'inline');
-              }
-            }
-          }
-        }
-      });
-
-    });
-
-
 
 
     $(function() {
       $('.drop_area').droppable({
         tolerance: 'fit',
-
         drop: function(ev, ui) {
           drop = $(ui.draggable).attr("id");
+
           for (var i = 0; i < img3.length; i++) {
             if (drop == dragimg[i]) {
-              $("#accessory" + i + "_img").css('display', 'inline !important');
               acposx[i] = ui.position.left;
               acposy[i] = ui.position.top;
-              console.log(acposx[i]);
-              // acoffx[i] = ui.offset.left;
-              // acoffy[i] = ui.offset.top;
-              $('.dropimg').append('<img src="img/accessory/acce' + [i] + '.png" class="dragged" id="accessory' + [i] + '_inimg" draggable="true">');
-              $('#accessory' + [i] + '_inimg').css({
-                top: acposx[i] - 500,
-                left: acposy[i],
-
-              });
-
-
-
-
               inimg[i] = true;
 
-
-
-            }
+          }
           }
         }
       })
@@ -500,10 +373,9 @@
 
 
 
-    //ゴミ箱に入ったら初期位置に戻る
+    //ゴミ箱に入ったら要素を消す
 
     var gomibakodrop;
-
     $(function() {
       $('.gomibako').droppable({
         tolerance: 'touch',
@@ -518,37 +390,9 @@
           $('.gomibako').css('background-image', 'url(img/gomibako.png)');
 
           gomibakodrop = $(ui.draggable).attr("id");
-          if ($('[id=tab_04]').prop('checked')) {
-            if (gomibakodrop == dragimg[0]) {
-              $('#accessory0_img').css({
-                top: "70px",
-                left: "-402px",
-
-              });
-              inimg[0] = false;
-            } else if (gomibakodrop == dragimg[1]) {
-              $('#accessory1_img').css({
-                top: "70px",
-                left: "-277px",
-              });
-              inimg[1] = false;
-            }
-          } else {
-            if (gomibakodrop == dragimg[0]) {
-              $('#accessory0_img').css({
-                top: "70px",
-                left: "-402px",
-                display: "none"
-
-              });
-              inimg[0] = false;
-            } else if (gomibakodrop == dragimg[1]) {
-              $('#accessory1_img').css({
-                top: "70px",
-                left: "-277px",
-                display: "none"
-              });
-              inimg[1] = false;
+          for (var i = 1; i <= click; i++) {
+            if (gomibakodrop == "accessory" + [i] + "_img") {
+              $("#accessory" + [i] + "_img").remove();
             }
           }
         }
@@ -559,7 +403,6 @@
     //canvas5
     const canvas5pos = $('#canvas5').position();
     // console.log(canvas5pos);
-
 
     //canvas4
     const canvas4pos = $('#canvas4').position();
@@ -587,9 +430,6 @@
             return
           }
 
-
-
-
           //canvas4にアクセサリーを描画
           var acx = [];
           var acy = [];
@@ -598,14 +438,12 @@
             if (inimg[i]) {
               acx[i] = acposx[i] - canvas4off.left;
               acy[i] = acposy[i] - canvas4off.top;
-              context4.drawImage(img3[i], acx[i], acy[i], 120, 120);
+              context4.drawImage(img3[i], acx[i], acy[i],120,120 * img3[i].height / img3[i].width);
 
             }
           }
 
           //canvas結合
-
-
           for (var i = 0; i <= 3; i++) {
             eval("var image" + i + "=new Image();");
           }
