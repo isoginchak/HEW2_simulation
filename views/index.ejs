@@ -234,11 +234,12 @@
 
     //アクセサリーの配列
     var img3 = new Array(21);
-    var cin=[];
+    var cin = [];
     var inimg = [];
-    var imgheight=[];
+    var imgheight = [];
     var acposx = [];
     var acposy = [];
+    var src = [];
     for (var i = 0; i < img3.length; i++) {
       img3[i] = new Image(500, 500);
       img3[i].src = "img/accessory/acce" + i + ".png";
@@ -326,8 +327,12 @@
         var acid = $(this).attr('id');
         for (var i = 0; i < img3.length; i++) {
           if (acid == "aclabel" + [i]) {
-            var text = $('<img src="img/accessory/acce' + [i] + '.png" class="drag-and-drop clickimg' + click + '" id="accessory' + click + '_img" draggable="true">');
+            var text = $('<img src="img/accessory/acce' + [i] + '.png" class=" clickimg' + click + '" id="accessory' + click + '_img" draggable="true">');
             $('.dragimgarea').append(text);
+            //画像の初期位置の指定
+            $('#accessory' + click + '_img').css('top', '250px');
+            $('#accessory' + click + '_img').css('left', '230px');
+
             text.ready(function() {
               $(".clickimg" + click).draggable({
                 containment: '.dragimgarea',
@@ -342,15 +347,7 @@
     });
 
 
-
-
     var drop = "none";
-    const dragimg = [];
-    for (var i = 0; i < img3.length; i++) {
-      dragimg[i] = "accessory" + i + "_img";
-    }
-
-
 
 
     $(function() {
@@ -358,15 +355,6 @@
         tolerance: 'fit',
         drop: function(ev, ui) {
           drop = $(ui.draggable).attr("id");
-
-          for (var i = 0; i < img3.length; i++) {
-            if (drop == dragimg[i]) {
-              acposx[i] = ui.position.left;
-              acposy[i] = ui.position.top;
-              inimg[i] = true;
-
-          }
-          }
         }
       })
     });
@@ -374,7 +362,6 @@
 
 
     //ゴミ箱に入ったら要素を消す
-
     var gomibakodrop;
     $(function() {
       $('.gomibako').droppable({
@@ -412,11 +399,7 @@
     const canvasx = canvas4pos.left - canvas5pos.left;
     const canvasy = canvas4pos.top - canvas5pos.top;
 
-
-
-
     //完成ボタンが押された時の処理
-
 
     $('.finishbutton').click(function(resolve, reject) {
       if ($('input[name=nuno]').is(':checked') && $('input[name=gouhi]').is(':checked') && $('input[name=chuck]').is(':checked')) {
@@ -433,14 +416,20 @@
           //canvas4にアクセサリーを描画
           var acx = [];
           var acy = [];
-          for (var i = 0; i < img3.length; i++) {
 
-            if (inimg[i]) {
-              acx[i] = acposx[i] - canvas4off.left;
-              acy[i] = acposy[i] - canvas4off.top;
-              context4.drawImage(img3[i], acx[i], acy[i],120,120 * img3[i].height / img3[i].width);
+          //dragimgareaに何個画像があるか数える
+          var length = $('.dragimgarea img').length;
 
-            }
+          for (var i = 0; i < length; i++) {
+            acposx[i] = $(".dragimgarea img").eq([i]).position().left;
+            acposy[i] = $(".dragimgarea img").eq([i]).position().top;
+            src[i] = new Image();
+            src[i].src = $(".dragimgarea img").eq([i]).attr('src');
+            console.log(src[i]);
+            acx[i] = acposx[i] - canvas4off.left;
+            acy[i] = acposy[i] - canvas4off.top;
+            context4.drawImage(src[i], acx[i], acy[i], 120, (120 / src[i].width) * src[i].height);
+
           }
 
           //canvas結合

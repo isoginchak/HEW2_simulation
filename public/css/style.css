@@ -223,13 +223,6 @@ canvas {
   z-index: 1;
 }
 
-.drag-and-drop {
-  width: 120px;
-  height: auto;
-  cursor: move;
-  position: absolute;
-  z-index: 1000;
-}
 
 .gomibako {
   position: absolute;
@@ -318,9 +311,13 @@ input[type="button"], button {
 .dragimgarea{
   width: 560px;
   height: 508px;
-  border: solid 1px #000;
+  /* border: solid 1px #000; */
 }
 
 .dragimgarea img{
   position: absolute;
+  width: 120px;
+  height: auto;
+  cursor: move;
+  z-index: 1000;
 }
