@@ -52,7 +52,8 @@ h1 {
   color: #fff;
   /* border: 1px solid #dfdfdf; */
   text-align: center;
-  padding: 10px 0;
+  padding: 15px 0;
+  font-weight: bold;
 }
 
 .tab li.active {
@@ -132,10 +133,11 @@ form {
 
 /* イメージ画像 */
 .finishimage {
-  width: 560px;
+  width: 558px;
   height: 500px;
   padding: 0;
   margin: 0;
+  /* border-right: 2px solid #DBD3F0; */
 }
 
 .customize {
@@ -289,8 +291,9 @@ input[type="button"], button {
 
 
 .dragimgarea{
-  width: 560px;
+  width: 556px;
   height: 508px;
+   border-right: 2px solid #DBD3F0; 
   /* border: solid 1px #000; */
 }
 
