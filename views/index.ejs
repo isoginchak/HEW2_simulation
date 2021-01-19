@@ -157,7 +157,7 @@
     var context0;
     var senga;
 
-  
+
     window.onload = () => {
       canvas0 = document.getElementById("canvas0");
       context0 = canvas0.getContext("2d");
@@ -385,6 +385,12 @@
           if (!result) {
             return
           }
+
+          //html保存
+          $(function() {
+            var imghtml = $(".dragimgarea").html();
+            console.log(imghtml)
+          });
 
           //canvas4にアクセサリーを描画
           var acx = [];
