@@ -163,7 +163,7 @@ canvas {
   left: 50%;
   margin: auto;
   transform: translateY(-50%) translateX(-50%);
-  -webkit- transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
 }
 
 #canvas0, #sengaback {
@@ -293,7 +293,7 @@ input[type="button"], button {
 .dragimgarea{
   width: 556px;
   height: 508px;
-   border-right: 2px solid #DBD3F0; 
+   border-right: 2px solid #DBD3F0;
   /* border: solid 1px #000; */
 }
 
