@@ -78,7 +78,7 @@
             <div class="maintab active">
               <form method="post">
                 <script type="text/javascript">
-                  for (var i = 0; i <= 20; i++) {
+                  for (var i = 0; i <= 26; i++) {
                     document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
                     document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
                   }
@@ -216,7 +216,7 @@
     }
 
     //アクセサリーの配列
-    var img3 = new Array(21);
+    var img3 = new Array(27);
     var acposx = [];
     var acposy = [];
     var src = [];
@@ -327,8 +327,6 @@
         tolerance: 'fit',
       })
     });
-
-
 
     //ゴミ箱に入ったら要素を消す
     var gomibakodrop;
