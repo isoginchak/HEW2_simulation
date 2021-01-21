@@ -108,8 +108,6 @@
 
           </div>
 
-
-
           <canvas id="canvas0" width="500" height="375" class="frontcanvas"></canvas>
           <canvas id="canvas1" width="500" height="375" class="frontcanvas"></canvas>
           <canvas id="canvas2" width="500" height="375" class="frontcanvas"></canvas>
@@ -245,7 +243,6 @@
     }
 
     //チャックonclick
-
     function imgchange2(id_value) {
       context3.clearRect(0, 0, 500, 375);
       context3.drawImage(img2[id_value], 0, 0, 500, 375);
@@ -253,9 +250,6 @@
       context3back.drawImage(img2[id_value], 0, 0, 500, 375);
 
     }
-
-
-
 
 
     //裏表表示
@@ -375,7 +369,8 @@
     //完成ボタンが押された時の処理
 
     $('.finishbutton').click(function(resolve, reject) {
-      if ($('input[name=nuno]').is(':checked') && $('input[name=gouhi]').is(':checked') && $('input[name=chuck]').is(':checked')) {
+      if ($('input[name=nuno]').is(':checked') && $('input[name=gouhi]').is(':checked') && $('input[name=chuck]').is(':checked')&&(change)) {
+
         swal({
           title: 'カスタマイズを終了しますか',
           text: '購入画面に移ります',
@@ -385,6 +380,10 @@
           if (!result) {
             return
           }
+
+          // if (change) {
+          //   change=!change;
+          // }
 
           //html保存
           $(function() {
@@ -408,8 +407,6 @@
             acy[i] = acposy[i] - canvas4off.top;
             context4.drawImage(src[i], acx[i], acy[i], 120, (120 / src[i].width) * src[i].height);
           }
-
-
           //canvas結合
           for (var i = 0; i <= 3; i++) {
             eval("var image" + i + "=new Image();");
@@ -445,7 +442,6 @@
             context5.drawImage(image4, canvasx, canvasy, 450, 370);
           };
 
-
           $(function() {
             setTimeout(function() {
               data = canvas5.toDataURL("image/png");
@@ -464,9 +460,12 @@
           //書き込まない
         })
 
-      } else {
+      } else if(!change){
+        swal('ERROR', 'オモテにしてください', 'error');
+      }
+      else {
         swal('ERROR', 'すべてチェックしてください', 'error');
-      };
+      }
 
     });
   </script>
