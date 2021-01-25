@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <title>Crea/カスタマイズ画面</title>
+  <link rel="icon" type="image/gif" href="/img/favicon.png">
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/customize.css">
-
   <script src="/js/jquery1.js"></script>
   <script src="/js/jquery2.js"></script>
   <script src="/js/swal.js"></script>
@@ -105,7 +105,7 @@
           </div>
 
           <div class="dragimgarea">
-
+            <!-- アクセサリーが追加されてく場所 -->
           </div>
 
           <canvas id="canvas0" width="500" height="375" class="frontcanvas"></canvas>
@@ -129,9 +129,12 @@
     </div>
 
   </div>
+  <!-- データ送信 -->
   <form action="/customize/check" method="post" name="result_form">
     <input type="hidden" id="front_image_data" value="" name="front_image_base64_data">
     <input type="hidden" id="back_image_data" value="" name="back_image_base64_data">
+    <input type="hidden" id="accessory_html" value="" name="accessory_html_data">
+    <input type="hidden" id="click" value="" name="click_data">
     <input type="hidden" name="product_id" value="1">
   </form>
 
@@ -222,7 +225,7 @@
     var src = [];
     for (var i = 0; i < img3.length; i++) {
       img3[i] = new Image(500, 500);
-      img3[i].src = "img/poach/accessory/acce" + i + ".png";
+      img3[i].src = "/img/poach/accessory/acce" + i + ".png";
     }
 
     //布onclick
@@ -367,7 +370,7 @@
     //完成ボタンが押された時の処理
 
     $('.finishbutton').click(function(resolve, reject) {
-      if ($('input[name=nuno]').is(':checked') && $('input[name=gouhi]').is(':checked') && $('input[name=chuck]').is(':checked')&&(change)) {
+      if ($('input[name=nuno]').is(':checked') && $('input[name=gouhi]').is(':checked') && $('input[name=chuck]').is(':checked') && (change)) {
 
         swal({
           title: 'カスタマイズを終了しますか',
@@ -384,8 +387,9 @@
           // }
 
           //html保存
+          var imghtml;
           $(function() {
-            var imghtml = $(".dragimgarea").html();
+            imghtml = $(".dragimgarea").html();
             console.log(imghtml)
           });
 
@@ -446,6 +450,8 @@
               backdata = canvas6.toDataURL("image/png");
               document.getElementById("front_image_data").value = data;
               document.getElementById("back_image_data").value = backdata;
+              document.getElementById("accessory_html").value = imghtml;
+              document.getElementById("click").value = click;
               // document.result_form.submit();
               //表の画像のbase64
               console.log(data);
@@ -458,10 +464,9 @@
           //書き込まない
         })
 
-      } else if(!change){
+      } else if (!change) {
         swal('ERROR', 'オモテにしてください', 'error');
-      }
-      else {
+      } else {
         swal('ERROR', 'すべてチェックしてください', 'error');
       }
 
