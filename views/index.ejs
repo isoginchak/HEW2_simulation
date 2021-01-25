@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <title>Crea/カスタマイズ画面</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/customize.css">
 
+  <script src="/js/jquery1.js"></script>
+  <script src="/js/jquery2.js"></script>
+  <script src="/js/swal.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
   <script type="text/javascript">
 
@@ -19,7 +19,7 @@
 
 <body>
   <div class="wrapper">
-    <h1><img src="img/logo/logo.png" alt=""></h1>
+    <h1><img src="/img/logo/logo.png" alt=""></h1>
     <div class="customize">
 
       <div class="tab_box">
@@ -39,7 +39,7 @@
                 <script type="text/javascript">
                   for (var i = 0; i <= 59; i++) {
                     document.write('<input type="radio" name="nuno" value="nuno' + [i] + '"id="nuno' + [i] + '">');
-                    document.write(' <label for="nuno' + [i] + '" class="items"><img src="img/nuno/nuno' + [i] + '.png" onclick="imgchange0(' + [i] + ');"></label>');
+                    document.write(' <label for="nuno' + [i] + '" class="items"><img src="/img/poach/nuno/nuno' + [i] + '.png" onclick="imgchange0(' + [i] + ');"></label>');
                   }
                 </script>
               </form>
@@ -53,7 +53,7 @@
                 <script type="text/javascript">
                   for (var i = 0; i <= 23; i++) {
                     document.write('<input type="radio" name="gouhi" value="gouhi' + [i] + '"id="gouhi' + [i] + '">');
-                    document.write(' <label for="gouhi' + [i] + '" class="items"><img src="img/gouhi/gouhi' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
+                    document.write(' <label for="gouhi' + [i] + '" class="items"><img src="/img/poach/gouhi/gouhi' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
                   }
                 </script>
               </form>
@@ -67,7 +67,7 @@
                 <script type="text/javascript">
                   for (var i = 0; i <= 5; i++) {
                     document.write('<input type="radio" name="chuck" value="chuck' + [i] + '"id="chuck' + [i] + '">');
-                    document.write(' <label for="chuck' + [i] + '" class="items"><img src="img/chuck/chuck' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
+                    document.write(' <label for="chuck' + [i] + '" class="items"><img src="/img/poach/chuck/chuck' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
                   }
                 </script>
               </form>
@@ -80,7 +80,7 @@
                 <script type="text/javascript">
                   for (var i = 0; i <= 26; i++) {
                     document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
-                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="img/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
+                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="/img/poach/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
                   }
                 </script>
               </form>
@@ -160,7 +160,7 @@
       canvas0 = document.getElementById("canvas0");
       context0 = canvas0.getContext("2d");
       senga = new Image();
-      senga.src = "img/poach_senga.png";
+      senga.src = "/img/poach/poach_senga.png";
       senga.onload = function() {
         context0.drawImage(senga, 0, 0, 500, 375);
       };
@@ -168,7 +168,7 @@
       var canvas0back = document.getElementById("sengaback");
       var context0back = canvas0back.getContext("2d");
       var sengaback = new Image();
-      sengaback.src = "img/poach_senga_back.png";
+      sengaback.src = "/img/poach/poach_senga_back.png";
 
       sengaback.onload = function() {
         context0back.drawImage(sengaback, 0, 0, 500, 375);
@@ -198,21 +198,21 @@
     var img0 = new Array(60);
     for (var i = 0; i < img0.length; i++) {
       img0[i] = new Image(500, 500);
-      img0[i].src = "img/nuno/nuno" + i + ".png";
+      img0[i].src = "/img/poach/nuno/nuno" + i + ".png";
     }
 
     //合皮の配列
     var img1 = new Array(24);
     for (var i = 0; i < img1.length; i++) {
       img1[i] = new Image(500, 500);
-      img1[i].src = "img/gouhi/gouhi" + i + ".png";
+      img1[i].src = "/img/poach/gouhi/gouhi" + i + ".png";
     }
 
     //チャックの配列
     var img2 = new Array(6);
     for (var i = 0; i < img2.length; i++) {
       img2[i] = new Image(500, 500);
-      img2[i].src = "img/chuck/chuck" + i + ".png";
+      img2[i].src = "/img/poach/chuck/chuck" + i + ".png";
     }
 
     //アクセサリーの配列
@@ -222,7 +222,7 @@
     var src = [];
     for (var i = 0; i < img3.length; i++) {
       img3[i] = new Image(500, 500);
-      img3[i].src = "img/accessory/acce" + i + ".png";
+      img3[i].src = "img/poach/accessory/acce" + i + ".png";
     }
 
     //布onclick
@@ -302,7 +302,7 @@
         var acid = $(this).attr('id');
         for (var i = 0; i < img3.length; i++) {
           if (acid == "aclabel" + [i]) {
-            var text = $('<img src="img/accessory/acce' + [i] + '.png" class=" clickimg' + click + '" id="accessory' + click + '_img" draggable="true">');
+            var text = $('<img src="/img/poach/accessory/acce' + [i] + '.png" class=" clickimg' + click + '" id="accessory' + click + '_img" draggable="true">');
             $('.dragimgarea').append(text);
             //画像の初期位置の指定 dragimgareaに入るように
             $('#accessory' + click + '_img').css('top', '250px');
@@ -334,13 +334,13 @@
       $('.gomibako').droppable({
         tolerance: 'touch',
         out: function(ev, ui) {
-          $('.gomibako').css('background-image', 'url(img/gomibako.png)');
+          $('.gomibako').css('background-image', 'url(/img/gomibako.png)');
         },
         over: function(ev, ui) {
-          $('.gomibako').css('background-image', 'url(img/gomibakoopen.png)');
+          $('.gomibako').css('background-image', 'url(/img/gomibakoopen.png)');
         },
         drop: function(ev, ui) {
-          $('.gomibako').css('background-image', 'url(img/gomibako.png)');
+          $('.gomibako').css('background-image', 'url(/img/gomibako.png)');
 
           gomibakodrop = $(ui.draggable).attr("id");
           for (var i = 1; i <= click; i++) {
