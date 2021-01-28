@@ -50,7 +50,6 @@ h1 {
   width: 25%;
   background-color: #DBD3F0;
   color: #fff;
-  
   text-align: center;
   padding: 15px 0;
   font-weight: bold;
@@ -59,9 +58,7 @@ h1 {
 .tab li.active {
   background-color: #94d6da;
   color: #fff;
-
 }
-
 
 .list .inner, .list .inner .maintab {
   display: none;
@@ -226,7 +223,6 @@ canvas {
   z-index: 1;
 }
 
-
 .gomibako {
   position: absolute;
   bottom: 10px;
@@ -237,8 +233,6 @@ canvas {
   background-size: contain;
   background-repeat: no-repeat;
 }
-
-
 
 .tab {
   z-index: 30;
@@ -289,19 +283,87 @@ input[type="button"], button {
   visibility: hidden;
 }
 
-
-
-.dragimgarea{
+.dragimgarea {
   width: 556px;
   height: 508px;
-   border-right: 2px solid #DBD3F0;
+  border-right: 2px solid #DBD3F0;
   /* border: solid 1px #000; */
 }
 
-.dragimgarea img{
+.dragimgarea img {
   position: absolute;
   width: 120px;
   height: auto;
   cursor: move;
   z-index: 1000;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  background: rgba(221, 221, 221, 0.8);
+  width: 960px;
+  height: 510px;
+  z-index: 40;
+  color: #00708b;
+  text-shadow:
+       1px  1px 1px #ffffff,
+      -1px  1px 1px #ffffff,
+       1px -1px 1px #ffffff,
+      -1px -1px 1px #ffffff,
+       1px  0px 1px #ffffff,
+       0px  1px 1px #ffffff,
+      -1px  0px 1px #ffffff,
+       0px -1px 1px #ffffff;
+  font-weight: bold;
+}
+
+.modal p {
+  position: absolute;
+}
+
+.exp1 {
+  top: 0px;
+  left: 90px;
+}
+
+.exp2 {
+  top: 230px;
+}
+
+.exp3 {
+  top: 250px;
+  right: 230px;
+}
+
+.exp4 {
+  top: 15px;
+  right: 90px;
+}
+
+.exp5 {
+  bottom: 45px;
+  left: 390px;
+  text-align: center;
+}
+
+.exp6 {
+  bottom: 30px;
+  left: 610px;
+  text-align: center;
+}
+
+.exp7 {
+  bottom: 70px;
+  right: 20px;
+  text-align: right;
+}
+
+#bg{
+	position:fixed;
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	/* background:rgba(0, 0, 0, .4); */
 }

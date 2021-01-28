@@ -126,6 +126,16 @@
 
 
       </div>
+      <div class="modal">
+        <p class="exp1">①選択エリアから変更したい<br>パーツボタンを押してください</p>
+        <p class="exp2">②パーツ選択画面でお好きなパーツに変更してください<br>アクセサリーはドラッグアンドドロップで<br>好きな位置に置けます</p>
+        <p class="exp3">③完成イメージ</p>
+        <p class="exp4">④完成ボタン→</p>
+        <p class="exp5">裏表表示ボタン<br>↓</p>
+        <p class="exp6">←ドラッグ可能エリア表示ボタン</p>
+        <p class="exp7">いらないアクセサリーを<br>捨てられます<br>↓</p>
+      </div>
+
     </div>
 
   </div>
@@ -282,6 +292,29 @@
 
     }
 
+    // モーダルウィンドウ
+    $(function() {
+      $(".helpbutton").click(function(){
+    		// body要素の最後にdiv#bgを追加
+    		$("body").append('<div id="bg">');
+    		// #bgと#photoをフェードイン
+    		$(".modal").fadeIn();
+
+    		// 背景をクリック
+    		$("#bg").click(function(){
+    			// 背景（自分自身）をフェードアウト、完了したら削除
+    			$(this).fadeOut(function(){
+    				$(this).remove();
+    			});
+          	$(".modal").fadeOut();
+    		});
+        return false;
+      });
+
+    });
+
+
+
 
     //ドロップ箇所表示
     var dropareachange = true;
@@ -298,7 +331,6 @@
 
     //クリックされたらdragimgarea画像表示
     var click = 0;
-
     $('.aclabel').on('click', function() {
       if (change) {
         click++;
@@ -381,10 +413,6 @@
           if (!result) {
             return
           }
-
-          // if (change) {
-          //   change=!change;
-          // }
 
           //html保存
           var imghtml;
