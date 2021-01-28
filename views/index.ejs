@@ -301,9 +301,9 @@
     		$(".modal").fadeIn();
 
     		// 背景をクリック
-    		$("#bg").click(function(){
+    		$("#bg,.modal").click(function(){
     			// 背景（自分自身）をフェードアウト、完了したら削除
-    			$(this).fadeOut(function(){
+    			$("#bg").fadeOut(function(){
     				$(this).remove();
     			});
           	$(".modal").fadeOut();
