@@ -1,0 +1,372 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f8f8ff;
+  line-height: 1.75;
+  font-family: '游ゴシック', 'Yu Gothic', 'メイリオ', 'Meiryo';
+}
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+h1 img {
+  width: 150px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* タブ機能 */
+.tab_box {
+  width: 400px;
+  height: 500px;
+}
+
+.tab {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  height: 60px;
+}
+
+.list {
+  position: relative;
+  width: 400px;
+  height: 440px;
+  z-index: 30;
+}
+
+.tab li {
+  width: 25%;
+  background-color: #DBD3F0;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  font-weight: bold;
+}
+
+.tab li.active {
+  background-color: #94d6da;
+  color: #fff;
+}
+
+.list .inner, .list .inner .maintab {
+  display: none;
+}
+
+.list .inner.active, .list .maintab.active {
+  display: block;
+}
+
+.list .inner .maintab .active {
+  display: table;
+}
+
+.maintab input[type="radio"] {
+  display: none;
+}
+
+.maintab {
+  height: 440px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-color: #b4e3e6 #f2f2f2;
+  scrollbar-width: thin;
+}
+
+label {
+  cursor: pointer;
+}
+
+/* スクロール */
+.maintab::-webkit-scrollbar {
+  width: 10px;
+}
+
+/*スクロールバーの背景色・角丸指定*/
+.maintab::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #f2f2f2;
+}
+
+/*スクロールバーの色・角丸指定*/
+.maintab::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #b4e3e6;
+}
+
+.inner {
+  overflow: hidden;
+}
+
+li {
+  cursor: pointer;
+}
+
+form {
+  width: 400px;
+  flex-wrap: wrap;
+  margin: 0;
+  display: flex;
+}
+
+.items {
+  width: 120px;
+}
+
+.maintab input:checked+.items img {
+  background-color: #e9e9e9;
+  color: #fff;
+}
+
+/* イメージ画像 */
+.finishimage {
+  width: 558px;
+  height: 500px;
+  padding: 0;
+  margin: 0;
+  /* border-right: 2px solid #DBD3F0; */
+}
+
+.customize {
+  display: flex;
+  height: 510px;
+  border: 2px solid #DBD3F0;
+  background-color: #fff;
+}
+
+.canvas {
+  /* width: 560px; */
+  height: 508px;
+  text-align: center;
+  position: relative;
+  background-color: #fff;
+  border-left: 2px solid #DBD3F0;
+  border-bottom: 2px solid #DBD3F0;
+}
+
+canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: auto;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+#canvas0, #sengaback {
+  z-index: 10;
+}
+
+.helpbutton, .backbutton {
+  background-color: #B8B8B8;
+  border: none;
+  font-size: 18px;
+  color: #727272;
+}
+
+.helpbutton {
+  position: absolute;
+  right: 10px;
+  top: 60px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  z-index: 90;
+}
+
+.finishbutton {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+  background-color: #424242;
+  color: #fff;
+  font-size: 18px;
+  width: 60px;
+  height: 40px;
+  z-index: 90;
+}
+
+.backbutton {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 70px;
+  height: 30px;
+  z-index: 90;
+}
+
+.drop_area {
+  position: absolute;
+  border: solid 1px #000;
+  top: 129px;
+  right: 33px;
+  visibility: hidden;
+  z-index: 15;
+  color: #333;
+  background-color: #bae3f9;
+  opacity: 0.3;
+}
+
+.customize, .finishimage {
+  z-index: 1;
+}
+
+.gomibako {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 60px;
+  height: 80px;
+  background-image: url(../img/gomibako.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.tab {
+  z-index: 30;
+}
+
+.drag_img img {
+  position: absolute;
+  display: none;
+  z-index: 999;
+}
+
+#canvas4 {
+  /* border:solid 1px #000; */
+  position: absolute;
+  top: 260px;
+  left: 349px;
+}
+
+input[type="button"], button {
+  cursor: pointer;
+}
+
+.dropareachangebutton {
+  position: absolute;
+  bottom: 10px;
+  left: 100px;
+  width: 100px;
+  height: 50px;
+  height: 55px;
+  z-index: 90;
+  background-color: #B8B8B8;
+  border: none;
+  font-size: 14px;
+  color: #727272;
+}
+
+/* 統一する */
+#canvas4, .drop_area {
+  width: 350px;
+  height: 264px;
+}
+
+#canvas6 {
+  visibility: hidden;
+}
+#sengaback_han {
+  visibility: hidden;
+}
+
+.backcanvas {
+  visibility: hidden;
+}
+
+.dragimgarea {
+  width: 556px;
+  height: 508px;
+  border-right: 2px solid #DBD3F0;
+  /* border: solid 1px #000; */
+}
+
+.dragimgarea img {
+  position: absolute;
+  width: 120px;
+  height: auto;
+  cursor: move;
+  z-index: 1000;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  background: rgba(221, 221, 221, 0.8);
+  width: 960px;
+  height: 510px;
+  z-index: 40;
+  color: #00708b;
+  text-shadow:
+       1px  1px 1px #ffffff,
+      -1px  1px 1px #ffffff,
+       1px -1px 1px #ffffff,
+      -1px -1px 1px #ffffff,
+       1px  0px 1px #ffffff,
+       0px  1px 1px #ffffff,
+      -1px  0px 1px #ffffff,
+       0px -1px 1px #ffffff;
+  font-weight: bold;
+}
+
+.modal p {
+  position: absolute;
+}
+
+.exp1 {
+  top: 0px;
+  left: 90px;
+}
+
+.exp2 {
+  top: 230px;
+}
+
+.exp3 {
+  top: 250px;
+  right: 230px;
+}
+
+.exp4 {
+  top: 15px;
+  right: 90px;
+}
+
+.exp5 {
+  bottom: 45px;
+  left: 390px;
+  text-align: center;
+}
+
+.exp6 {
+  bottom: 30px;
+  left: 610px;
+  text-align: center;
+}
+
+.exp7 {
+  bottom: 70px;
+  right: 20px;
+  text-align: right;
+}
+
+#bg{
+	position:fixed;
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	/* background:rgba(0, 0, 0, .4); */
+}
