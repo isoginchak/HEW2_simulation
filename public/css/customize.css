@@ -11,6 +11,8 @@ body {
   font-family: '游ゴシック', 'Yu Gothic', 'メイリオ', 'Meiryo';
 }
 
+
+
 .wrapper {
   width: 960px;
   margin: 0 auto;
@@ -18,8 +20,9 @@ body {
 
 h1 img {
   width: 150px;
-  margin: 0 auto;
+  margin: 10px auto;
 }
+
 
 h1 {
   text-align: center;
