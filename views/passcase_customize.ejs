@@ -319,7 +319,7 @@
 
     });
 
-    /ロゴが押された時の処理
+    //ロゴが押された時の処理
     $('.top').on('click', function() {
       swal({
         title: 'カスタマイズを終了しますか',
@@ -330,6 +330,9 @@
         if (!result) {
           return
         }
+        // topページのhrefいれてほしい
+        $(location).attr("href", "https://docs.google.com/spreadsheets/d/1Txr2ovd236epv0pUx6_enoqx_cgSzxFmVukumi1_b7U/edit#gid=1702794633")
+
 
       })
     });
