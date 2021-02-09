@@ -17,7 +17,7 @@
 
 <body>
 <div class="wrapper">
-    <h1><img src="/img/logo/logo.png" alt=""></h1>
+  <h1> <a href="#" class="top"><img src="/img/logo/logo.png" alt=""></a></h1>
     <div class="customize">
 
         <div class="tab_box">
@@ -317,6 +317,21 @@
             return false;
         });
 
+    });
+
+    /ロゴが押された時の処理
+    $('.top').on('click', function() {
+      swal({
+        title: 'カスタマイズを終了しますか',
+        text: 'カスタマイズは保存されません',
+        buttons: ["続ける", "TOPページへ戻る"],
+
+      }).then(function(result) {
+        if (!result) {
+          return
+        }
+
+      })
     });
 
 
