@@ -118,10 +118,12 @@ form {
   flex-wrap: wrap;
   margin: 0;
   display: flex;
+  justify-content: space-around;
 }
 
 .items {
   width: 120px;
+  margin: 5px 3px;
 }
 
 .maintab input:checked+.items img {

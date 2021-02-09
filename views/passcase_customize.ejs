@@ -37,7 +37,7 @@
                             <script type="text/javascript">
                                 for (var i = 0; i <= 23; i++) {
                                     document.write('<input type="radio" name="leather" value="leather' + [i] + '"id="leather' + [i] + '">');
-                                    document.write(' <label for="leather' + [i] + '" class="items"><img src="/img/passcase/leather/kawa' + [i] + '.png" onclick="imgchange0(' + [i] + ');"></label>');
+                                    document.write(' <label for="leather' + [i] + '" class="items"><img src="/img/passcase/leather/kawa' + [i] + '.png" onclick="imgchange0(' + [i] + ')"></label>');
                                 }
                             </script>
                         </form>
@@ -58,12 +58,14 @@
                     </div>
                 </div>
 
-                <!-- チャック -->
+                <!-- プリント-->
                 <div class="inner">
                     <div class="maintab active">
                         <form method="post">
+                          <input type="radio" name="print" value="printnull"id="printnull" checked>
+                           <!-- <label for="printnu" class="items"><img src="/img/passcase/print/printnull.png" ></label> -->
                             <script type="text/javascript">
-                              for (var i = 0; i <= 8; i++) {
+                              for (var i = 0; i <= 9; i++) {
                                 document.write('<input type="radio" name="print" value="print' + [i] + '"id="print' + [i] + '">');
                                 document.write(' <label for="print' + [i] + '" class="items"><img src="/img/passcase/print/print' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
                               }
@@ -498,7 +500,7 @@
                 };
                 image3.onload = () => {
                     context5.drawImage(image3, 0, 0, 500, 291);
-                    // context6.drawImage(image3, 0, 0, 500, 291);
+
                 };
                 image0.onload = () => {
                     context5.drawImage(image0, 0, 0, 500, 291);
