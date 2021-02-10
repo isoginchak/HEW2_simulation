@@ -2,147 +2,149 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8">
-    <title>Crea/カスタマイズ画面</title>
-    <link rel="icon" type="image/gif" href="/img/favicon.png">
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/passcase_customize.css">
-    <script src="/js/jquery1.js"></script>
-    <script src="/js/jquery2.js"></script>
-    <script src="/js/swal.js"></script>
-    <script type="text/javascript">
+  <meta charset="utf-8">
+  <title>Crea/カスタマイズ画面</title>
+  <link rel="icon" type="image/gif" href="/img/favicon.png">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/passcase_customize.css">
+  <script src="/js/jquery1.js"></script>
+  <script src="/js/jquery2.js"></script>
+  <script src="/js/swal.js"></script>
+  <script type="text/javascript">
 
-    </script>
+  </script>
 </head>
 
 <body>
-<div class="wrapper">
-  <h1> <a href="#" class="top"><img src="/img/logo/logo.png" alt=""></a></h1>
+  <div class="wrapper">
+    <h1> <a href="#" class="top"><img src="/img/logo/logo.png" alt=""></a></h1>
     <div class="customize">
 
-        <div class="tab_box">
+      <div class="tab_box">
 
-            <ul class="tab">
-                <li class="active">革</li>
-                <li>チャック</li>
-                <li>プリント</li>
-                <li>アクセサリー</li>
-            </ul>
+        <ul class="tab">
+          <li class="active">革</li>
+          <li>チャック</li>
+          <li>プリント</li>
+          <li>アクセサリー</li>
+        </ul>
 
-            <div class="list">
-                <!-- 革 -->
-                <div class="inner active">
-                    <div class="maintab active">
-                        <form method="post">
-                            <script type="text/javascript">
-                                for (var i = 0; i <= 23; i++) {
-                                    document.write('<input type="radio" name="leather" value="leather' + [i] + '"id="leather' + [i] + '">');
-                                    document.write(' <label for="leather' + [i] + '" class="items"><img src="/img/passcase/leather/kawa' + [i] + '.png" onclick="imgchange0(' + [i] + ')"></label>');
-                                }
-                            </script>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- チャック -->
-                <div class="inner">
-                    <div class="maintab active">
-                        <form method="post">
-                            <script type="text/javascript">
-                                for (var i = 0; i <= 11; i++) {
-                                    document.write('<input type="radio" name="chuck" value="chuck' + [i] + '"id="chuck' + [i] + '">');
-                                    document.write(' <label for="chuck' + [i] + '" class="items"><img src="/img/passcase/chuck/chuck' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
-                                }
-                            </script>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- プリント-->
-                <div class="inner">
-                    <div class="maintab active">
-                        <form method="post">
-                          <input type="radio" name="print" value="printnull"id="printnull" checked>
-                           <!-- <label for="printnu" class="items"><img src="/img/passcase/print/printnull.png" ></label> -->
-                            <script type="text/javascript">
-                              for (var i = 0; i <= 9; i++) {
-                                document.write('<input type="radio" name="print" value="print' + [i] + '"id="print' + [i] + '">');
-                                document.write(' <label for="print' + [i] + '" class="items"><img src="/img/passcase/print/print' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
-                              }
-                            </script>
-                        </form>
-                    </div>
-                </div>
-                <!-- アクセサリー -->
-                <div class="inner">
-                    <div class="maintab active">
-                        <form method="post">
-                            <script type="text/javascript">
-                                for (var i = 0; i <= 26; i++) {
-                                    document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
-                                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="/img/passcase/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
-                                }
-                            </script>
-                        </form>
-                    </div>
-                </div>
-
-            </div><!-- .list end -->
-        </div>
-
-
-
-        <div class="finishimage">
-            <div class="canvas">
-                <input type="button" name="button" class="backbutton" onclick="buckchange();" id="backbutton" value="ウラ">
-                <button type="button" name="button" class="finishbutton" id="finishbutton">完成!</button>
-                <button type="button" name="button" class="helpbutton">?</button>
-                <button type="button" name="button" class="dropareachangebutton">ドロップエリア<br>表示</button>
-                <div class="gomibako">
-                </div>
-                <div class="drop_area">
-                    <p>ドロップ可能範囲</p>
-                </div>
-
-                <div class="dragimgarea">
-                    <!-- アクセサリーが追加されてく場所 -->
-                </div>
-
-                <canvas id="canvas0" width="500" height="291" class="frontcanvas"></canvas>
-                <canvas id="canvas1" width="500" height="291" class="frontcanvas"></canvas>
-                <canvas id="canvas2" width="500" height="291" class="frontcanvas"></canvas>
-                <canvas id="canvas3" width="500" height="291" class="frontcanvas"></canvas>
-                <canvas id="canvas4" width="350" height="264" class="frontcanvas"></canvas>
-                <canvas id="canvas5" width="500" height="291"></canvas>
-                <canvas id="canvas6" width="500" height="291"></canvas>
-
-                <!-- 裏用のcanvas -->
-                <canvas id="sengaback" width="500" height="291" class="backcanvas"></canvas>
-                <canvas id="canvas1back" width="500" height="291" class="backcanvas"></canvas>
-                <canvas id="canvas2back" width="500" height="291" class="backcanvas"></canvas>
-                <!-- <canvas id="canvas3back" width="500" height="291" class="backcanvas"></canvas> -->
-
-                <canvas id="sengaback_han" width="500" height="291"></canvas>
-
+        <div class="list">
+          <!-- 革 -->
+          <div class="inner active">
+            <div class="maintab active">
+              <form method="post">
+                <script type="text/javascript">
+                  for (var i = 0; i <= 23; i++) {
+                    document.write('<input type="radio" name="leather" value="leather' + [i] + '"id="leather' + [i] + '">');
+                    document.write(' <label for="leather' + [i] + '" class="items"><img src="/img/passcase/leather/kawa' + [i] + '.png" onclick="imgchange0(' + [i] + ')"></label>');
+                  }
+                </script>
+              </form>
             </div>
+          </div>
+
+          <!-- チャック -->
+          <div class="inner">
+            <div class="maintab active">
+              <form method="post">
+                <script type="text/javascript">
+                  for (var i = 0; i <= 11; i++) {
+                    document.write('<input type="radio" name="chuck" value="chuck' + [i] + '"id="chuck' + [i] + '">');
+                    document.write(' <label for="chuck' + [i] + '" class="items"><img src="/img/passcase/chuck/chuck' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
+                  }
+                </script>
+              </form>
+            </div>
+          </div>
+
+          <!-- プリント-->
+          <div class="inner">
+            <div class="maintab active">
+              <form method="post">
+
+                <input type="radio" name="print" value="print0" id="print0" checked>
+                <label for="print0" class="items"><img src="/img/passcase/print/print0.png" onclick="imgchange2(0);"></label>
+                <script type="text/javascript">
+                  for (var i = 1; i <= 9; i++) {
+                    document.write('<input type="radio" name="print" value="print' + [i] + '"id="print' + [i] + '">');
+                    document.write(' <label for="print' + [i] + '" class="items"><img src="/img/passcase/print/print' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
+                  }
+                </script>
+              </form>
+            </div>
+          </div>
+          
+          <!-- アクセサリー -->
+          <div class="inner">
+            <div class="maintab active">
+              <form method="post">
+                <script type="text/javascript">
+                  for (var i = 0; i <= 26; i++) {
+                    document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
+                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="/img/passcase/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
+                  }
+                </script>
+              </form>
+            </div>
+          </div>
+
+        </div><!-- .list end -->
+      </div>
 
 
+
+      <div class="finishimage">
+        <div class="canvas">
+          <input type="button" name="button" class="backbutton" onclick="buckchange();" id="backbutton" value="ウラ">
+          <button type="button" name="button" class="finishbutton" id="finishbutton">完成!</button>
+          <button type="button" name="button" class="helpbutton">?</button>
+          <button type="button" name="button" class="dropareachangebutton">ドロップエリア<br>表示</button>
+          <div class="gomibako">
+          </div>
+          <div class="drop_area">
+            <p>ドロップ可能範囲</p>
+          </div>
+
+          <div class="dragimgarea">
+            <!-- アクセサリーが追加されてく場所 -->
+          </div>
+
+          <canvas id="canvas0" width="500" height="291" class="frontcanvas"></canvas>
+          <canvas id="canvas1" width="500" height="291" class="frontcanvas"></canvas>
+          <canvas id="canvas2" width="500" height="291" class="frontcanvas"></canvas>
+          <canvas id="canvas3" width="500" height="291" class="frontcanvas"></canvas>
+          <canvas id="canvas4" width="350" height="264" class="frontcanvas"></canvas>
+          <canvas id="canvas5" width="500" height="291"></canvas>
+          <canvas id="canvas6" width="500" height="291"></canvas>
+
+          <!-- 裏用のcanvas -->
+          <canvas id="sengaback" width="500" height="291" class="backcanvas"></canvas>
+          <canvas id="canvas1back" width="500" height="291" class="backcanvas"></canvas>
+          <canvas id="canvas2back" width="500" height="291" class="backcanvas"></canvas>
+          <!-- <canvas id="canvas3back" width="500" height="291" class="backcanvas"></canvas> -->
+
+          <canvas id="sengaback_han" width="500" height="291"></canvas>
+
         </div>
-        <div class="modal">
-            <p class="exp1">①選択エリアから変更したい<br>パーツボタンを押してください</p>
-            <p class="exp2">②パーツ選択画面でお好きなパーツに変更してください<br>アクセサリーはドラッグアンドドロップで<br>好きな位置に置けます</p>
-            <p class="exp3">③完成イメージ</p>
-            <p class="exp4">④完成ボタン→</p>
-            <p class="exp5">裏表表示ボタン<br>↓</p>
-            <p class="exp6">←ドラッグ可能エリア表示ボタン</p>
-            <p class="exp7">いらないアクセサリーを<br>捨てられます<br>↓</p>
-        </div>
+
+
+      </div>
+      <div class="modal">
+        <p class="exp1">①選択エリアから変更したい<br>パーツボタンを押してください</p>
+        <p class="exp2">②パーツ選択画面でお好きなパーツに変更してください<br>アクセサリーはドラッグアンドドロップで<br>好きな位置に置けます</p>
+        <p class="exp3">③完成イメージ</p>
+        <p class="exp4">④完成ボタン→</p>
+        <p class="exp5">裏表表示ボタン<br>↓</p>
+        <p class="exp6">←ドラッグ可能エリア表示ボタン</p>
+        <p class="exp7">いらないアクセサリーを<br>捨てられます<br>↓</p>
+      </div>
 
     </div>
 
-</div>
-<!-- データ送信 -->
-<form action="/customize/pass_case/check" method="post" name="result_form">
+  </div>
+  <!-- データ送信 -->
+  <form action="/customize/pass_case/check" method="post" name="result_form">
     <input type="hidden" id="front_image_data" value="" name="front_image_base64_data">
     <input type="hidden" id="back_image_data" value="" name="back_image_base64_data">
     <input type="hidden" id="accessory_html" value="" name="accessory_html_data">
@@ -153,22 +155,22 @@
 
     <input type="hidden" id="click_count" value="" name="click_count">
     <input type="hidden" name="product_id" value="2">
-</form>
+  </form>
 
-<script type="text/javascript">
+  <script type="text/javascript">
     //タブの処理
     $(function() {
-        //tabをクリックしたときの動作
-        $('.tab li').click(function() {
-            //クリックしたタブのindexを取得
-            var index = $('.tab li').index(this);
+      //tabをクリックしたときの動作
+      $('.tab li').click(function() {
+        //クリックしたタブのindexを取得
+        var index = $('.tab li').index(this);
 
-            $('.list .inner').hide().removeClass('active');
-            $('.list .inner').eq(index).fadeIn().addClass('active');
+        $('.list .inner').hide().removeClass('active');
+        $('.list .inner').eq(index).fadeIn().addClass('active');
 
-            $('.tab li').removeClass('active');
-            $(this).addClass('active');
-        });
+        $('.tab li').removeClass('active');
+        $(this).addClass('active');
+      });
     });
     // 線画の出力
     var canavas0;
@@ -180,35 +182,35 @@
 
 
     window.onload = () => {
-        canvas0 = document.getElementById("canvas0");
-        context0 = canvas0.getContext("2d");
-        senga = new Image();
-        senga.src = "/img/passcase/passcase_senga.png";
-        senga.onload = function() {
-            context0.drawImage(senga, 0, 0, 500, 291);
-        };
-        //裏の線画
-        canvas0back = document.getElementById("sengaback");
-        context0back = canvas0back.getContext("2d");
-        sengaback = new Image();
-        sengaback.src = "/img/passcase/passcase_senga_back.png";
-        sengaback.onload = function() {
-            context0back.drawImage(sengaback, 0, 0, 500, 291);
-        };
+      canvas0 = document.getElementById("canvas0");
+      context0 = canvas0.getContext("2d");
+      senga = new Image();
+      senga.src = "/img/passcase/passcase_senga.png";
+      senga.onload = function() {
+        context0.drawImage(senga, 0, 0, 500, 291);
+      };
+      //裏の線画
+      canvas0back = document.getElementById("sengaback");
+      context0back = canvas0back.getContext("2d");
+      sengaback = new Image();
+      sengaback.src = "/img/passcase/passcase_senga_back.png";
+      sengaback.onload = function() {
+        context0back.drawImage(sengaback, 0, 0, 500, 291);
+      };
 
     };
 
     //canvas1から読み込む
     for (var i = 1; i <= 6; i++) {
-        eval("var canvas" + i + "=document.getElementById('canvas" + i + "');");
-        eval("var context" + i + "=canvas" + i + ".getContext('2d')");
+      eval("var canvas" + i + "=document.getElementById('canvas" + i + "');");
+      eval("var context" + i + "=canvas" + i + ".getContext('2d')");
     }
     //反転設定
     for (var i = 1; i <= 2; i++) {
-        eval("var canvas" + i + "back=document.getElementById('canvas" + i + "back');");
-        eval("var context" + i + "back=canvas" + i + "back.getContext('2d')");
-        eval("context" + i + "back.scale(-1, 1);");
-        eval("context" + i + "back.translate(-canvas" + i + "back.width, 0);");
+      eval("var canvas" + i + "back=document.getElementById('canvas" + i + "back');");
+      eval("var context" + i + "back=canvas" + i + "back.getContext('2d')");
+      eval("context" + i + "back.scale(-1, 1);");
+      eval("context" + i + "back.translate(-canvas" + i + "back.width, 0);");
     }
 
 
@@ -219,15 +221,15 @@
     //革の配列
     var img0 = new Array(24);
     for (var i = 0; i < img0.length; i++) {
-        img0[i] = new Image(500, 500);
-        img0[i].src = "/img/passcase/leather/kawa" + i + ".png";
+      img0[i] = new Image(500, 500);
+      img0[i].src = "/img/passcase/leather/kawa" + i + ".png";
     }
 
     //チャックの配列
     var img1 = new Array(12);
     for (var i = 0; i < img1.length; i++) {
-        img1[i] = new Image(500, 500);
-        img1[i].src = "/img/passcase/chuck/chuck" + i + ".png";
+      img1[i] = new Image(500, 500);
+      img1[i].src = "/img/passcase/chuck/chuck" + i + ".png";
     }
 
     //プリントの配列
@@ -243,31 +245,31 @@
     var acposy = [];
     var src = [];
     for (var i = 0; i < img3.length; i++) {
-        img3[i] = new Image(500, 500);
-        img3[i].src = "/img/passcase/accessory/acce" + i + ".png";
+      img3[i] = new Image(500, 500);
+      img3[i].src = "/img/passcase/accessory/acce" + i + ".png";
     }
 
     //布onclick
     function imgchange0(id_value) {
-        context1.clearRect(0, 0, 500, 291);
-        context1.drawImage(img0[id_value], 0, 0, 500, 291);
-        context1back.clearRect(0, 0, 500, 291);
-        context1back.drawImage(img0[id_value], 0, 0, 500, 291);
+      context1.clearRect(0, 0, 500, 291);
+      context1.drawImage(img0[id_value], 0, 0, 500, 291);
+      context1back.clearRect(0, 0, 500, 291);
+      context1back.drawImage(img0[id_value], 0, 0, 500, 291);
     }
 
     //1チャックonclick
     function imgchange1(id_value) {
-        context2.clearRect(0, 0, 500, 291);
-        context2.drawImage(img1[id_value], 0, 0, 500, 291);
-        context2back.clearRect(0, 0, 500, 291);
-        context2back.drawImage(img1[id_value], 0, 0, 500, 291);
+      context2.clearRect(0, 0, 500, 291);
+      context2.drawImage(img1[id_value], 0, 0, 500, 291);
+      context2back.clearRect(0, 0, 500, 291);
+      context2back.drawImage(img1[id_value], 0, 0, 500, 291);
 
     }
 
     //プリントonclick
     function imgchange2(id_value) {
-        context3.clearRect(0, 0, 500, 291);
-        context3.drawImage(img2[id_value], 0, 0, 500, 291);
+      context3.clearRect(0, 0, 500, 291);
+      context3.drawImage(img2[id_value], 0, 0, 500, 291);
 
     }
 
@@ -276,48 +278,48 @@
     var change = true;
 
     function buckchange() {
-        var backvalue = document.getElementById("backbutton");
-        if (change) {
-            //ウラの画像が表示される
-            backvalue.value = "オモテ";
-            $('.backcanvas').css('visibility', 'visible');
-            $('.frontcanvas').css('visibility', 'hidden');
+      var backvalue = document.getElementById("backbutton");
+      if (change) {
+        //ウラの画像が表示される
+        backvalue.value = "オモテ";
+        $('.backcanvas').css('visibility', 'visible');
+        $('.frontcanvas').css('visibility', 'hidden');
 
-            $('.drop_area').css('display', 'none');
-            $('.dropareachangebutton').css('display', 'none');
-            $('.dragimgarea img').css('display', 'none');
+        $('.drop_area').css('display', 'none');
+        $('.dropareachangebutton').css('display', 'none');
+        $('.dragimgarea img').css('display', 'none');
 
-        } else {
-            //オモテの画像が表示される
-            backvalue.value = "ウラ";
-            $('.backcanvas').css('visibility', 'hidden');
-            $('.frontcanvas').css('visibility', 'visible');
-            $('.drop_area').css('display', 'inline');
-            $('.dropareachangebutton').css('display', 'inline');
-            $('.dragimgarea img').css('display', 'inline');
-        }
-        change = !change;
+      } else {
+        //オモテの画像が表示される
+        backvalue.value = "ウラ";
+        $('.backcanvas').css('visibility', 'hidden');
+        $('.frontcanvas').css('visibility', 'visible');
+        $('.drop_area').css('display', 'inline');
+        $('.dropareachangebutton').css('display', 'inline');
+        $('.dragimgarea img').css('display', 'inline');
+      }
+      change = !change;
 
     }
 
     // モーダルウィンドウ
     $(function() {
-        $(".helpbutton").click(function() {
-            // body要素の最後にdiv#bgを追加
-            $("body").append('<div id="bg">');
-            // #bgと#photoをフェードイン
-            $(".modal").fadeIn();
+      $(".helpbutton").click(function() {
+        // body要素の最後にdiv#bgを追加
+        $("body").append('<div id="bg">');
+        // #bgと#photoをフェードイン
+        $(".modal").fadeIn();
 
-            // 背景をクリック
-            $("#bg,.modal").click(function() {
-                // 背景（自分自身）をフェードアウト、完了したら削除
-                $("#bg").fadeOut(function() {
-                    $(this).remove();
-                });
-                $(".modal").fadeOut();
-            });
-            return false;
+        // 背景をクリック
+        $("#bg,.modal").click(function() {
+          // 背景（自分自身）をフェードアウト、完了したら削除
+          $("#bg").fadeOut(function() {
+            $(this).remove();
+          });
+          $(".modal").fadeOut();
         });
+        return false;
+      });
 
     });
 
@@ -345,72 +347,72 @@
     //ドロップ箇所表示
     var dropareachange = true;
     $('.dropareachangebutton').click(function() {
-        if (dropareachange) {
-            $('.drop_area').css('visibility', 'visible');
-            $('.dropareachangebutton').html("ドロップエリア<br>非表示");
-        } else {
-            $('.drop_area').css('visibility', 'hidden');
-            $('.dropareachangebutton').html("ドロップエリア<br>表示");
-        }
-        dropareachange = !dropareachange;
+      if (dropareachange) {
+        $('.drop_area').css('visibility', 'visible');
+        $('.dropareachangebutton').html("ドロップエリア<br>非表示");
+      } else {
+        $('.drop_area').css('visibility', 'hidden');
+        $('.dropareachangebutton').html("ドロップエリア<br>表示");
+      }
+      dropareachange = !dropareachange;
     })
 
     //クリックされたらdragimgarea画像表示
     var click = 0;
     $('.aclabel').on('click', function() {
-        if (change) {
-            click++;
-            var acid = $(this).attr('id');
-            for (var i = 0; i < img3.length; i++) {
-                if (acid == "aclabel" + [i]) {
-                    var text = $('<img src="/img/passcase/accessory/acce' + [i] + '.png" class=" clickimg' + click + '" id="accessory' + click + '_img" draggable="true">');
-                    $('.dragimgarea').append(text);
-                    //画像の初期位置の指定 dragimgareaに入るように
-                    $('#accessory' + click + '_img').css('top', '180px');
-                    $('#accessory' + click + '_img').css('left', '280px');
+      if (change) {
+        click++;
+        var acid = $(this).attr('id');
+        for (var i = 0; i < img3.length; i++) {
+          if (acid == "aclabel" + [i]) {
+            var text = $('<img src="/img/passcase/accessory/acce' + [i] + '.png" class=" clickimg' + click + '" id="accessory' + click + '_img" draggable="true">');
+            $('.dragimgarea').append(text);
+            //画像の初期位置の指定 dragimgareaに入るように
+            $('#accessory' + click + '_img').css('top', '180px');
+            $('#accessory' + click + '_img').css('left', '280px');
 
-                    text.ready(function() {
-                        $(".clickimg" + click).draggable({
-                            containment: '.dragimgarea',
-                            scroll: false,
-                            revert: 'invalid',
-                        });
-                    });
-                }
-            }
+            text.ready(function() {
+              $(".clickimg" + click).draggable({
+                containment: '.dragimgarea',
+                scroll: false,
+                revert: 'invalid',
+              });
+            });
+          }
         }
+      }
 
     });
 
 
     $(function() {
-        $('.drop_area').droppable({
-            tolerance: 'fit',
-        })
+      $('.drop_area').droppable({
+        tolerance: 'fit',
+      })
     });
 
     //ゴミ箱に入ったら要素を消す
     var gomibakodrop;
     $(function() {
-        $('.gomibako').droppable({
-            tolerance: 'touch',
-            out: function(ev, ui) {
-                $('.gomibako').css('background-image', 'url(/img/gomibako.png)');
-            },
-            over: function(ev, ui) {
-                $('.gomibako').css('background-image', 'url(/img/gomibakoopen.png)');
-            },
-            drop: function(ev, ui) {
-                $('.gomibako').css('background-image', 'url(/img/gomibako.png)');
+      $('.gomibako').droppable({
+        tolerance: 'touch',
+        out: function(ev, ui) {
+          $('.gomibako').css('background-image', 'url(/img/gomibako.png)');
+        },
+        over: function(ev, ui) {
+          $('.gomibako').css('background-image', 'url(/img/gomibakoopen.png)');
+        },
+        drop: function(ev, ui) {
+          $('.gomibako').css('background-image', 'url(/img/gomibako.png)');
 
-                gomibakodrop = $(ui.draggable).attr("id");
-                for (var i = 1; i <= click; i++) {
-                    if (gomibakodrop == "accessory" + [i] + "_img") {
-                        $("#accessory" + [i] + "_img").remove();
-                    }
-                }
+          gomibakodrop = $(ui.draggable).attr("id");
+          for (var i = 1; i <= click; i++) {
+            if (gomibakodrop == "accessory" + [i] + "_img") {
+              $("#accessory" + [i] + "_img").remove();
             }
-        });
+          }
+        }
+      });
     });
 
     //位置取得
@@ -431,123 +433,123 @@
     var sengaback_han = new Image();
     sengaback_han.src = "/img/passcase/passcase_senga_back_han.png";
     sengaback_han.onload = function() {
-        context0back_han.drawImage(sengaback_han, 0, 0, 500, 291);
+      context0back_han.drawImage(sengaback_han, 0, 0, 500, 291);
     };
 
     //完成ボタンが押された時の処理
 
     $('.finishbutton').click(function(resolve, reject) {
-        if ($('input[name=leather]').is(':checked') && $('input[name=chuck]').is(':checked') && $('input[name=print]').is(':checked')&&(change)) {
+      if ($('input[name=leather]').is(':checked') && $('input[name=chuck]').is(':checked') && $('input[name=print]').is(':checked') && (change)) {
 
-            swal({
-                title: 'カスタマイズを終了しますか',
-                text: '購入画面に移ります',
-                buttons: ["戻る", "完了する"],
+        swal({
+          title: 'カスタマイズを終了しますか',
+          text: '購入画面に移ります',
+          buttons: ["戻る", "完了する"],
 
-            }).then(function(result) {
-                if (!result) {
-                    return
-                }
+        }).then(function(result) {
+          if (!result) {
+            return
+          }
 
-                //html保存
-                var imghtml;
-                $(function() {
-                    imghtml = $(".dragimgarea").html();
-                    console.log(imghtml)
-                });
+          //html保存
+          var imghtml;
+          $(function() {
+            imghtml = $(".dragimgarea").html();
+            console.log(imghtml)
+          });
 
-                //canvas4にアクセサリーを描画
-                var acx = [];
-                var acy = [];
+          //canvas4にアクセサリーを描画
+          var acx = [];
+          var acy = [];
 
-                //dragimgareaに何個画像があるか数える
-                var length = $('.dragimgarea img').length;
-                for (var i = 0; i < length; i++) {
-                    acposx[i] = $(".dragimgarea img").eq([i]).position().left;
-                    acposy[i] = $(".dragimgarea img").eq([i]).position().top;
-                    src[i] = new Image();
-                    src[i].src = $(".dragimgarea img").eq([i]).attr('src');
-                    console.log(src[i]);
-                    acx[i] = acposx[i] - canvas4off.left;
-                    acy[i] = acposy[i] - canvas4off.top;
-                    context4.drawImage(src[i], acx[i], acy[i], 120, (120 / src[i].width) * src[i].height);
-                }
-
-
-                //canvas結合
-                for (var i = 0; i <= 3; i++) {
-                    eval("var image" + i + "=new Image();");
-                }
-                var image0_back = new Image();
-                var image4 = new Image(350, 264);
-                var data = new Image(500, 291);
-                var backdata = new Image(500, 291);
-
-                image1.src = canvas1.toDataURL("image/png");
-                image2.src = canvas2.toDataURL("image/png");
-                image3.src = canvas3.toDataURL("image/png");
-                image0.src = canvas0.toDataURL("image/png");
-                image0_back.src = canvas0back_han.toDataURL("image/png");
-                image4.src = canvas4.toDataURL("image/png");
-
-                image1.onload = () => {
-                    context5.drawImage(image1, 0, 0, 500, 291);
-                    context6.drawImage(image1, 0, 0, 500, 291);
-                };
-                image2.onload = () => {
-                    context5.drawImage(image2, 0, 0, 500, 291);
-                    context6.drawImage(image2, 0, 0, 500, 291);
-                };
-                image3.onload = () => {
-                    context5.drawImage(image3, 0, 0, 500, 291);
-
-                };
-                image0.onload = () => {
-                    context5.drawImage(image0, 0, 0, 500, 291);
-                };
-                image0_back.onload = () => {
-                    context6.drawImage(image0_back, 0, 0, 500, 291);
-                };
-
-                image4.onload = () => {
-                    context5.drawImage(image4, canvasx, canvasy, 350, 264);
-                };
-
-                $(function() {
-                    setTimeout(function() {
-                        data = canvas5.toDataURL("image/png");
-                        backdata = canvas6.toDataURL("image/png");
-                        document.getElementById("front_image_data").value = data;
-                        document.getElementById("back_image_data").value = backdata;
-                        document.getElementById("accessory_html").value = imghtml;
-                        document.getElementById("click_count").value = click;
-                        //
-                        document.getElementById("leather_select").value = document.forms[0].elements.leather.value
-                        document.getElementById("chuck_select").value = document.forms[1].elements.chuck.value
-                        // プリント実装時にコメント会うとを外す
-
-                        // document.getElementById("print_select").value = document.forms[2].elements.print.value
-
-                        //表の画像のbase64
-                        console.log(data);
-                        //裏の画像のbase64
-                        console.log(backdata);
-                        // document.result_form.submit();
-                    }, 1000);
-                });
+          //dragimgareaに何個画像があるか数える
+          var length = $('.dragimgarea img').length;
+          for (var i = 0; i < length; i++) {
+            acposx[i] = $(".dragimgarea img").eq([i]).position().left;
+            acposy[i] = $(".dragimgarea img").eq([i]).position().top;
+            src[i] = new Image();
+            src[i].src = $(".dragimgarea img").eq([i]).attr('src');
+            console.log(src[i]);
+            acx[i] = acposx[i] - canvas4off.left;
+            acy[i] = acposy[i] - canvas4off.top;
+            context4.drawImage(src[i], acx[i], acy[i], 120, (120 / src[i].width) * src[i].height);
+          }
 
 
-                //書き込まない
-            })
+          //canvas結合
+          for (var i = 0; i <= 3; i++) {
+            eval("var image" + i + "=new Image();");
+          }
+          var image0_back = new Image();
+          var image4 = new Image(350, 264);
+          var data = new Image(500, 291);
+          var backdata = new Image(500, 291);
 
-        } else if (!change) {
-            swal('ERROR', 'オモテにしてください', 'error');
-        } else {
-            swal('ERROR', 'すべてチェックしてください', 'error');
-        }
+          image1.src = canvas1.toDataURL("image/png");
+          image2.src = canvas2.toDataURL("image/png");
+          image3.src = canvas3.toDataURL("image/png");
+          image0.src = canvas0.toDataURL("image/png");
+          image0_back.src = canvas0back_han.toDataURL("image/png");
+          image4.src = canvas4.toDataURL("image/png");
+
+          image1.onload = () => {
+            context5.drawImage(image1, 0, 0, 500, 291);
+            context6.drawImage(image1, 0, 0, 500, 291);
+          };
+          image2.onload = () => {
+            context5.drawImage(image2, 0, 0, 500, 291);
+            context6.drawImage(image2, 0, 0, 500, 291);
+          };
+          image3.onload = () => {
+            context5.drawImage(image3, 0, 0, 500, 291);
+
+          };
+          image0.onload = () => {
+            context5.drawImage(image0, 0, 0, 500, 291);
+          };
+          image0_back.onload = () => {
+            context6.drawImage(image0_back, 0, 0, 500, 291);
+          };
+
+          image4.onload = () => {
+            context5.drawImage(image4, canvasx, canvasy, 350, 264);
+          };
+
+          $(function() {
+            setTimeout(function() {
+              data = canvas5.toDataURL("image/png");
+              backdata = canvas6.toDataURL("image/png");
+              document.getElementById("front_image_data").value = data;
+              document.getElementById("back_image_data").value = backdata;
+              document.getElementById("accessory_html").value = imghtml;
+              document.getElementById("click_count").value = click;
+              //
+              document.getElementById("leather_select").value = document.forms[0].elements.leather.value
+              document.getElementById("chuck_select").value = document.forms[1].elements.chuck.value
+              // プリント実装時にコメント会うとを外す
+
+              // document.getElementById("print_select").value = document.forms[2].elements.print.value
+
+              //表の画像のbase64
+              console.log(data);
+              //裏の画像のbase64
+              console.log(backdata);
+              // document.result_form.submit();
+            }, 1000);
+          });
+
+
+          //書き込まない
+        })
+
+      } else if (!change) {
+        swal('ERROR', 'オモテにしてください', 'error');
+      } else {
+        swal('ERROR', 'すべてチェックしてください', 'error');
+      }
 
     });
-</script>
+  </script>
 
 </body>
 

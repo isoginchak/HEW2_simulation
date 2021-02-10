@@ -118,7 +118,7 @@ form {
   flex-wrap: wrap;
   margin: 0;
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 
 .items {
@@ -371,4 +371,12 @@ input[type="button"], button {
 	height:100%;
 	width:100%;
 	/* background:rgba(0, 0, 0, .4); */
+}
+
+/* プリントなし */
+
+.imgnonetext{
+  position: absolute;
+  top: 0;
+  left: 0;
 }
