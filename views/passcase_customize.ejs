@@ -10,6 +10,7 @@
   <script src="/js/jquery1.js"></script>
   <script src="/js/jquery2.js"></script>
   <script src="/js/swal.js"></script>
+  <script src="/js/smartphone.js"></script>
   <script type="text/javascript">
 
   </script>
@@ -383,6 +384,15 @@
       }
 
     });
+
+    //スマホエラー対応
+    $(".dragimg").on('touchmove', ontouchmove);
+
+    function ontouchmove(e) {
+      if (e.cancelable) {
+        e.preventDefault();
+      }
+    }
 
 
     $(function() {

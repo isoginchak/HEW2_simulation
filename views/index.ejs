@@ -7,9 +7,11 @@
   <link rel="icon" type="image/gif" href="/img/favicon.png">
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/customize.css">
+
   <script src="/js/jquery1.js"></script>
   <script src="/js/jquery2.js"></script>
   <script src="/js/swal.js"></script>
+  <script src="/js/smartphone.js"></script>
 
 
   <script type="text/javascript">
@@ -150,6 +152,8 @@
   </form>
 
   <script type="text/javascript">
+
+
     //タブの処理
     $(function() {
       //tabをクリックしたときの動作
@@ -354,7 +358,7 @@
         var acid = $(this).attr('id');
         for (var i = 0; i < img3.length; i++) {
           if (acid == "aclabel" + [i]) {
-            var text = $('<img src="/img/poach/accessory/acce' + [i] + '.png" class=" clickimg' + click + '" id="accessory' + click + '_img" draggable="true">');
+            var text = $('<img src="/img/poach/accessory/acce' + [i] + '.png" class=" clickimg' + click + ' dragimg" id="accessory' + click + '_img" draggable="true">');
             $('.dragimgarea').append(text);
             //画像の初期位置の指定 dragimgareaに入るように
             $('#accessory' + click + '_img').css('top', '250px');
@@ -372,6 +376,15 @@
       }
 
     });
+
+    //スマホエラー対応
+    $(".dragimg").on('touchmove',ontouchmove);
+
+  function ontouchmove(e){
+    if(e.cancelable){
+      e.preventDefault();
+    }
+  }
 
 
     $(function() {
