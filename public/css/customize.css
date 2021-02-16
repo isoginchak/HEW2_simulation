@@ -6,12 +6,10 @@
 }
 
 body {
-  background-color: #f8f8ff;
+  /* background-color: #f8f8ff; */
   line-height: 1.75;
   font-family: '游ゴシック', 'Yu Gothic', 'メイリオ', 'Meiryo';
 }
-
-
 
 .wrapper {
   width: 960px;
@@ -22,7 +20,6 @@ h1 img {
   width: 150px;
   margin: 20px auto;
 }
-
 
 h1 {
   text-align: center;
@@ -51,11 +48,13 @@ h1 {
 
 .tab li {
   width: 25%;
-  background-color: #DBD3F0;
-  color: #fff;
+  /* background-color: #DBD3F0; */
+  background-color: rgba(0,0,0,0.1);
+  /* color: #fff; */
+   color: #212121;
   text-align: center;
   padding: 15px 0;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .tab li.active {
@@ -83,7 +82,8 @@ h1 {
   height: 440px;
   overflow-y: scroll;
   overflow-x: hidden;
-  scrollbar-color: #b4e3e6 #f2f2f2;
+  /* scrollbar-color: #b4e3e6 #f2f2f2; */
+    scrollbar-color: #747474 #f2f2f2;
   scrollbar-width: thin;
 }
 
@@ -105,7 +105,8 @@ label {
 /*スクロールバーの色・角丸指定*/
 .maintab::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #b4e3e6;
+  /* background: #b4e3e6; */
+    background: #747474;
 }
 
 .inner {
@@ -117,14 +118,26 @@ li {
 }
 
 form {
-  width: 400px;
+  width: 390px;
   flex-wrap: wrap;
   margin: 0;
   display: flex;
+  justify-content: space-around;
 }
 
-.items {
+.items{
   width: 120px;
+}
+
+.nunoitems ,.gouhiitems{
+/* width: 25%; */
+  width: 90px;
+
+  margin: 5px auto;
+}
+
+.nunoitems img,.gouhiitems img{
+width: 100%;
 }
 
 .maintab input:checked+.items img {
@@ -144,7 +157,8 @@ form {
 .customize {
   display: flex;
   height: 510px;
-  border: 2px solid #DBD3F0;
+  /* border: 2px solid #DBD3F0; */
+  border:2px solid #747474;
   background-color: #fff;
 }
 
@@ -154,8 +168,10 @@ form {
   text-align: center;
   position: relative;
   background-color: #fff;
-  border-left: 2px solid #DBD3F0;
-  border-bottom: 2px solid #DBD3F0;
+  /* border-left: 2px solid #DBD3F0;
+  border-bottom: 2px solid #DBD3F0; */
+  border-left: 2px solid #747474;
+  border-bottom: 2px solid #747474;
 }
 
 canvas {
@@ -193,7 +209,7 @@ canvas {
   right: 10px;
   top: 10px;
   border: none;
-  background-color: #424242;
+  background-color: #747474;
   color: #fff;
   font-size: 18px;
   width: 60px;
@@ -230,8 +246,8 @@ canvas {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  width: 60px;
-  height: 80px;
+  width: 45px;
+  height: 65px;
   background-image: url(../img/gomibako.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -289,7 +305,8 @@ input[type="button"], button {
 .dragimgarea {
   width: 556px;
   height: 508px;
-  border-right: 2px solid #DBD3F0;
+  /* border-right: 2px solid #DBD3F0; */
+    border-right: 2px solid #747474;
   /* border: solid 1px #000; */
 }
 
@@ -310,14 +327,14 @@ input[type="button"], button {
   z-index: 40;
   color: #00708b;
   text-shadow:
-       1px  1px 1px #ffffff,
-      -1px  1px 1px #ffffff,
-       1px -1px 1px #ffffff,
-      -1px -1px 1px #ffffff,
-       1px  0px 1px #ffffff,
-       0px  1px 1px #ffffff,
-      -1px  0px 1px #ffffff,
-       0px -1px 1px #ffffff;
+    1px 1px 1px #ffffff,
+    -1px 1px 1px #ffffff,
+    1px -1px 1px #ffffff,
+    -1px -1px 1px #ffffff,
+    1px 0px 1px #ffffff,
+    0px 1px 1px #ffffff,
+    -1px 0px 1px #ffffff,
+    0px -1px 1px #ffffff;
   font-weight: bold;
 }
 
@@ -362,11 +379,11 @@ input[type="button"], button {
   text-align: right;
 }
 
-#bg{
-	position:fixed;
-	left:0;
-	top:0;
-	height:100%;
-	width:100%;
-	/* background:rgba(0, 0, 0, .4); */
+#bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  /* background:rgba(0, 0, 0, .4); */
 }
