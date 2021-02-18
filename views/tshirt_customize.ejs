@@ -6,14 +6,11 @@
   <title>Crea/カスタマイズ画面</title>
   <link rel="icon" type="image/gif" href="/img/crea_favicon.png">
   <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/customize.css">
-
+  <link rel="stylesheet" href="/css/passcase_customize.css">
   <script src="/js/jquery1.js"></script>
   <script src="/js/jquery2.js"></script>
   <script src="/js/swal.js"></script>
   <script src="/js/smartphone.js"></script>
-
-
   <script type="text/javascript">
 
   </script>
@@ -21,42 +18,27 @@
 
 <body>
   <div class="wrapper">
-
     <h1> <a href="#" class="top"><img src="/img/logo/logo.png" alt=""></a></h1>
     <div class="customize">
 
       <div class="tab_box">
 
         <ul class="tab">
-          <li class="active">布</li>
-          <li>合皮</li>
+          <li class="active">革</li>
           <li>チャック</li>
+          <li>プリント</li>
           <li>アクセサリー</li>
         </ul>
 
         <div class="list">
-          <!-- 布 -->
+          <!-- 革 -->
           <div class="inner active">
             <div class="maintab active">
               <form method="post">
                 <script type="text/javascript">
-                  for (var i = 0; i <= 59; i++) {
-                    document.write('<input type="radio" name="nuno" value="nuno' + [i] + '"id="nuno' + [i] + '">');
-                    document.write(' <label for="nuno' + [i] + '" class="nunoitems"><img src="/img/poach/tab_nuno/tabnuno' + [i] + '.png" onclick="imgchange0(' + [i] + ');"></label>');
-                  }
-                </script>
-              </form>
-            </div>
-          </div>
-
-          <!-- 合皮 -->
-          <div class="inner">
-            <div class="maintab active">
-              <form method="post">
-                <script type="text/javascript">
                   for (var i = 0; i <= 23; i++) {
-                    document.write('<input type="radio" name="gouhi" value="gouhi' + [i] + '"id="gouhi' + [i] + '">');
-                    document.write(' <label for="gouhi' + [i] + '" class="gouhiitems"><img src="/img/poach/tab_gouhi/tabnuno' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
+                    document.write('<input type="radio" name="leather" value="leather' + [i] + '"id="leather' + [i] + '">');
+                    document.write(' <label for="leather' + [i] + '" class="kawaitems"><img src="/img/passcase/tab_leather/tabkawa' + [i] + '.png" onclick="imgchange0(' + [i] + ')"></label>');
                   }
                 </script>
               </form>
@@ -68,14 +50,32 @@
             <div class="maintab active">
               <form method="post">
                 <script type="text/javascript">
-                  for (var i = 0; i <= 5; i++) {
+                  for (var i = 0; i <= 11; i++) {
                     document.write('<input type="radio" name="chuck" value="chuck' + [i] + '"id="chuck' + [i] + '">');
-                    document.write(' <label for="chuck' + [i] + '" class="items"><img src="/img/poach/chuck/chuck' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
+                    document.write(' <label for="chuck' + [i] + '" class="items"><img src="/img/passcase/chuck/chuck' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
                   }
                 </script>
               </form>
             </div>
           </div>
+
+          <!-- プリント-->
+          <div class="inner">
+            <div class="maintab active">
+              <form method="post">
+
+                <input type="radio" name="print" value="print0" id="print0" checked>
+                <label for="print0" class="items"><img src="/img/passcase/print/print0.png" onclick="imgchange2(0);"></label>
+                <script type="text/javascript">
+                  for (var i = 1; i <= 9; i++) {
+                    document.write('<input type="radio" name="print" value="print' + [i] + '"id="print' + [i] + '">');
+                    document.write(' <label for="print' + [i] + '" class="items"><img src="/img/passcase/print/print' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
+                  }
+                </script>
+              </form>
+            </div>
+          </div>
+
           <!-- アクセサリー -->
           <div class="inner">
             <div class="maintab active">
@@ -83,7 +83,7 @@
                 <script type="text/javascript">
                   for (var i = 0; i <= 26; i++) {
                     document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
-                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="/img/poach/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
+                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="/img/passcase/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
                   }
                 </script>
               </form>
@@ -111,21 +111,21 @@
             <!-- アクセサリーが追加されてく場所 -->
           </div>
 
-          <canvas id="canvas0" width="500" height="375" class="frontcanvas"></canvas>
-          <canvas id="canvas1" width="500" height="375" class="frontcanvas"></canvas>
-          <canvas id="canvas2" width="500" height="375" class="frontcanvas"></canvas>
-          <canvas id="canvas3" width="500" height="375" class="frontcanvas"></canvas>
-          <canvas id="canvas4" width="450" height="370" class="frontcanvas"></canvas>
-          <canvas id="canvas5" width="500" height="375"></canvas>
-          <canvas id="canvas6" width="500" height="375"></canvas>
-          <canvas id="canvas7" width="600" height="400"></canvas>
-          <canvas id="canvas8" width="600" height="400"></canvas>
+          <canvas id="canvas0" width="500" height="448" class="frontcanvas"></canvas>
+          <canvas id="canvas1" width="500" height="448" class="frontcanvas"></canvas>
+          <canvas id="canvas2" width="500" height="448" class="frontcanvas"></canvas>
+          <canvas id="canvas3" width="500" height="448" class="frontcanvas"></canvas>
+          <canvas id="canvas4" width="350" height="264" class="frontcanvas"></canvas>
+          <canvas id="canvas5" width="500" height="448"></canvas>
+          <canvas id="canvas6" width="500" height="448"></canvas>
 
           <!-- 裏用のcanvas -->
-          <canvas id="sengaback" width="500" height="375" class="backcanvas"></canvas>
-          <canvas id="canvas1back" width="500" height="375" class="backcanvas"></canvas>
-          <canvas id="canvas2back" width="500" height="375" class="backcanvas"></canvas>
-          <canvas id="canvas3back" width="500" height="375" class="backcanvas"></canvas>
+          <canvas id="sengaback" width="500" height="448" class="backcanvas"></canvas>
+          <canvas id="canvas1back" width="500" height="448" class="backcanvas"></canvas>
+          <canvas id="canvas2back" width="500" height="448" class="backcanvas"></canvas>
+          <!-- <canvas id="canvas3back" width="500" height="448" class="backcanvas"></canvas> -->
+
+          <canvas id="sengaback_han" width="500" height="448"></canvas>
 
         </div>
 
@@ -145,12 +145,17 @@
 
   </div>
   <!-- データ送信 -->
-  <form action="/customize/check" method="post" name="result_form">
+  <form action="/customize/pass_case/check" method="post" name="result_form">
     <input type="hidden" id="front_image_data" value="" name="front_image_base64_data">
     <input type="hidden" id="back_image_data" value="" name="back_image_base64_data">
     <input type="hidden" id="accessory_html" value="" name="accessory_html_data">
-    <input type="hidden" id="click" value="" name="click_data">
-    <input type="hidden" name="product_id" value="1">
+
+    <input type="hidden" id="leather_select" value="" name="leather_select">
+    <input type="hidden" id="chuck_select" value="" name="chuck">
+    <input type="hidden" id="print_select" value="" name="chuck">
+
+    <input type="hidden" id="click_count" value="" name="click_count">
+    <input type="hidden" name="product_id" value="2">
   </form>
 
   <script type="text/javascript">
@@ -172,24 +177,26 @@
     var canavas0;
     var context0;
     var senga;
+    var canvas0back;
+    var context0back;
+    var sengaback;
 
 
     window.onload = () => {
       canvas0 = document.getElementById("canvas0");
       context0 = canvas0.getContext("2d");
       senga = new Image();
-      senga.src = "/img/poach/poach_senga.png";
+      senga.src = "/img/tshirt/tshirt_senga.png";
       senga.onload = function() {
-        context0.drawImage(senga, 0, 0, 500, 375);
+        context0.drawImage(senga, 0, 0, 500, 448);
       };
       //裏の線画
-      var canvas0back = document.getElementById("sengaback");
-      var context0back = canvas0back.getContext("2d");
-      var sengaback = new Image();
-      sengaback.src = "/img/poach/poach_senga_back.png";
-
+      canvas0back = document.getElementById("sengaback");
+      context0back = canvas0back.getContext("2d");
+      sengaback = new Image();
+      sengaback.src = "/img/tshirt/tshirt_senga_back.png";
       sengaback.onload = function() {
-        context0back.drawImage(sengaback, 0, 0, 500, 375);
+        context0back.drawImage(sengaback, 0, 0, 500, 448);
       };
 
     };
@@ -200,7 +207,7 @@
       eval("var context" + i + "=canvas" + i + ".getContext('2d')");
     }
     //反転設定
-    for (var i = 1; i <= 3; i++) {
+    for (var i = 1; i <= 2; i++) {
       eval("var canvas" + i + "back=document.getElementById('canvas" + i + "back');");
       eval("var context" + i + "back=canvas" + i + "back.getContext('2d')");
       eval("context" + i + "back.scale(-1, 1);");
@@ -213,24 +220,24 @@
     context6.translate(-canvas6.width, 0);
 
     //布の配列
-    var img0 = new Array(60);
+    var img0 = new Array(24);
     for (var i = 0; i < img0.length; i++) {
       img0[i] = new Image(500, 500);
-      img0[i].src = "/img/poach/nuno/nuno" + i + ".png";
-    }
-
-    //合皮の配列
-    var img1 = new Array(24);
-    for (var i = 0; i < img1.length; i++) {
-      img1[i] = new Image(500, 500);
-      img1[i].src = "/img/poach/gouhi/gouhi" + i + ".png";
+      img0[i].src = "/img/tshirt/nuno/nuno" + i + ".png";
     }
 
     //チャックの配列
-    var img2 = new Array(6);
+    var img1 = new Array(12);
+    for (var i = 0; i < img1.length; i++) {
+      img1[i] = new Image(500, 500);
+      img1[i].src = "/img/passcase/chuck/chuck" + i + ".png";
+    }
+
+    //プリントの配列
+    var img2 = new Array(10);
     for (var i = 0; i < img2.length; i++) {
       img2[i] = new Image(500, 500);
-      img2[i].src = "/img/poach/chuck/chuck" + i + ".png";
+      img2[i].src = "/img/passcase/print/print" + i + ".png";
     }
 
     //アクセサリーの配列
@@ -240,32 +247,30 @@
     var src = [];
     for (var i = 0; i < img3.length; i++) {
       img3[i] = new Image(500, 500);
-      img3[i].src = "/img/poach/accessory/acce" + i + ".png";
+      img3[i].src = "/img/passcase/accessory/acce" + i + ".png";
     }
 
     //布onclick
     function imgchange0(id_value) {
-      context1.clearRect(0, 0, 500, 375);
-      context1.drawImage(img0[id_value], 0, 0, 500, 375);
-      context1back.clearRect(0, 0, 500, 375);
-      context1back.drawImage(img0[id_value], 0, 0, 500, 375);
+      context1.clearRect(0, 0, 500, 448);
+      context1.drawImage(img0[id_value], 0, 0, 500, 448);
+      context1back.clearRect(0, 0, 500, 448);
+      context1back.drawImage(img0[id_value], 0, 0, 500, 448);
     }
 
-    //合皮onclick
+    //1チャックonclick
     function imgchange1(id_value) {
-      context2.clearRect(0, 0, 500, 375);
-      context2.drawImage(img1[id_value], 0, 0, 500, 375);
-      context2back.clearRect(0, 0, 500, 375);
-      context2back.drawImage(img1[id_value], 0, 0, 500, 375);
+      context2.clearRect(0, 0, 500, 448);
+      context2.drawImage(img1[id_value], 0, 0, 500, 448);
+      context2back.clearRect(0, 0, 500, 448);
+      context2back.drawImage(img1[id_value], 0, 0, 500, 448);
 
     }
 
-    //チャックonclick
+    //プリントonclick
     function imgchange2(id_value) {
-      context3.clearRect(0, 0, 500, 375);
-      context3.drawImage(img2[id_value], 0, 0, 500, 375);
-      context3back.clearRect(0, 0, 500, 375);
-      context3back.drawImage(img2[id_value], 0, 0, 500, 375);
+      context3.clearRect(0, 0, 500, 448);
+      context3.drawImage(img2[id_value], 0, 0, 500, 448);
 
     }
 
@@ -280,6 +285,7 @@
         backvalue.value = "オモテ";
         $('.backcanvas').css('visibility', 'visible');
         $('.frontcanvas').css('visibility', 'hidden');
+
         $('.drop_area').css('display', 'none');
         $('.dropareachangebutton').css('display', 'none');
         $('.dragimgarea img').css('display', 'none');
@@ -337,6 +343,8 @@
     });
 
 
+
+
     //ドロップ箇所表示
     var dropareachange = true;
     $('.dropareachangebutton').click(function() {
@@ -358,11 +366,11 @@
         var acid = $(this).attr('id');
         for (var i = 0; i < img3.length; i++) {
           if (acid == "aclabel" + [i]) {
-            var text = $('<img src="/img/poach/accessory/acce' + [i] + '.png" class=" clickimg' + click + ' dragimg" id="accessory' + click + '_img" draggable="true">');
+            var text = $('<img src="/img/passcase/accessory/acce' + [i] + '.png" class=" clickimg' + click + '" id="accessory' + click + '_img" draggable="true">');
             $('.dragimgarea').append(text);
             //画像の初期位置の指定 dragimgareaに入るように
-            $('#accessory' + click + '_img').css('top', '250px');
-            $('#accessory' + click + '_img').css('left', '230px');
+            $('#accessory' + click + '_img').css('top', '180px');
+            $('#accessory' + click + '_img').css('left', '280px');
 
             text.ready(function() {
               $(".clickimg" + click).draggable({
@@ -429,10 +437,19 @@
     const canvasx = canvas4pos.left - canvas5pos.left;
     const canvasy = canvas4pos.top - canvas5pos.top;
 
+    //裏の線画の反転
+    var canvas0back_han = document.getElementById("sengaback_han");
+    var context0back_han = canvas0back_han.getContext("2d");
+    var sengaback_han = new Image();
+    sengaback_han.src = "/img/passcase/passcase_senga_back_han.png";
+    sengaback_han.onload = function() {
+      context0back_han.drawImage(sengaback_han, 0, 0, 500, 448);
+    };
+
     //完成ボタンが押された時の処理
 
     $('.finishbutton').click(function(resolve, reject) {
-      if ($('input[name=nuno]').is(':checked') && $('input[name=gouhi]').is(':checked') && $('input[name=chuck]').is(':checked') && (change)) {
+      if ($('input[name=leather]').is(':checked') && $('input[name=chuck]').is(':checked') && $('input[name=print]').is(':checked') && (change)) {
 
         swal({
           title: 'カスタマイズを終了しますか',
@@ -467,54 +484,69 @@
             acy[i] = acposy[i] - canvas4off.top;
             context4.drawImage(src[i], acx[i], acy[i], 120, (120 / src[i].width) * src[i].height);
           }
+
+
           //canvas結合
           for (var i = 0; i <= 3; i++) {
             eval("var image" + i + "=new Image();");
           }
-          var image4 = new Image(450, 370);
-          var data = new Image(500, 375);
-          var backdata = new Image(500, 375);
+          var image0_back = new Image();
+          var image4 = new Image(350, 264);
+          var data = new Image(500, 448);
+          var backdata = new Image(500, 448);
 
           image1.src = canvas1.toDataURL("image/png");
-            image2.src = canvas2.toDataURL("image/png");
-            image3.src = canvas3.toDataURL("image/png");
-            image0.src = canvas0.toDataURL("image/png");
-            image4.src = canvas4.toDataURL("image/png");
-            image1.onload = () => {
-              context5.drawImage(image1, 0, 0, 500, 375);
-              context6.drawImage(image1, 0, 0, 500, 375);
-            };
-            image2.onload = () => {
-              context5.drawImage(image2, 0, 0, 500, 375);
-              context6.drawImage(image2, 0, 0, 500, 375);
-            };
-            image3.onload = () => {
-              context5.drawImage(image3, 0, 0, 500, 375);
-              context6.drawImage(image3, 0, 0, 500, 375);
-            };
-            image0.onload = () => {
-              context5.drawImage(image0, 0, 0, 500, 375);
-              context6.drawImage(image0, 0, 0, 500, 375);
-            };
-            image4.onload = () => {
-              context5.drawImage(image4, canvasx, canvasy, 450, 370);
-            };
-            $(function() {
-              setTimeout(function() {
-                data = canvas5.toDataURL("image/png");
-                backdata = canvas6.toDataURL("image/png");
-                document.getElementById("front_image_data").value = data;
-                document.getElementById("back_image_data").value = backdata;
-                document.getElementById("accessory_html").value = imghtml;
-                document.getElementById("click").value = click;
-                // document.result_form.submit();
-                //表の画像のbase64
-                console.log(data);
-                //裏の画像のbase64
-                console.log(backdata);
-              }, 1000);
-            });
+          image2.src = canvas2.toDataURL("image/png");
+          image3.src = canvas3.toDataURL("image/png");
+          image0.src = canvas0.toDataURL("image/png");
+          image0_back.src = canvas0back_han.toDataURL("image/png");
+          image4.src = canvas4.toDataURL("image/png");
 
+          image1.onload = () => {
+            context5.drawImage(image1, 0, 0, 500, 448);
+            context6.drawImage(image1, 0, 0, 500, 448);
+          };
+          image2.onload = () => {
+            context5.drawImage(image2, 0, 0, 500, 448);
+            context6.drawImage(image2, 0, 0, 500, 448);
+          };
+          image3.onload = () => {
+            context5.drawImage(image3, 0, 0, 500, 448);
+
+          };
+          image0.onload = () => {
+            context5.drawImage(image0, 0, 0, 500, 448);
+          };
+          image0_back.onload = () => {
+            context6.drawImage(image0_back, 0, 0, 500, 448);
+          };
+
+          image4.onload = () => {
+            context5.drawImage(image4, canvasx, canvasy, 350, 264);
+          };
+
+          $(function() {
+            setTimeout(function() {
+              data = canvas5.toDataURL("image/png");
+              backdata = canvas6.toDataURL("image/png");
+              document.getElementById("front_image_data").value = data;
+              document.getElementById("back_image_data").value = backdata;
+              document.getElementById("accessory_html").value = imghtml;
+              document.getElementById("click_count").value = click;
+              //
+              document.getElementById("leather_select").value = document.forms[0].elements.leather.value
+              document.getElementById("chuck_select").value = document.forms[1].elements.chuck.value
+              // プリント実装時にコメント会うとを外す
+
+              // document.getElementById("print_select").value = document.forms[2].elements.print.value
+
+              //表の画像のbase64
+              console.log(data);
+              //裏の画像のbase64
+              console.log(backdata);
+              // document.result_form.submit();
+            }, 1000);
+          });
 
 
           //書き込まない
