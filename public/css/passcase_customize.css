@@ -6,13 +6,12 @@
 }
 
 body {
-  background-color: #f8f8ff;
   line-height: 1.75;
   font-family: '游ゴシック', 'Yu Gothic', 'メイリオ', 'Meiryo';
 }
 
 .wrapper {
-  width: 960px;
+  width: 1100px;
   margin: 0 auto;
 }
 
@@ -37,6 +36,9 @@ h1 {
   width: 100%;
   display: flex;
   height: 60px;
+  z-index: 30;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  border-bottom: solid 1px #747474;
 }
 
 .list {
@@ -48,15 +50,17 @@ h1 {
 
 .tab li {
   width: 25%;
-  background-color: #DBD3F0;
-  color: #fff;
+  /* background-color: #DBD3F0; */
+  background-color: rgba(0, 0, 0, 0.1);
+  /* color: #fff; */
+  color: #212121;
   text-align: center;
-  padding: 15px 0;
-  font-weight: bold;
+  line-height: 60px;
+  font-weight: 500;
 }
 
 .tab li.active {
-  background-color: #94d6da;
+  background-color:#212121;
   color: #fff;
 }
 
@@ -80,7 +84,7 @@ h1 {
   height: 440px;
   overflow-y: scroll;
   overflow-x: hidden;
-  scrollbar-color: #b4e3e6 #f2f2f2;
+  scrollbar-color: #212121 #f2f2f2;
   scrollbar-width: thin;
 }
 
@@ -102,7 +106,8 @@ label {
 /*スクロールバーの色・角丸指定*/
 .maintab::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #b4e3e6;
+  /* background: #b4e3e6; */
+  background: #747474;
 }
 
 .inner {
@@ -118,21 +123,30 @@ form {
   flex-wrap: wrap;
   margin: 0;
   display: flex;
-  /* justify-content: space-around; */
+  justify-content: space-around;
 }
 
 .items {
   width: 120px;
-  margin: 5px 3px;
+  margin: 5px auto;
 }
-.kawaitems{
+
+.kawaitems, .gouhiitems {
   width: 90px;
   margin: 5px auto;
 }
 
+.nunoitems img, .gouhiitems img {
+  width: 100%;
+}
+
+.maintab input:checked+.kawaitems img,
+.maintab input:checked+.gouhiitems img,
 .maintab input:checked+.items img {
-  background-color: #e9e9e9;
+  /* background-color: #e9e9e9; */
   color: #fff;
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
 /* イメージ画像 */
@@ -141,13 +155,14 @@ form {
   height: 500px;
   padding: 0;
   margin: 0;
-  /* border-right: 2px solid #DBD3F0; */
 }
 
 .customize {
   display: flex;
+  width: 960px;
+  margin: 0 auto;
   height: 510px;
-  border: 2px solid #DBD3F0;
+  border: 2px solid #747474;
   background-color: #fff;
 }
 
@@ -157,8 +172,10 @@ form {
   text-align: center;
   position: relative;
   background-color: #fff;
-  border-left: 2px solid #DBD3F0;
-  border-bottom: 2px solid #DBD3F0;
+  /* border-left: 2px solid #DBD3F0;
+  border-bottom: 2px solid #DBD3F0; */
+  border-left: 2px solid #747474;
+  border-bottom: 2px solid #747474;
 }
 
 canvas {
@@ -196,7 +213,7 @@ canvas {
   right: 10px;
   top: 10px;
   border: none;
-  background-color: #424242;
+  background-color: #212121;
   color: #fff;
   font-size: 18px;
   width: 60px;
@@ -240,10 +257,6 @@ canvas {
   background-repeat: no-repeat;
 }
 
-.tab {
-  z-index: 30;
-}
-
 .drag_img img {
   position: absolute;
   display: none;
@@ -253,8 +266,8 @@ canvas {
 #canvas4 {
   /* border:solid 1px #000; */
   position: absolute;
-  top: 260px;
-  left: 349px;
+  top: 257px;
+  left: 295px;
 }
 
 input[type="button"], button {
@@ -274,6 +287,7 @@ input[type="button"], button {
   font-size: 14px;
   color: #727272;
 }
+
 
 /* 統一する */
 #canvas4, .drop_area {
@@ -295,7 +309,7 @@ input[type="button"], button {
 .dragimgarea {
   width: 556px;
   height: 508px;
-  border-right: 2px solid #DBD3F0;
+  border-right: 2px solid #747474;
   /* border: solid 1px #000; */
 }
 

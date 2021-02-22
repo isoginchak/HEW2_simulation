@@ -6,7 +6,7 @@
   <title>Crea/カスタマイズ画面</title>
   <link rel="icon" type="image/gif" href="/img/crea_favicon.png">
   <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/passcase_customize.css">
+  <link rel="stylesheet" href="/css/tshirt_customize.css">
   <script src="/js/jquery1.js"></script>
   <script src="/js/jquery2.js"></script>
   <script src="/js/swal.js"></script>
@@ -31,14 +31,14 @@
         </ul>
 
         <div class="list">
-          <!-- 革 -->
+          <!-- 布 -->
           <div class="inner active">
             <div class="maintab active">
               <form method="post">
                 <script type="text/javascript">
                   for (var i = 0; i <= 23; i++) {
                     document.write('<input type="radio" name="leather" value="leather' + [i] + '"id="leather' + [i] + '">');
-                    document.write(' <label for="leather' + [i] + '" class="kawaitems"><img src="/img/passcase/tab_leather/tabkawa' + [i] + '.png" onclick="imgchange0(' + [i] + ')"></label>');
+                    document.write(' <label for="leather' + [i] + '" class="nunoitems"><img src="/img/passcase/tab_leather/tabkawa' + [i] + '.png" onclick="imgchange0(' + [i] + ')"></label>');
                   }
                 </script>
               </form>
@@ -50,9 +50,9 @@
             <div class="maintab active">
               <form method="post">
                 <script type="text/javascript">
-                  for (var i = 0; i <= 11; i++) {
+                  for (var i = 0; i <= 17; i++) {
                     document.write('<input type="radio" name="chuck" value="chuck' + [i] + '"id="chuck' + [i] + '">');
-                    document.write(' <label for="chuck' + [i] + '" class="items"><img src="/img/passcase/chuck/chuck' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
+                    document.write(' <label for="chuck' + [i] + '" class="items"><img src="/img/tshirt/tab_text/text' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
                   }
                 </script>
               </form>
@@ -83,7 +83,7 @@
                 <script type="text/javascript">
                   for (var i = 0; i <= 26; i++) {
                     document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
-                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="/img/passcase/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
+                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="/img/tshirt/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
                   }
                 </script>
               </form>
@@ -336,7 +336,7 @@
           return
         }
         // topページのhrefいれてほしい
-        $(location).attr("href", "#")
+        $(location).attr("href", "/")
 
 
       })
@@ -366,7 +366,7 @@
         var acid = $(this).attr('id');
         for (var i = 0; i < img3.length; i++) {
           if (acid == "aclabel" + [i]) {
-            var text = $('<img src="/img/passcase/accessory/acce' + [i] + '.png" class=" clickimg' + click + '" id="accessory' + click + '_img" draggable="true">');
+            var text = $('<img src="/img/tshirt/accessory/acce' + [i] + '.png" class=" clickimg' + click + '" id="accessory' + click + '_img" draggable="true">');
             $('.dragimgarea').append(text);
             //画像の初期位置の指定 dragimgareaに入るように
             $('#accessory' + click + '_img').css('top', '180px');

@@ -155,7 +155,7 @@ form {
   height: 500px;
   padding: 0;
   margin: 0;
-  /* border-right: 2px solid #DBD3F0; */
+
 }
 
 .customize {
@@ -307,7 +307,6 @@ input[type="button"], button {
 .dragimgarea {
   width: 556px;
   height: 508px;
-  /* border-right: 2px solid #DBD3F0; */
   border-right: 2px solid #747474;
   /* border: solid 1px #000; */
 }

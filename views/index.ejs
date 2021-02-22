@@ -15,7 +15,6 @@
 
 
   <script type="text/javascript">
-
   </script>
 </head>
 
@@ -76,6 +75,7 @@
               </form>
             </div>
           </div>
+
           <!-- アクセサリー -->
           <div class="inner">
             <div class="maintab active">
@@ -118,8 +118,6 @@
           <canvas id="canvas4" width="450" height="370" class="frontcanvas"></canvas>
           <canvas id="canvas5" width="500" height="375"></canvas>
           <canvas id="canvas6" width="500" height="375"></canvas>
-          <canvas id="canvas7" width="600" height="400"></canvas>
-          <canvas id="canvas8" width="600" height="400"></canvas>
 
           <!-- 裏用のcanvas -->
           <canvas id="sengaback" width="500" height="375" class="backcanvas"></canvas>
@@ -160,10 +158,8 @@
       $('.tab li').click(function() {
         //クリックしたタブのindexを取得
         var index = $('.tab li').index(this);
-
         $('.list .inner').hide().removeClass('active');
         $('.list .inner').eq(index).fadeIn().addClass('active');
-
         $('.tab li').removeClass('active');
         $(this).addClass('active');
       });
@@ -172,8 +168,6 @@
     var canavas0;
     var context0;
     var senga;
-
-
     window.onload = () => {
       canvas0 = document.getElementById("canvas0");
       context0 = canvas0.getContext("2d");
@@ -187,13 +181,10 @@
       var context0back = canvas0back.getContext("2d");
       var sengaback = new Image();
       sengaback.src = "/img/poach/poach_senga_back.png";
-
       sengaback.onload = function() {
         context0back.drawImage(sengaback, 0, 0, 500, 375);
       };
-
     };
-
     //canvas1から読み込む
     for (var i = 1; i <= 6; i++) {
       eval("var canvas" + i + "=document.getElementById('canvas" + i + "');");
@@ -206,33 +197,27 @@
       eval("context" + i + "back.scale(-1, 1);");
       eval("context" + i + "back.translate(-canvas" + i + "back.width, 0);");
     }
-
-
     //canvas設定
     context6.scale(-1, 1);
     context6.translate(-canvas6.width, 0);
-
     //布の配列
     var img0 = new Array(60);
     for (var i = 0; i < img0.length; i++) {
       img0[i] = new Image(500, 500);
       img0[i].src = "/img/poach/nuno/nuno" + i + ".png";
     }
-
     //合皮の配列
     var img1 = new Array(24);
     for (var i = 0; i < img1.length; i++) {
       img1[i] = new Image(500, 500);
       img1[i].src = "/img/poach/gouhi/gouhi" + i + ".png";
     }
-
     //チャックの配列
     var img2 = new Array(6);
     for (var i = 0; i < img2.length; i++) {
       img2[i] = new Image(500, 500);
       img2[i].src = "/img/poach/chuck/chuck" + i + ".png";
     }
-
     //アクセサリーの配列
     var img3 = new Array(27);
     var acposx = [];
@@ -242,7 +227,6 @@
       img3[i] = new Image(500, 500);
       img3[i].src = "/img/poach/accessory/acce" + i + ".png";
     }
-
     //布onclick
     function imgchange0(id_value) {
       context1.clearRect(0, 0, 500, 375);
@@ -250,26 +234,20 @@
       context1back.clearRect(0, 0, 500, 375);
       context1back.drawImage(img0[id_value], 0, 0, 500, 375);
     }
-
     //合皮onclick
     function imgchange1(id_value) {
       context2.clearRect(0, 0, 500, 375);
       context2.drawImage(img1[id_value], 0, 0, 500, 375);
       context2back.clearRect(0, 0, 500, 375);
       context2back.drawImage(img1[id_value], 0, 0, 500, 375);
-
     }
-
     //チャックonclick
     function imgchange2(id_value) {
       context3.clearRect(0, 0, 500, 375);
       context3.drawImage(img2[id_value], 0, 0, 500, 375);
       context3back.clearRect(0, 0, 500, 375);
       context3back.drawImage(img2[id_value], 0, 0, 500, 375);
-
     }
-
-
     //裏表表示
     var change = true;
 
@@ -283,7 +261,6 @@
         $('.drop_area').css('display', 'none');
         $('.dropareachangebutton').css('display', 'none');
         $('.dragimgarea img').css('display', 'none');
-
       } else {
         //オモテの画像が表示される
         backvalue.value = "ウラ";
@@ -294,9 +271,7 @@
         $('.dragimgarea img').css('display', 'inline');
       }
       change = !change;
-
     }
-
     // モーダルウィンドウ
     $(function() {
       $(".helpbutton").click(function() {
@@ -304,7 +279,6 @@
         $("body").append('<div id="bg">');
         // #bgと#photoをフェードイン
         $(".modal").fadeIn();
-
         // 背景をクリック
         $("#bg,.modal").click(function() {
           // 背景（自分自身）をフェードアウト、完了したら削除
@@ -315,28 +289,21 @@
         });
         return false;
       });
-
     });
-
     //ロゴが押された時の処理
     $('.top').on('click', function() {
       swal({
         title: 'カスタマイズを終了しますか',
         text: 'カスタマイズは保存されません',
         buttons: ["続ける", "TOPページへ戻る"],
-
       }).then(function(result) {
         if (!result) {
           return
         }
         // topページのhrefいれてほしい
-        $(location).attr("href", "#")
-
-
+        $(location).attr("href", "/")
       })
     });
-
-
     //ドロップ箇所表示
     var dropareachange = true;
     $('.dropareachangebutton').click(function() {
@@ -349,7 +316,6 @@
       }
       dropareachange = !dropareachange;
     })
-
     //クリックされたらdragimgarea画像表示
     var click = 0;
     $('.aclabel').on('click', function() {
@@ -363,7 +329,6 @@
             //画像の初期位置の指定 dragimgareaに入るように
             $('#accessory' + click + '_img').css('top', '250px');
             $('#accessory' + click + '_img').css('left', '230px');
-
             text.ready(function() {
               $(".clickimg" + click).draggable({
                 containment: '.dragimgarea',
@@ -374,9 +339,7 @@
           }
         }
       }
-
     });
-
     //スマホエラー対応
     $(".dragimg").on('touchmove', ontouchmove);
 
@@ -385,14 +348,11 @@
         e.preventDefault();
       }
     }
-
-
     $(function() {
       $('.drop_area').droppable({
         tolerance: 'fit',
       })
     });
-
     //ゴミ箱に入ったら要素を消す
     var gomibakodrop;
     $(function() {
@@ -406,7 +366,6 @@
         },
         drop: function(ev, ui) {
           $('.gomibako').css('background-image', 'url(/img/gomibako.png)');
-
           gomibakodrop = $(ui.draggable).attr("id");
           for (var i = 1; i <= click; i++) {
             if (gomibakodrop == "accessory" + [i] + "_img") {
@@ -416,45 +375,35 @@
         }
       });
     });
-
     //位置取得
     //canvas5
     const canvas5pos = $('#canvas5').position();
-
     //canvas4
     const canvas4pos = $('#canvas4').position();
     var canvas4off = $('#canvas4').position();
-
     //どのくらい離れているか
     const canvasx = canvas4pos.left - canvas5pos.left;
     const canvasy = canvas4pos.top - canvas5pos.top;
-
     //完成ボタンが押された時の処理
-
     $('.finishbutton').click(function(resolve, reject) {
       if ($('input[name=nuno]').is(':checked') && $('input[name=gouhi]').is(':checked') && $('input[name=chuck]').is(':checked') && (change)) {
-
         swal({
           title: 'カスタマイズを終了しますか',
           text: '購入画面に移ります',
           buttons: ["戻る", "完了する"],
-
         }).then(function(result) {
           if (!result) {
             return
           }
-
           //html保存
           var imghtml;
           $(function() {
             imghtml = $(".dragimgarea").html();
             console.log(imghtml)
           });
-
           //canvas4にアクセサリーを描画
           var acx = [];
           var acy = [];
-
           //dragimgareaに何個画像があるか数える
           var length = $('.dragimgarea img').length;
           for (var i = 0; i < length; i++) {
@@ -474,58 +423,52 @@
           var image4 = new Image(450, 370);
           var data = new Image(500, 375);
           var backdata = new Image(500, 375);
-
           image1.src = canvas1.toDataURL("image/png");
-            image2.src = canvas2.toDataURL("image/png");
-            image3.src = canvas3.toDataURL("image/png");
-            image0.src = canvas0.toDataURL("image/png");
-            image4.src = canvas4.toDataURL("image/png");
-            image1.onload = () => {
-              context5.drawImage(image1, 0, 0, 500, 375);
-              context6.drawImage(image1, 0, 0, 500, 375);
-            };
-            image2.onload = () => {
-              context5.drawImage(image2, 0, 0, 500, 375);
-              context6.drawImage(image2, 0, 0, 500, 375);
-            };
-            image3.onload = () => {
-              context5.drawImage(image3, 0, 0, 500, 375);
-              context6.drawImage(image3, 0, 0, 500, 375);
-            };
-            image0.onload = () => {
-              context5.drawImage(image0, 0, 0, 500, 375);
-              context6.drawImage(image0, 0, 0, 500, 375);
-            };
-            image4.onload = () => {
-              context5.drawImage(image4, canvasx, canvasy, 450, 370);
-            };
-            $(function() {
-              setTimeout(function() {
-                data = canvas5.toDataURL("image/png");
-                backdata = canvas6.toDataURL("image/png");
-                document.getElementById("front_image_data").value = data;
-                document.getElementById("back_image_data").value = backdata;
-                document.getElementById("accessory_html").value = imghtml;
-                document.getElementById("click").value = click;
-                // document.result_form.submit();
-                //表の画像のbase64
-                console.log(data);
-                //裏の画像のbase64
-                console.log(backdata);
-              }, 1000);
-            });
-
-
-
+          image2.src = canvas2.toDataURL("image/png");
+          image3.src = canvas3.toDataURL("image/png");
+          image0.src = canvas0.toDataURL("image/png");
+          image4.src = canvas4.toDataURL("image/png");
+          image1.onload = () => {
+            context5.drawImage(image1, 0, 0, 500, 375);
+            context6.drawImage(image1, 0, 0, 500, 375);
+          };
+          image2.onload = () => {
+            context5.drawImage(image2, 0, 0, 500, 375);
+            context6.drawImage(image2, 0, 0, 500, 375);
+          };
+          image3.onload = () => {
+            context5.drawImage(image3, 0, 0, 500, 375);
+            context6.drawImage(image3, 0, 0, 500, 375);
+          };
+          image0.onload = () => {
+            context5.drawImage(image0, 0, 0, 500, 375);
+            context6.drawImage(image0, 0, 0, 500, 375);
+          };
+          image4.onload = () => {
+            context5.drawImage(image4, canvasx, canvasy, 450, 370);
+          };
+          $(function() {
+            setTimeout(function() {
+              data = canvas5.toDataURL("image/png");
+              backdata = canvas6.toDataURL("image/png");
+              document.getElementById("front_image_data").value = data;
+              document.getElementById("back_image_data").value = backdata;
+              document.getElementById("accessory_html").value = imghtml;
+              document.getElementById("click").value = click;
+              // document.result_form.submit();
+              //表の画像のbase64
+              console.log(data);
+              //裏の画像のbase64
+              console.log(backdata);
+            }, 1000);
+          });
           //書き込まない
         })
-
       } else if (!change) {
         swal('ERROR', 'オモテにしてください', 'error');
       } else {
         swal('ERROR', 'すべてチェックしてください', 'error');
       }
-
     });
   </script>
 
