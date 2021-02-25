@@ -11,7 +11,9 @@
   <script src="/js/jquery2.js"></script>
   <script src="/js/swal.js"></script>
   <script src="/js/smartphone.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <script type="text/javascript">
+
 
   </script>
 </head>
@@ -24,10 +26,10 @@
       <div class="tab_box">
 
         <ul class="tab">
-          <li class="active">革</li>
-          <li>チャック</li>
-          <li>プリント</li>
-          <li>アクセサリー</li>
+          <li class="active"><img src="/img/passcase/tab/pass.png" alt=""></li>
+          <li><img src="/img/passcase/tab/chuck.png" alt=""></li>
+          <li><img src="/img/passcase/tab/print.png" alt=""></li>
+          <li><img src="/img/passcase/tab/ac.png" alt=""></li>
         </ul>
 
         <div class="list">
@@ -36,7 +38,7 @@
             <div class="maintab active">
               <form method="post">
                 <script type="text/javascript">
-                  for (var i = 0; i <= 23; i++) {
+                  for (var i = 0; i <= 32; i++) {
                     document.write('<input type="radio" name="leather" value="leather' + [i] + '"id="leather' + [i] + '">');
                     document.write(' <label for="leather' + [i] + '" class="kawaitems"><img src="/img/passcase/tab_leather/tabkawa' + [i] + '.png" onclick="imgchange0(' + [i] + ')"></label>');
                   }
@@ -65,11 +67,11 @@
               <form method="post">
 
                 <input type="radio" name="print" value="print0" id="print0" checked>
-                <label for="print0" class="items"><img src="/img/passcase/print/print0.png" onclick="imgchange2(0);"></label>
+                <label for="print0" class="printitems"><img src="/img/passcase/tab_print/tabprint0.png" onclick="imgchange2(0);"></label>
                 <script type="text/javascript">
-                  for (var i = 1; i <= 9; i++) {
+                  for (var i = 1; i <= 15; i++) {
                     document.write('<input type="radio" name="print" value="print' + [i] + '"id="print' + [i] + '">');
-                    document.write(' <label for="print' + [i] + '" class="items"><img src="/img/passcase/print/print' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
+                    document.write(' <label for="print' + [i] + '" class="printitems"><img src="/img/passcase/tab_print/tabprint' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
                   }
                 </script>
               </form>
@@ -97,10 +99,10 @@
 
       <div class="finishimage">
         <div class="canvas">
-          <input type="button" name="button" class="backbutton" onclick="buckchange();" id="backbutton" value="ウラ">
-          <button type="button" name="button" class="finishbutton" id="finishbutton">完成!</button>
-          <button type="button" name="button" class="helpbutton">?</button>
-          <button type="button" name="button" class="dropareachangebutton">ドロップエリア<br>表示</button>
+
+          <div class="finishbutton" id="finishbutton"><i class="fas fa-check-circle fa-2x hbig black"></i></div>
+          <div class="helpbutton"><i class="far fa-question-circle fa-2x hbig black"></i></div>
+          <div class="backbutton" onclick="buckchange();" id="backbutton"><i class="fas fa-sync-alt fa-2x hbig black"></i></div>
           <div class="gomibako">
           </div>
           <div class="drop_area">
@@ -110,7 +112,6 @@
           <div class="dragimgarea">
             <!-- アクセサリーが追加されてく場所 -->
           </div>
-
           <canvas id="canvas0" width="500" height="291" class="frontcanvas"></canvas>
           <canvas id="canvas1" width="500" height="291" class="frontcanvas"></canvas>
           <canvas id="canvas2" width="500" height="291" class="frontcanvas"></canvas>
@@ -137,8 +138,11 @@
         <p class="exp3">③完成イメージ</p>
         <p class="exp4">④完成ボタン→</p>
         <p class="exp5">裏表表示ボタン<br>↓</p>
-        <p class="exp6">←ドラッグ可能エリア表示ボタン</p>
         <p class="exp7">いらないアクセサリーを<br>捨てられます<br>↓</p>
+        <div class="droparea">
+          <p>ドロップ可能範囲</p>
+        </div>
+
       </div>
 
     </div>
@@ -220,7 +224,7 @@
     context6.translate(-canvas6.width, 0);
 
     //革の配列
-    var img0 = new Array(24);
+    var img0 = new Array(33);
     for (var i = 0; i < img0.length; i++) {
       img0[i] = new Image(500, 500);
       img0[i].src = "/img/passcase/leather/kawa" + i + ".png";
@@ -234,7 +238,7 @@
     }
 
     //プリントの配列
-    var img2 = new Array(10);
+    var img2 = new Array(16);
     for (var i = 0; i < img2.length; i++) {
       img2[i] = new Image(500, 500);
       img2[i].src = "/img/passcase/print/print" + i + ".png";
@@ -285,8 +289,6 @@
         backvalue.value = "オモテ";
         $('.backcanvas').css('visibility', 'visible');
         $('.frontcanvas').css('visibility', 'hidden');
-
-        $('.drop_area').css('display', 'none');
         $('.dropareachangebutton').css('display', 'none');
         $('.dragimgarea img').css('display', 'none');
 
@@ -295,7 +297,6 @@
         backvalue.value = "ウラ";
         $('.backcanvas').css('visibility', 'hidden');
         $('.frontcanvas').css('visibility', 'visible');
-        $('.drop_area').css('display', 'inline');
         $('.dropareachangebutton').css('display', 'inline');
         $('.dragimgarea img').css('display', 'inline');
       }
@@ -342,21 +343,6 @@
       })
     });
 
-
-
-
-    //ドロップ箇所表示
-    var dropareachange = true;
-    $('.dropareachangebutton').click(function() {
-      if (dropareachange) {
-        $('.drop_area').css('visibility', 'visible');
-        $('.dropareachangebutton').html("ドロップエリア<br>非表示");
-      } else {
-        $('.drop_area').css('visibility', 'hidden');
-        $('.dropareachangebutton').html("ドロップエリア<br>表示");
-      }
-      dropareachange = !dropareachange;
-    })
 
     //クリックされたらdragimgarea画像表示
     var click = 0;

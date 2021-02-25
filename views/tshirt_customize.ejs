@@ -11,6 +11,7 @@
   <script src="/js/jquery2.js"></script>
   <script src="/js/swal.js"></script>
   <script src="/js/smartphone.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <script type="text/javascript">
 
   </script>
@@ -24,12 +25,11 @@
       <div class="tab_box">
 
         <ul class="tab">
-          <li class="active">革</li>
-          <li>チャック</li>
-          <li>プリント</li>
-          <li>アクセサリー</li>
+          <li class="active"><img src="/img/tshirt/tab/nuno.png" alt=""></li>
+          <li><img src="/img/poach/tab/gouhi.png" alt=""></li>
+          <li><img src="/img/poach/tab/chuck.png" alt=""></li>
+          <li><img src="/img/poach/tab/ac.png" alt=""></li>
         </ul>
-
         <div class="list">
           <!-- 布 -->
           <div class="inner active">
@@ -97,10 +97,9 @@
 
       <div class="finishimage">
         <div class="canvas">
-          <input type="button" name="button" class="backbutton" onclick="buckchange();" id="backbutton" value="ウラ">
-          <button type="button" name="button" class="finishbutton" id="finishbutton">完成!</button>
-          <button type="button" name="button" class="helpbutton">?</button>
-          <button type="button" name="button" class="dropareachangebutton">ドロップエリア<br>表示</button>
+          <div class="finishbutton" id="finishbutton"><i class="fas fa-check-circle fa-2x hbig black"></i></div>
+          <div class="helpbutton"><i class="far fa-question-circle fa-2x hbig black"></i></div>
+          <div class="backbutton" onclick="buckchange();" id="backbutton"><i class="fas fa-sync-alt fa-2x hbig black"></i></div>
           <div class="gomibako">
           </div>
           <div class="drop_area">
@@ -115,7 +114,7 @@
           <canvas id="canvas1" width="500" height="448" class="frontcanvas"></canvas>
           <canvas id="canvas2" width="500" height="448" class="frontcanvas"></canvas>
           <canvas id="canvas3" width="500" height="448" class="frontcanvas"></canvas>
-          <canvas id="canvas4" width="350" height="264" class="frontcanvas"></canvas>
+          <canvas id="canvas4" width="280" height="400" class="frontcanvas"></canvas>
           <canvas id="canvas5" width="500" height="448"></canvas>
           <canvas id="canvas6" width="500" height="448"></canvas>
 
@@ -137,8 +136,11 @@
         <p class="exp3">③完成イメージ</p>
         <p class="exp4">④完成ボタン→</p>
         <p class="exp5">裏表表示ボタン<br>↓</p>
-        <p class="exp6">←ドラッグ可能エリア表示ボタン</p>
         <p class="exp7">いらないアクセサリーを<br>捨てられます<br>↓</p>
+        <div class="droparea">
+          <p>ドロップ可能範囲</p>
+        </div>
+
       </div>
 
     </div>
@@ -285,8 +287,6 @@
         backvalue.value = "オモテ";
         $('.backcanvas').css('visibility', 'visible');
         $('.frontcanvas').css('visibility', 'hidden');
-
-        $('.drop_area').css('display', 'none');
         $('.dropareachangebutton').css('display', 'none');
         $('.dragimgarea img').css('display', 'none');
 
@@ -295,7 +295,6 @@
         backvalue.value = "ウラ";
         $('.backcanvas').css('visibility', 'hidden');
         $('.frontcanvas').css('visibility', 'visible');
-        $('.drop_area').css('display', 'inline');
         $('.dropareachangebutton').css('display', 'inline');
         $('.dragimgarea img').css('display', 'inline');
       }
@@ -342,21 +341,6 @@
       })
     });
 
-
-
-
-    //ドロップ箇所表示
-    var dropareachange = true;
-    $('.dropareachangebutton').click(function() {
-      if (dropareachange) {
-        $('.drop_area').css('visibility', 'visible');
-        $('.dropareachangebutton').html("ドロップエリア<br>非表示");
-      } else {
-        $('.drop_area').css('visibility', 'hidden');
-        $('.dropareachangebutton').html("ドロップエリア<br>表示");
-      }
-      dropareachange = !dropareachange;
-    })
 
     //クリックされたらdragimgarea画像表示
     var click = 0;
@@ -441,7 +425,7 @@
     var canvas0back_han = document.getElementById("sengaback_han");
     var context0back_han = canvas0back_han.getContext("2d");
     var sengaback_han = new Image();
-    sengaback_han.src = "/img/passcase/passcase_senga_back_han.png";
+    sengaback_han.src = "/img/tshirt/tshirt_senga_back_han.png";
     sengaback_han.onload = function() {
       context0back_han.drawImage(sengaback_han, 0, 0, 500, 448);
     };
@@ -491,7 +475,7 @@
             eval("var image" + i + "=new Image();");
           }
           var image0_back = new Image();
-          var image4 = new Image(350, 264);
+          var image4 = new Image(280, 400);
           var data = new Image(500, 448);
           var backdata = new Image(500, 448);
 
@@ -522,7 +506,7 @@
           };
 
           image4.onload = () => {
-            context5.drawImage(image4, canvasx, canvasy, 350, 264);
+            context5.drawImage(image4, canvasx, canvasy, 280, 400);
           };
 
           $(function() {
