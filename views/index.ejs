@@ -68,9 +68,9 @@
             <div class="maintab active">
               <form method="post">
                 <script type="text/javascript">
-                  for (var i = 0; i <= 5; i++) {
+                  for (var i = 0; i <= 7; i++) {
                     document.write('<input type="radio" name="chuck" value="chuck' + [i] + '"id="chuck' + [i] + '">');
-                    document.write(' <label for="chuck' + [i] + '" class="items"><img src="/img/poach/chuck/chuck' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
+                    document.write(' <label for="chuck' + [i] + '" class="chuckitems"><img src="/img/poach/tab_chuck/pochuck' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
                   }
                 </script>
               </form>
@@ -216,7 +216,7 @@
       img1[i].src = "/img/poach/gouhi/gouhi" + i + ".png";
     }
     //チャックの配列
-    var img2 = new Array(6);
+    var img2 = new Array(8);
     for (var i = 0; i < img2.length; i++) {
       img2[i] = new Image(500, 500);
       img2[i].src = "/img/poach/chuck/chuck" + i + ".png";

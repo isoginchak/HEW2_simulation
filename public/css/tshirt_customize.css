@@ -145,19 +145,18 @@ form {
   margin: 5px auto;
 }
 
-.nunoitems, .gouhiitems {
+.nunoitems, .garaitems {
   width: 90px;
   margin: 5px auto;
 }
 
-.nunoitems img, .gouhiitems img {
+.nunoitems img, .garaitems img {
   width: 100%;
 }
 
 .maintab input:checked+.nunoitems img,
-.maintab input:checked+.gouhiitems img,
+.maintab input:checked+.garaitems img,
 .maintab input:checked+.items img {
-  /* background-color: #e9e9e9; */
   color: #fff;
   /* ここはいる */
   -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
