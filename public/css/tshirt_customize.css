@@ -345,12 +345,13 @@ input[type="button"], button {
 }
 
 .exp1 {
-  top: 0px;
+  top: 10px;
   left: 90px;
 }
 
 .exp2 {
   top: 230px;
+  left:10px;
 }
 
 .exp3 {
@@ -360,7 +361,7 @@ input[type="button"], button {
 
 .exp4 {
   top: 15px;
-  right: 90px;
+  right: 55px;
 }
 
 .exp5 {
@@ -376,8 +377,8 @@ input[type="button"], button {
 }
 
 .exp7 {
-  bottom: 70px;
-  right: 20px;
+  bottom: 5px;
+  right: 65px;
   text-align: right;
 }
 
