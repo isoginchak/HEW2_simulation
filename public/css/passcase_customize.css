@@ -133,23 +133,18 @@ form {
   justify-content: space-around;
 }
 
-.items {
-  width: 120px;
-  margin: 5px auto;
-}
 
-.kawaitems, .printitems,.chuckitems {
+
+.items{
   width: 90px;
   margin: 5px auto;
 }
 
-.kawaitems img, .items img ,.chuckitems img{
+.items img{
   width: 100%;
 }
 
-.maintab input:checked+.kawaitems img,
-.maintab input:checked+.printitems img,
-.maintab input:checked+.chuckitems img,
+
 .maintab input:checked+.items img {
   color: #fff;
   /* ここはいる */

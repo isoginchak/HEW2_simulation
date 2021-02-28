@@ -57,24 +57,23 @@ h1 {
   line-height: 60px;
   font-weight: 500;
   position: relative;
-/* background: rgba(0, 0, 0, 0.5); */
+  /* background: rgba(0, 0, 0, 0.5); */
 }
 
-.tab li img{
+.tab li img {
   /* height: 70%; */
   height: 40px;
   position: absolute;
-top:10px;
- left: 0;
- right: 0;
- /* bottom: 0; */
- margin: auto;
-
+  top: 10px;
+  left: 0;
+  right: 0;
+  /* bottom: 0; */
+  margin: auto;
 }
 
 .tab li.active {
-/* background: rgba(0, 0, 0, 0); */
-border-bottom:solid 5px #78909c;
+  /* background: rgba(0, 0, 0, 0); */
+  border-bottom: solid 5px #78909c;
   color: #fff;
 }
 
@@ -140,22 +139,16 @@ form {
   justify-content: space-around;
 }
 
-.items {
-  width: 120px;
-  margin: 5px auto;
-}
 
-.nunoitems, .garaitems {
+.items {
   width: 90px;
   margin: 5px auto;
 }
 
-.nunoitems img, .garaitems img {
+.items img {
   width: 100%;
 }
 
-.maintab input:checked+.nunoitems img,
-.maintab input:checked+.garaitems img,
 .maintab input:checked+.items img {
   color: #fff;
   /* ここはいる */
@@ -351,7 +344,7 @@ input[type="button"], button {
 
 .exp2 {
   top: 230px;
-  left:10px;
+  left: 10px;
 }
 
 .exp3 {

@@ -38,9 +38,9 @@
             <div class="maintab active">
               <form method="post">
                 <script type="text/javascript">
-                  for (var i = 0; i <= 32; i++) {
+                  for (var i = 0; i <= 35; i++) {
                     document.write('<input type="radio" name="leather" value="leather' + [i] + '"id="leather' + [i] + '">');
-                    document.write(' <label for="leather' + [i] + '" class="kawaitems"><img src="/img/passcase/tab_leather/tabkawa' + [i] + '.png" onclick="imgchange0(' + [i] + ')"></label>');
+                    document.write(' <label for="leather' + [i] + '" class="items"><img src="/img/passcase/tab_leather/tabkawa' + [i] + '.png" onclick="imgchange0(' + [i] + ')"></label>');
                   }
                 </script>
               </form>
@@ -54,7 +54,7 @@
                 <script type="text/javascript">
                   for (var i = 0; i <= 11; i++) {
                     document.write('<input type="radio" name="chuck" value="chuck' + [i] + '"id="chuck' + [i] + '">');
-                    document.write(' <label for="chuck' + [i] + '" class="chuckitems"><img src="/img/passcase/tab_chuck/schuck' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
+                    document.write(' <label for="chuck' + [i] + '" class="items"><img src="/img/passcase/tab_chuck/schuck' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
                   }
                 </script>
               </form>
@@ -67,11 +67,11 @@
               <form method="post">
 
                 <input type="radio" name="print" value="print0" id="print0" checked>
-                <label for="print0" class="printitems"><img src="/img/passcase/tab_print/tabprint0.png" onclick="imgchange2(0);"></label>
+                <label for="print0" class="items"><img src="/img/passcase/tab_print/tabprint0.png" onclick="imgchange2(0);"></label>
                 <script type="text/javascript">
                   for (var i = 1; i <= 15; i++) {
                     document.write('<input type="radio" name="print" value="print' + [i] + '"id="print' + [i] + '">');
-                    document.write(' <label for="print' + [i] + '" class="printitems"><img src="/img/passcase/tab_print/tabprint' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
+                    document.write(' <label for="print' + [i] + '" class="items"><img src="/img/passcase/tab_print/tabprint' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
                   }
                 </script>
               </form>
@@ -83,9 +83,9 @@
             <div class="maintab active">
               <form method="post">
                 <script type="text/javascript">
-                  for (var i = 0; i <= 26; i++) {
+                  for (var i = 0; i <= 31; i++) {
                     document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
-                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="/img/passcase/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
+                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="/img/passcase/tab_ac/sacces' + [i] + '.png" id="acback' + [i] + '"></label>');
                   }
                 </script>
               </form>
@@ -224,7 +224,7 @@
     context6.translate(-canvas6.width, 0);
 
     //革の配列
-    var img0 = new Array(33);
+    var img0 = new Array(36);
     for (var i = 0; i < img0.length; i++) {
       img0[i] = new Image(500, 500);
       img0[i].src = "/img/passcase/leather/kawa" + i + ".png";
@@ -245,7 +245,7 @@
     }
 
     //アクセサリーの配列
-    var img3 = new Array(27);
+    var img3 = new Array(32);
     var acposx = [];
     var acposy = [];
     var src = [];
@@ -262,7 +262,7 @@
       context1back.drawImage(img0[id_value], 0, 0, 500, 291);
     }
 
-    //1チャックonclick
+    //チャックonclick
     function imgchange1(id_value) {
       context2.clearRect(0, 0, 500, 291);
       context2.drawImage(img1[id_value], 0, 0, 500, 291);
