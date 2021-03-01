@@ -69,7 +69,7 @@
                 <input type="radio" name="print" value="print0" id="print0" checked>
                 <label for="print0" class="items"><img src="/img/tshirt/tab_tie/tabtie0.png" onclick="imgchange2(0);"></label>
                 <script type="text/javascript">
-                  for (var i = 1; i <= 12; i++) {
+                  for (var i = 1; i <= 15; i++) {
                     document.write('<input type="radio" name="print" value="print' + [i] + '"id="print' + [i] + '">');
                     document.write(' <label for="print' + [i] + '" class="items"><img src="/img/tshirt/tab_tie/tabtie' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
                   }
@@ -83,9 +83,9 @@
             <div class="maintab active">
               <form method="post">
                 <script type="text/javascript">
-                  for (var i = 0; i <= 26; i++) {
+                  for (var i = 0; i <= 23; i++) {
                     document.write('<input type="radio" name="accessory" value="accessory' + [i] + '"id="accessory' + [i] + '">');
-                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="/img/tshirt/accessory/acce' + [i] + '.png" id="acback' + [i] + '"></label>');
+                    document.write(' <label for="accessory' + [i] + '" class="items aclabel"  id="aclabel' + [i] + '"><img src="/img/tshirt/tab_ac/tabac' + [i] + '.png" id="acback' + [i] + '"></label>');
                   }
                 </script>
               </form>
@@ -238,20 +238,20 @@
     }
 
     //プリントの配列
-    var img2 = new Array(13);
+    var img2 = new Array(16);
     for (var i = 0; i < img2.length; i++) {
       img2[i] = new Image(500, 500);
       img2[i].src = "/img/tshirt/tie/tie" + i + ".png";
     }
 
     //アクセサリーの配列
-    var img3 = new Array(27);
+    var img3 = new Array(24);
     var acposx = [];
     var acposy = [];
     var src = [];
     for (var i = 0; i < img3.length; i++) {
       img3[i] = new Image(500, 500);
-      img3[i].src = "/img/passcase/accessory/acce" + i + ".png";
+      img3[i].src = "/img/tshirt/accessory/acce" + i + ".png";
     }
 
     //布onclick
