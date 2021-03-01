@@ -37,8 +37,8 @@
               <form method="post">
                 <script type="text/javascript">
                   for (var i = 0; i <= 23; i++) {
-                    document.write('<input type="radio" name="leather" value="leather' + [i] + '"id="leather' + [i] + '">');
-                    document.write(' <label for="leather' + [i] + '" class="items"><img src="/img/tshirt/tab_nuno/tabkawa' + [i] + '.png" onclick="imgchange0(' + [i] + ')"></label>');
+                    document.write('<input type="radio" name="nuno" value="nuno' + [i] + '"id="nuno' + [i] + '">');
+                    document.write(' <label for="nuno' + [i] + '" class="items"><img src="/img/tshirt/tab_nuno/tabkawa' + [i] + '.png" onclick="imgchange0(' + [i] + ')"></label>');
                   }
                 </script>
               </form>
@@ -49,12 +49,12 @@
           <div class="inner">
             <div class="maintab active">
               <form method="post">
-                <input type="radio" name="chuck" value="chuck0" id="chuck0" checked>
-                <label for="chuck0" class="items"><img src="/img/tshirt/tab_gara/tabgara0.png" onclick="imgchange1(0);"></label>
+                <input type="radio" name="gara" value="gara0" id="gara0" checked>
+                <label for="gara0" class="items"><img src="/img/tshirt/tab_gara/tabgara0.png" onclick="imgchange1(0);"></label>
                 <script type="text/javascript">
                   for (var i = 1; i <= 19; i++) {
-                    document.write('<input type="radio" name="chuck" value="chuck' + [i] + '"id="chuck' + [i] + '">');
-                    document.write(' <label for="chuck' + [i] + '" class="items"><img src="/img/tshirt/tab_gara/tabgara' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
+                    document.write('<input type="radio" name="gara" value="gara' + [i] + '"id="gara' + [i] + '">');
+                    document.write(' <label for="gara' + [i] + '" class="items"><img src="/img/tshirt/tab_gara/tabgara' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
                   }
                 </script>
               </form>
@@ -66,12 +66,12 @@
             <div class="maintab active">
               <form method="post">
 
-                <input type="radio" name="print" value="print0" id="print0" checked>
-                <label for="print0" class="items"><img src="/img/tshirt/tab_tie/tabtie0.png" onclick="imgchange2(0);"></label>
+                <input type="radio" name="tie" value="tie0" id="tie0" checked>
+                <label for="tie0" class="items"><img src="/img/tshirt/tab_tie/tabtie0.png" onclick="imgchange2(0);"></label>
                 <script type="text/javascript">
                   for (var i = 1; i <= 15; i++) {
-                    document.write('<input type="radio" name="print" value="print' + [i] + '"id="print' + [i] + '">');
-                    document.write(' <label for="print' + [i] + '" class="items"><img src="/img/tshirt/tab_tie/tabtie' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
+                    document.write('<input type="radio" name="tie" value="tie' + [i] + '"id="tie' + [i] + '">');
+                    document.write(' <label for="tie' + [i] + '" class="items"><img src="/img/tshirt/tab_tie/tabtie' + [i] + '.png" onclick="imgchange2(' + [i] + ');"></label>');
                   }
                 </script>
               </form>
@@ -154,9 +154,9 @@
     <input type="hidden" id="back_image_data" value="" name="back_image_base64_data">
     <input type="hidden" id="accessory_html" value="" name="accessory_html_data">
 
-    <input type="hidden" id="leather_select" value="" name="leather_select">
-    <input type="hidden" id="chuck_select" value="" name="chuck">
-    <input type="hidden" id="print_select" value="" name="chuck">
+    <input type="hidden" id="nuno_select" value="" name="nuno_select">
+    <input type="hidden" id="gara_select" value="" name="gara">
+    <input type="hidden" id="tie_select" value="" name="gara">
 
     <input type="hidden" id="click_count" value="" name="click_count">
     <input type="hidden" name="product_id" value="2">
@@ -435,7 +435,7 @@
     //完成ボタンが押された時の処理
 
     $('.finishbutton').click(function(resolve, reject) {
-      if ($('input[name=leather]').is(':checked') && $('input[name=chuck]').is(':checked') && $('input[name=print]').is(':checked') && (change)) {
+      if ($('input[name=nuno]').is(':checked') && $('input[name=gara]').is(':checked') && $('input[name=tie]').is(':checked') && (change)) {
 
         swal({
           title: 'カスタマイズを終了しますか',
@@ -520,11 +520,11 @@
               document.getElementById("accessory_html").value = imghtml;
               document.getElementById("click_count").value = click;
               //
-              document.getElementById("leather_select").value = document.forms[0].elements.leather.value
-              document.getElementById("chuck_select").value = document.forms[1].elements.chuck.value
+              document.getElementById("nuno_select").value = document.forms[0].elements.nuno.value
+              document.getElementById("gara_select").value = document.forms[1].elements.gara.value
               // プリント実装時にコメント会うとを外す
 
-              // document.getElementById("print_select").value = document.forms[2].elements.print.value
+              // document.getElementById("tie_select").value = document.forms[2].elements.tie.value
 
               //表の画像のbase64
               console.log(data);
