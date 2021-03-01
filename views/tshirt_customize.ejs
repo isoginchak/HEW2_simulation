@@ -52,7 +52,7 @@
                 <input type="radio" name="chuck" value="chuck0" id="chuck0" checked>
                 <label for="chuck0" class="items"><img src="/img/tshirt/tab_gara/tabgara0.png" onclick="imgchange1(0);"></label>
                 <script type="text/javascript">
-                  for (var i = 1; i <= 16; i++) {
+                  for (var i = 1; i <= 19; i++) {
                     document.write('<input type="radio" name="chuck" value="chuck' + [i] + '"id="chuck' + [i] + '">');
                     document.write(' <label for="chuck' + [i] + '" class="items"><img src="/img/tshirt/tab_gara/tabgara' + [i] + '.png" onclick="imgchange1(' + [i] + ');"></label>');
                   }
@@ -231,7 +231,7 @@
     }
 
     //柄の配列
-    var img1 = new Array(17);
+    var img1 = new Array(20);
     for (var i = 0; i < img1.length; i++) {
       img1[i] = new Image(500, 500);
       img1[i].src = "/img/tshirt/gara/gara" + i + ".png";
